@@ -1,24 +1,87 @@
-import { dirname } from "path";
-import { fileURLToPath } from "url";
-import { FlatCompat } from "@eslint/eslintrc";
+import { dirname } from 'path';
+import { fileURLToPath } from 'url';
+import { FlatCompat } from '@eslint/eslintrc';
+
+import { fixupConfigRules, fixupPluginRules } from '@eslint/compat';
+
+import js from '@eslint/js';
+import typescriptEslint from '@typescript-eslint/eslint-plugin';
+import tsParser from '@typescript-eslint/parser';
+import { defineConfig, globalIgnores } from 'eslint/config';
+import jest from 'eslint-plugin-jest';
+import prettier from 'eslint-plugin-prettier';
+import reactHooks from 'eslint-plugin-react-hooks';
+import simpleImportSort from 'eslint-plugin-simple-import-sort';
+import unusedImports from 'eslint-plugin-unused-imports';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const compat = new FlatCompat({
   baseDirectory: __dirname,
+  recommendedConfig: js.configs.recommended,
+  allConfig: js.configs.all,
 });
 
 const eslintConfig = [
-  ...compat.extends("next/core-web-vitals", "next/typescript"),
+  globalIgnores(['**/node_modules', '**/public', '**/build']),
   {
-    ignores: [
-      "node_modules/**",
-      ".next/**",
-      "out/**",
-      "build/**",
-      "next-env.d.ts",
-    ],
+    extends: fixupConfigRules(
+      compat.extends(
+        'plugin:@typescript-eslint/recommended',
+        'eslint:recommended',
+        'next',
+        'next/core-web-vitals',
+        'plugin:react-hooks/recommended',
+        'plugin:jest/recommended',
+        'prettier'
+      )
+    ),
+
+    plugins: {
+      '@typescript-eslint': fixupPluginRules(typescriptEslint),
+      'react-hooks': fixupPluginRules(reactHooks),
+      'unused-imports': unusedImports,
+      prettier,
+      jest: fixupPluginRules(jest),
+      'simple-import-sort': simpleImportSort,
+    },
+
+    languageOptions: {
+      parser: tsParser,
+    },
+
+    rules: {
+      'prettier/prettier': [
+        'warn',
+        {
+          endOfLine: 'auto',
+        },
+      ],
+
+      'no-unused-vars': 'off',
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        {
+          args: 'all',
+          argsIgnorePattern: '^_',
+          caughtErrors: 'all',
+          caughtErrorsIgnorePattern: '^_',
+          destructuredArrayIgnorePattern: '^_',
+          varsIgnorePattern: '^_',
+          ignoreRestSiblings: true,
+        },
+      ],
+
+      'unused-imports/no-unused-imports': 'error',
+      'prefer-const': 'error',
+      'react-hooks/rules-of-hooks': 'error',
+      'react-hooks/exhaustive-deps': 'warn',
+      '@typescript-eslint/no-explicit-any': 'error',
+      'simple-import-sort/imports': 'error',
+      'simple-import-sort/exports': 'error',
+    },
+    ignores: ['node_modules', 'public', 'build'],
   },
 ];
 

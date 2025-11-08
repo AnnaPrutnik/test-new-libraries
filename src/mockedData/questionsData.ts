@@ -1,0 +1,5148 @@
+import { LikesTypes } from "../utils/likeDataHandler";
+
+export type QADataType = {
+    slug: string;
+    image: string;
+    likes: LikesTypes[] | null;
+    answerOrderImage?: string;
+    removeOrderBtn?: boolean;
+};
+
+export type ListTextItemType = {
+    type?: "none" | "listItem";
+    list?: "sublist";
+    title?: string;
+    text: string[];
+};
+
+export type LongAnswerListTypeItem = {
+    title?: string;
+    type?: "list" | "unchecked";
+    decorate?: number;
+    text: string[] | ListTextItemType[];
+};
+
+export type LongAnswerListType = {
+    layout: number;
+    title?: string;
+    text?: string;
+    data: LongAnswerListTypeItem[];
+    summary?: string;
+};
+
+export type QAItemLocalizationTextType = {
+    questionText: string;
+    shortAnswerText: string[];
+    imageAltText: string;
+    fullAnswerTopText?: string[];
+    fullAnswerBottomText?: string[];
+    fullAnswerContent?: LongAnswerListType[];
+};
+
+export type QAItemType = {
+    data: QADataType;
+    ua: QAItemLocalizationTextType;
+    pl: QAItemLocalizationTextType;
+    en: QAItemLocalizationTextType;
+};
+
+export const questionsData: QAItemType[] = [
+    {
+        data: {
+            slug: "i-need-a-website-where-should-i-start",
+            image: "https://res.cloudinary.com/dvfu5vhjx/image/upload/v1742561931/answer1-1_obwtfb.jpg",
+            likes: null,
+
+            answerOrderImage:
+                "https://res.cloudinary.com/dvfu5vhjx/image/upload/v1742561932/answer1-2_ivrc14.jpg",
+        },
+        ua: {
+            questionText: "Мені потрібен сайт. \nЗ чого мені почати?",
+            shortAnswerText: [
+                "Почніть з чесної відповіді на такі питання “Навіщо мені сайт? Чого я очікую від сайту? Що я буду на ньому показувати? Кому я хочу це показати? І що повинні зробити ті, хто відвідають мій сайт?”. Відповіді на ці питання дають розуміння, чи потрібен вам взагалі сайт і яким він повинен бути.",
+                " А потім заповніть форму “Замовити” і надішліть нам ваші чесні відповіді, і ми все зробимо з турботою про ваші цілі та потреби вашого бізнесу.",
+            ],
+            imageAltText: "Мені потрібен сайт. З чого мені почати?",
+            fullAnswerTopText: [
+                "Якщо вам потрібен сайт, перший крок – це чітко визначити ваші цілі та очікування від сайту. Розуміння мети допоможе вам визначити, який тип сайту вам потрібен. Розробка власного сайту може здатися складним процесом, але ми готові допомогти вам крок за кроком. Бо ми команда, яка дбає про ваші потреби. Нижче розписані основні етапи.",
+            ],
+
+            fullAnswerContent: [
+                {
+                    layout: 1,
+                    data: [
+                        {
+                            title: "Обговорення \nцілей",
+                            text: [
+                                "Почнемо з обговорення ваших цілей та потреб. Що ви хочете досягти за допомогою сайту? Яка ваша цільова аудиторія? Хто буде користуватись вашим сайтом і що ці люди будуть на ньому шукати? Які у вас вимоги і очікування?",
+                            ],
+                        },
+                        {
+                            title: "Визначення типу \nсайту",
+                            text: [
+                                "Важливо визначити, чи ви хочете лендінг-сторінку або повноцінний сайт для вашого бізнесу. Про різницю між лендінгом і сайтом можете детальніше почитати *link=`${process.env.NEXT_PUBLIC_BASE_URL}/${locale}/faq/what-to-choose-a-landing-page-or-a-website`*тут*/link*.",
+                            ],
+                        },
+                        {
+                            title: "Підбір \nкоманди",
+                            text: [
+                                "У нас представлені багато спеціалістів різного напрямку та рівня. В залежності від вашої потреби менеджер підкаже вам оптимальний склад команди або ви можете обрати собі людей в команду самостійно.",
+                            ],
+                        },
+                        {
+                            title: "Вибір дизайну та \nфункціоналу",
+                            text: [
+                                "Це залежить від ваших вподобань та специфіки вашого бізнесу.",
+                                "В першу чергу ми попросимо у вас посилання на сайти, які вам подобаються  (це називається референси), щоб зрозуміти ваш смак та очікування.",
+                                "Які кольори, шрифти та стиль найкраще відповідатимуть вашому бренду? Чи потрібна вам можливість онлайн-платежів, інтеграція з соціальними мережами? Як часто ви хочете змінювати контент на своєму сайті? Скільки відвідувачів плануєте залучати на сайт за день/місяць? і т.д. - відповіді на всі ці запитання мають велике значення!",
+                            ],
+                        },
+                        {
+                            title: "Розробка \nконтенту",
+                            text: [
+                                "Збирання та підготовка контенту для сайту, включаючи текст, зображення, відео та інші матеріали - ми попросимо вас надати нам частину контенту одразу, щоб красиво і грамотно розмістити його на сайті з урахуванням ваших цілей та правил дизайну і розробки.",
+                                "Якщо ви не маєте власного контенту (текстів, фото, відео і т.д.), то ми можемо залучити контент мейкера за окрему плату або працювати з вашими партнерами чи співробітниками і допомогти створити цей контент для вашого сайту.",
+                            ],
+                        },
+                        {
+                            title: "Розробка та \nтестування",
+                            text: [
+                                "Розробка та налаштування сайту, включаючи його кодування, інтеграцію функціоналу та тестування на різних пристроях та браузерах.",
+                                "Для початку ми з вами визначимо для яких пристроїв нам потрібно буде розробляти сайт (мобільні телефони, планшети, лептопи, проектори або великі екрани для презентації на виставках/конференціях), чи для всіх цих перерахованих?",
+                                "Для яких девайсів будемо робити основну адаптацію - iOS чи Android?",
+                                "В яких браузерів треба передбачити тестування (Google Chrome, Firefox, Edge, Safari) чи всіх разом узятих?",
+                            ],
+                        },
+                        {
+                            title: "Запуск та \nпідтримка",
+                            text: [
+                                "Після успішного тестування ми готові запустити ваш сайт та надати підтримку для подальшого вдосконалення та розвитку.",
+                                "Ми також надаємо консультації та допомогу у виборі доменного імені та хостингу сайту на провайдері, підборі потужностей сервера або хмари для розміщення сайту.",
+                            ],
+                        },
+                    ],
+                },
+            ],
+            fullAnswerBottomText: [
+                "Ми готові взяти на себе всі труднощі розробки та допомогти вам створити ідеальний сайт для вашого бізнесу і отримати задоволення від співпраці в процесі його розробки і запуску.",
+            ],
+        },
+        pl: {
+            questionText: "Potrzebuję strony internetowej. \nOd czego zacząć?",
+            shortAnswerText: [
+                "Zacznij od szczerej odpowiedzi na następujące pytania: dlaczego potrzebuję strony internetowej? Czego oczekuję od strony internetowej? Co ja chcę na niej demonstrować? Komu chcę to demonstrować? I co powinni zrobić ci, którzy odwiedzą moją stronę? Odpowiedzi na te pytania pomogą ci zrozumieć, czy w ogóle potrzebujesz strony internetowej i jak powinna ona wyglądać.",
+                "Następnie wypełnij formularz — Zamówić i prześlij nam swoje szczere odpowiedzi, a my zrobimy wszystko z troską o Twoje cele i potrzeby biznesowe.",
+            ],
+            imageAltText: "Potrzebuję strony internetowej. Od czego zacząć?",
+            fullAnswerTopText: [
+                "Jeśli potrzebujesz strony internetowej, pierwszym krokiem jest wyraźne określenie swoich celów i oczekiwań wobec strony. Zrozumienie celu pomoże określić, jaki rodzaj strony jest Ci potrzebny. Tworzenie własnej strony internetowej może wydawać się skomplikowanym, ale jesteśmy gotowi pomóc Ci krok po kroku. Ponieważ jesteśmy zespołem, który dba o Twoje potrzeby. Poniżej znajdują się główne kroki:",
+            ],
+            fullAnswerContent: [
+                {
+                    layout: 1,
+                    data: [
+                        {
+                            title: "Omówienie \ncelów",
+                            text: [
+                                "Zaczniemy od omówienia Twoich celów i potrzeb. Co chcesz osiągnąć za pomocą strony? Kim jest Twoja grupa docelowa? Kto będzie korzystał z Twojej strony i czego te osoby będą na niej szukać? Jakie są Twoje wymagania i oczekiwania?",
+                            ],
+                        },
+                        {
+                            title: "Określenie rodzaju \nstrony",
+                            text: [
+                                "Ważne jest, aby określić, czy chcesz mieć stronę docelową, czy pełnoprawną stronę internetową dla swojej firmy. Możesz przeczytać więcej o różnicy między stroną docelową a stroną internetową *link=`${process.env.NEXT_PUBLIC_BASE_URL}/${locale}/faq/what-to-choose-a-landing-page-or-a-website`*tutaj*/link*.",
+                            ],
+                        },
+                        {
+                            title: "Dobór \nzespołu",
+                            text: [
+                                "Mamy wielu specjalistów o różnych kierunkach i poziomach. W zależności od potrzeb menedżer zaproponuje optymalny skład zespołu lub możesz wybrać własnych członków zespołu.",
+                            ],
+                        },
+                        {
+                            title: "Wybór projektu i \nfunkcjonalności",
+                            text: [
+                                "Zależy to od Twoich preferencji i specyfiki Twojego biznesu",
+                                "Przede wszystkim poprosimy Cię o linki do stron internetowych, które Ci się podobają (nazywamy je referencjami), aby zrozumieć Twój gust i oczekiwania.",
+                                "Jakie kolory, czcionki i styl najlepiej odpowiadają Twojej marce? Czy potrzebujesz opcji płatności online i integracji z mediami społecznościowymi? Jak często chcesz zmieniać treści na swojej stronie? Ilu odwiedzających planujesz przyciągać na stronę dziennie/miesięcznie? itd. - odpowiedzi na wszystkie te pytania mają ogromne znaczenie!",
+                            ],
+                        },
+                        {
+                            title: "Tworzenie \ntreści",
+                            text: [
+                                "Zbieranie i przygotowywanie treści na stronę, w tym tekstu, obrazów, filmów i innych materiałów — poprosimy Cię o dostarczenie nam części treści od razu, aby umieścić je na stronie w estetyczny i profesjonalny sposób, biorąc pod uwagę Twoje cele oraz zasady projektowania i rozwoju",
+                                "Jeśli nie masz własnych treści (tekstów, zdjęć, filmów itp.), możemy zaangażować twórcę treści za dodatkową opłatą lub współpracować z Twoimi partnerami, lub pracownikami, aby pomóc w tworzeniu tych treści dla Twojej strony.",
+                            ],
+                        },
+                        {
+                            title: "Rozwój i \ntestowanie",
+                            text: [
+                                "Rozwój i konfiguracja strony internetowej, w tym kodowanie, integracja funkcjonalności i testowanie na różnych urządzeniach i przeglądarkach.",
+                                "Na początku ustalimy, dla jakich urządzeń potrzebujemy rozwijać stronę (smartfony, tablety, laptopy, projektory lub duże ekrany do prezentacji na wystawach/konferencjach), czy dla wszystkich wymienionych?",
+                                "Dla jakich urządzeń dokonamy głównej adaptacji —  iOS czy Android?",
+                                "W jakich przeglądarkach należy przewidzieć testowanie (Google Chrome, Firefox, Edge, Safari), czy wszystkie?",
+                            ],
+                        },
+                        {
+                            title: "Uruchomienie i \nwsparcie",
+                            text: [
+                                "Po udanych testach jesteśmy gotowi do uruchomienia strony i zapewnienia wsparcia w zakresie dalszych ulepszeń i rozwoju.",
+                                "Zapewniamy również konsultacje i pomoc w wyborze nazwy domeny i dostawcy hostingu na stronie, wybierając pojemność serwera lub chmury do hostingu strony.",
+                            ],
+                        },
+                    ],
+                },
+            ],
+            fullAnswerBottomText: [
+                "Jesteśmy gotowi zająć się wszystkimi trudnościami związanymi z rozwojem i pomóc Ci stworzyć idealną stronę internetową dla Twojego biznesu i cieszyć się współpracą w procesie jej rozwoju i uruchamiania.",
+            ],
+        },
+        en: {
+            questionText: "I need a website. \nWhere should I start?",
+            shortAnswerText: [
+                "Start by answering the following questions honestly: “Why do I need a website? What do I expect from the website? What am I going to show on it? Who do I want to show it to? And what should those who visit my site do?” Answers to these questions will help you understand whether you need a website at all and what it should look like.",
+                "And then fill out the Order form and send us your honest answers, and we will do everything with care for your goals and the needs of your business.",
+            ],
+            imageAltText: "I need a website. Where should I start?",
+            fullAnswerTopText: [
+                "If you need a website, the first step is to clearly define your goals and expectations for the website. Understanding your goals will help you determine what type of website you need. Developing your own website may seem complex , but we are here to help you step by step, because we are a team that cares about your needs. Below are the main steps:",
+            ],
+            fullAnswerContent: [
+                {
+                    layout: 1,
+                    data: [
+                        {
+                            title: "Goal \ndiscussion",
+                            text: [
+                                "We start by discussing your goals and needs. What do you want to achieve with your website? Who is your target audience? Who will use your website,  and what will they be looking for on it? What are your requirements and expectations?",
+                            ],
+                        },
+                        {
+                            title: "Defining the type \nof website",
+                            text: [
+                                "It is important to decide whether you need a landing page or a full-fledged website for your business. You can read more about the difference between a landing page and a website *link=`${process.env.NEXT_PUBLIC_BASE_URL}/${locale}/faq/what-to-choose-a-landing-page-or-a-website`*here*/link*.",
+                            ],
+                        },
+                        {
+                            title: "Team \nselection",
+                            text: [
+                                "We have a wide range of specialists across different fields and levels of expertise. Depending on your needs, the manager will recommend the best team configuration, or you can choose your team members on your own.",
+                            ],
+                        },
+                        {
+                            title: "Design and functionality \nselection",
+                            text: [
+                                "It depends on your preferences and the specifics of your business.",
+                                "First, we will ask you for links to websites you like (these are called references) to understand your taste and expectations.",
+                                "Which colors, fonts, and style best match your brand? Do you need online payment options, social media integration? How often do you plan to update the content on your website? How many visitors do you plan to attract to your website per day/month? Answers to all these questions are of great importance!",
+                            ],
+                        },
+                        {
+                            title: "Content \ndevelopment",
+                            text: [
+                                "Collecting and preparing content for the website, including text, images, videos and other materials — we will ask you to provide some of the content upfront so we can place it on the site beautifully and effectively, considering your goals and design/development principles.",
+                                "If you don't have your content (texts, photos, videos, etc.), we can engage a content maker for a fee or work with your partners or employees to help create this content for your website.",
+                            ],
+                        },
+                        {
+                            title: "Development and \ntesting",
+                            text: [
+                                "Development and customization of the website, including coding, integration of functionality and testing on different devices and browsers.",
+                                "First, we will determine which devices the website needs to be developed for (mobile phones, tablets, laptops, projectors, large screens for presentations at exhibitions/conferences, or all of the above?).",
+                                "Which devices will we prioritize for optimization—iOS or Android?",
+                                "Which browsers should we ensure compatibility with (Google Chrome, Firefox, Edge, Safari) or all of them?",
+                            ],
+                        },
+                        {
+                            title: "Launch and \nsupport",
+                            text: [
+                                "After successful testing, we will be ready to launch your website and provide ongoing support for further improvement and growth.",
+                                "We also offer consultation and assistance in choosing a domain name, website hosting provider, and selecting the appropriate server or cloud resources for hosting the site.",
+                            ],
+                        },
+                    ],
+                },
+            ],
+            fullAnswerBottomText: [
+                "We are ready to handle all the complexities of development and help you create the perfect website for your business, while ensuring an enjoyable collaboration throughout the process.",
+            ],
+        },
+    },
+    {
+        data: {
+            slug: "what-to-choose-a-landing-page-or-a-website",
+            image: "https://res.cloudinary.com/dvfu5vhjx/image/upload/v1742561934/answer2-1_y9tiio.jpg",
+            likes: null,
+
+            answerOrderImage:
+                "https://res.cloudinary.com/dvfu5vhjx/image/upload/v1742561937/answer2-2_qiug3n.jpg",
+        },
+        ua: {
+            questionText: "Що обрати - лендінг чи повноцінний сайт?",
+            shortAnswerText: [
+                "Це залежить від того яку задачу ви намагаєтесь вирішити.",
+                "Якщо потрібно презентувати якусь одну послугу або товар, якщо результат потрібен швидко, а бюджет на розробку невеликий - то краще обрати лендінг.",
+                "Якщо ви маєте широкий спектр товарів або послуг, або бажаєте презентувати компанію та надати велику кількість інформації для потенційних клієнтів - то краще обрати повноцінний сайт.",
+            ],
+            imageAltText: "Що обрати - лендінг чи повноцінний сайт?",
+            fullAnswerTopText: [
+                "Лендінг та повноцінний багатосторінковий сайт мають різні цілі та функціонал. Вибір між ними залежить від вашої мети, потреб бізнесу та ресурсів, які ви готові інвестувати в створення та підтримку.",
+                "Нижче детальніший розгляд кожного варіанту, щоб допомогти вам прийняти правильне рішення.",
+            ],
+            fullAnswerContent: [
+                {
+                    layout: 2,
+                    data: [
+                        {
+                            title: "Лендінг",
+                            text: [
+                                {
+                                    title: "Ключові особливості:",
+                                    type: "listItem",
+                                    list: "sublist",
+                                    text: [
+                                        "Односторінковий сайт.",
+                                        "Один промоційний або інформаційний екран.",
+                                        "Зосереджений на рекламній кампанії, презентації одного продукту або послуги.",
+                                        "Має просту структуру та навігацію.",
+                                    ],
+                                },
+                                {
+                                    title: "Ідеально підходить для:",
+                                    type: "listItem",
+                                    list: "sublist",
+                                    text: [
+                                        "Швидкого запуску продукту або послуги.",
+                                        "Рекламних кампаній.",
+                                        "Збирання лідів.",
+                                        "Продажу конкретного товару або послуги.",
+                                    ],
+                                },
+                            ],
+                        },
+                        {
+                            title: " Сайт-візитка",
+                            text: [
+                                {
+                                    title: "Ключові особливості:",
+                                    type: "listItem",
+                                    list: "sublist",
+                                    text: [
+                                        'Складається з декількох сторінок, таких як "Головна", "Про нас", "Послуги", "Контакти" тощо.',
+                                        "Більш розгалужена структура та розширені можливості.",
+                                        "Дозволяє розказати про компанію, співробітників, товари та послуги, зібрати зворотній зв’язок від користувачів та спонукати їх до дій на сайті - подзвонити, замовити товар/послугу, замовити консультацію тощо.",
+                                    ],
+                                },
+                                {
+                                    title: "Ідеально підходить для:",
+                                    type: "listItem",
+                                    list: "sublist",
+                                    text: [
+                                        "Компаній, що пропонують  товари та послуги.",
+                                        "Бізнесів, які хочуть представити детальну інформацію про свою діяльність.",
+                                        "Компаній, які прагнуть побудувати довгострокову онлайн присутність.",
+                                        "Компаній, які хочуть налагодити партнерські відносини або залучити додаткове фінансування.",
+                                    ],
+                                },
+                            ],
+                        },
+                        {
+                            title: "Повноцінний багатосторінковий сайт",
+                            text: [
+                                {
+                                    title: "Ключові особливості:",
+                                    type: "listItem",
+                                    list: "sublist",
+                                    text: [
+                                        "Має всі ті самі атрибути як і сайт-візитка.",
+                                        "Дозволяє представити повний спектр продуктів або послуг, а також додаткові матеріали та ресурси.",
+                                        "Дозволяє розмістити на сайті більше інформації на більшій кількості різноманітних за типом сторінок та передати всі можливі види контенту.",
+                                    ],
+                                },
+                                {
+                                    title: "Ідеально підходить для:",
+                                    type: "listItem",
+                                    list: "sublist",
+                                    text: [
+                                        "Побудови бренду компанії, залучення нових клієнтів і партнерів, допомагає підвищити конверсію відвідувачів у клієнтів, допомагає заміряти ефективність рекламних кампаній та має ще багато інших переваг.",
+                                    ],
+                                },
+                            ],
+                        },
+                    ],
+                },
+            ],
+            fullAnswerBottomText: [
+                "Все залежить від ваших потреб та мети.",
+                "Замовте консультацію через форму “Замовити”, і ми допоможемо вам обрати оптимальний варіант для вашого бізнесу.",
+            ],
+        },
+        pl: {
+            questionText: "Co wybrać - landing page czy stronę internetową?",
+            shortAnswerText: [
+                "To zależy od tego, jakie zadanie próbujesz rozwiązać.",
+                "W przypadku, gdy potrzebujesz zaprezentować jakąś jedną usługę lub towar, gdy potrzebujesz szybkiego rezultatu, a budżet na rozwój jest niewielki, to lepiej wybrać landing.",
+                "W przypadku, gdy masz szeroki asortyment towarów lub usług, lub pragniesz zaprezentować swoją firmę i nadać dużo informacji potencjalnym klientom, lepiej wybrać pełnoprawną stronę internetową.",
+            ],
+            imageAltText: "Co wybrać - landing page czy stronę internetową?",
+            fullAnswerTopText: [
+                "Strona docelowa i pełnoprawna, wielostronicowa strona internetowa mają różne cele i funkcjonalność. Wybór między nimi zależy od celów, potrzeb biznesowych i zasobów, które jesteś gotów zainwestować w stworzenie i utrzymanie strony.",
+                "Poniżej szczegółowa analiza każdego z wariantów, aby pomóc Ci podjąć właściwą decyzję.",
+            ],
+            fullAnswerContent: [
+                {
+                    layout: 2,
+                    data: [
+                        {
+                            title: "Landing page (strona docelowa)",
+                            text: [
+                                {
+                                    title: "Kluczowe cechy:",
+                                    type: "listItem",
+                                    list: "sublist",
+                                    text: [
+                                        "Strona jednostronicowa.",
+                                        "Jeden ekran promocyjny lub informacyjny.",
+                                        "Skupia się na kampanii reklamowej, prezentacji jednego produktu lub usługi.",
+                                        "Ma prostą strukturę i nawigację.",
+                                    ],
+                                },
+                                {
+                                    title: "Idealna do:",
+                                    type: "listItem",
+                                    list: "sublist",
+                                    text: [
+                                        "Szybkiego wprowadzenia produktu lub usługi na rynek.",
+                                        "Kampanii reklamowych.",
+                                        "Zbierania leadów.",
+                                        "Sprzedaży konkretnego produktu lub usługi.",
+                                    ],
+                                },
+                            ],
+                        },
+                        {
+                            title: "Strona wizytówka",
+                            text: [
+                                {
+                                    title: "Kluczowe cechy:",
+                                    type: "listItem",
+                                    list: "sublist",
+                                    text: [
+                                        'Składa się z kilku stron, takich jak strona "Główna", "O nas", "Usługi", "Kontakty" itd.',
+                                        "Bardziej rozbudowana struktura i rozszerzone możliwości.",
+                                        "Pozwala opowiedzieć o firmie, pracownikach, produktach i usługach, zebrać opinie od użytkowników i zachęcić ich do podjęcia działań na stronie — zadzwonić, zamówić produkt/usługę, zamówić konsultację itp.",
+                                    ],
+                                },
+                                {
+                                    title: "Idealna do:",
+                                    type: "listItem",
+                                    list: "sublist",
+                                    text: [
+                                        "Firm oferujących towary i usługi.",
+                                        "Biznesów, które chcą dostarczać szczegółowych informacji na temat swojej działalności.",
+                                        "Firm, które chcą zbudować długoterminową obecność w Internecie.",
+                                        "Firm chcących nawiązać współpracę lub pozyskać dodatkowe finansowanie.",
+                                    ],
+                                },
+                            ],
+                        },
+                        {
+                            title: "Pełnoprawna wielostronicowa strona internetowa",
+                            text: [
+                                {
+                                    title: "Kluczowe cechy:",
+                                    type: "listItem",
+                                    list: "sublist",
+                                    text: [
+                                        "Posiada wszystkie te same atrybuty, co strona wizytówka.",
+                                        "Umożliwia zaprezentowanie pełnej gamy produktów lub usług, a także dodatkowych materiałów i zasobów.",
+                                        "Umożliwia umieszczenie na stronie większej ilości informacji na różnych typach stron oraz przekazanie wszystkich możliwych rodzajów treści.",
+                                    ],
+                                },
+                                {
+                                    title: "Idealna do:",
+                                    type: "listItem",
+                                    list: "sublist",
+                                    text: [
+                                        "Budowania marki firmy, przyciąga nowych klientów i partnerów, pomaga zwiększyć konwersję odwiedzających na klientów, pomaga mierzyć skuteczność kampanii reklamowych oraz oferuje wiele innych korzyści.",
+                                    ],
+                                },
+                            ],
+                        },
+                    ],
+                },
+            ],
+            fullAnswerBottomText: [
+                "Wszystko zależy od Twoich potrzeb i celów. Zamów konsultację za pośrednictwem formularza „Zamów”, a my pomożemy Ci wybrać najlepszą opcję dla Twojego biznesu.",
+            ],
+        },
+        en: {
+            questionText: "What to choose - a landing page or a website?",
+            shortAnswerText: [
+                "It depends on the task you are trying to solve.",
+                "If you need to present a single service or product, if you need the result quickly, and the development budget is small, it is better to choose a landing page.",
+                "If you have a wide range of goods or services, or want to present your company and provide a lot of information for potential customers, it is better to choose a website.",
+            ],
+            imageAltText: "What to choose - a landing page or a website?",
+            fullAnswerTopText: [
+                "A landing page and a full-fledged multi-page website have different goals and functionality. The choice between them depends on your goal, business needs, and the resources you are willing to invest in creating and maintaining them.",
+                "Below is a detailed overview of each option to help you make the right decision.",
+            ],
+            fullAnswerContent: [
+                {
+                    layout: 2,
+                    data: [
+                        {
+                            title: "Landing page",
+                            text: [
+                                {
+                                    title: "Key features:",
+                                    type: "listItem",
+                                    list: "sublist",
+                                    text: [
+                                        "Single-page website;",
+                                        "One promotional or informational screen;",
+                                        "Focused on a marketing campaign, presenting a single product or service;",
+                                        "Simple structure and navigation.",
+                                    ],
+                                },
+                                {
+                                    title: "Ideal for:",
+                                    type: "listItem",
+                                    list: "sublist",
+                                    text: [
+                                        "Quick launch of a product or service;",
+                                        "Marketing campaigns;",
+                                        "Lead generation;",
+                                        "Selling a specific product or service.",
+                                    ],
+                                },
+                            ],
+                        },
+                        {
+                            title: "Business card site",
+                            text: [
+                                {
+                                    title: "Key features:",
+                                    type: "listItem",
+                                    list: "sublist",
+                                    text: [
+                                        "Consists of several pages, such as Home, About Us, Services, Contact, etc.;",
+                                        "More detailed structure with expanded capabilities;",
+                                        "Allows you to tell about the company, employees, products and services, collect feedback from users and encourage them to take actions like calling, ordering a product/service, or requesting a consultation, etc.",
+                                    ],
+                                },
+                                {
+                                    title: "Ideal for:",
+                                    type: "listItem",
+                                    list: "sublist",
+                                    text: [
+                                        "Companies offering products and services;",
+                                        "Businesses that want to provide detailed information about their activities;",
+                                        "Companies that want to build a long-term online presence;",
+                                        "Companies looking to establish partnerships or raise additional funding.",
+                                    ],
+                                },
+                            ],
+                        },
+                        {
+                            title: "Full multi-page website",
+                            text: [
+                                {
+                                    title: "Key features:",
+                                    type: "listItem",
+                                    list: "sublist",
+                                    text: [
+                                        "Includes all the features of a business card website;",
+                                        "Allows you to present a full range of products or services, as well as additional materials and resources;",
+                                        "Allows you to place more information on the site on a larger number of different types of pages and convey all possible types of content;",
+                                    ],
+                                },
+                                {
+                                    title: "Ideal for:",
+                                    type: "listItem",
+                                    list: "sublist",
+                                    text: [
+                                        "Building the company's brand, attracting new clients and partners, increasing conversion rates from visitors to customers, measuring the effectiveness of marketing campaigns, and offering many other advantages.",
+                                    ],
+                                },
+                            ],
+                        },
+                    ],
+                },
+            ],
+            fullAnswerBottomText: [
+                "It all depends on your needs and goals. Request a consultation through the “Order” form, and we will help you choose the best option for your business.",
+            ],
+        },
+    },
+    {
+        data: {
+            slug: "what-are-the-terms-of-the-development-of-the-fully-functional-website",
+            image: "https://res.cloudinary.com/dvfu5vhjx/image/upload/v1742561939/answer3-1_kk5pdf.jpg",
+            likes: null,
+
+            answerOrderImage:
+                "https://res.cloudinary.com/dvfu5vhjx/image/upload/v1742561941/answer3-2_apsm5b.jpg",
+        },
+        ua: {
+            questionText: "Які терміни розробки готового продукту?",
+            shortAnswerText: [
+                "Залежить від складності та складу команди. Розробка лендінгу із стандартизованим функціоналом та простим дизайном може зайняти від 2 до 6 тижнів. Зазвичай розробка стандартизованого сайту-візитки  може зайняти від кількох тижнів до кількох місяців. Розробка великого сайту на 5+ сторінок із формами реєстрації, авторизації, замовленням товарів та оплатою може зайняти від 4 до 8 місяців, в залежності від дизайну та наповнення.",
+            ],
+            imageAltText: "Які терміни розробки готового продукту?",
+            fullAnswerTopText: [
+                "Однак терміни розробки готового продукту можуть змінюватися в залежності від різних факторів, таких як обсяг проєкту, складність функціоналу, наявність готових ресурсів, специфіки вашого бізнесу,  чіткості формулювання вимог, кількості змін в процесі розробки та інші.",
+            ],
+            fullAnswerContent: [
+                {
+                    layout: 1,
+                    data: [
+                        {
+                            title: "Підготовчий \nетап",
+                            type: "list",
+                            text: [
+                                "Збір первинних вимог до продукту від замовника.",
+                                "Обговорення вимог та деталей проєкту, узгодження специфікацій.",
+                                "Формулюванні ідеї, розробка концепції та вибір стилю.",
+                                "Визначення структури та функціональності сайту.",
+                            ],
+                        },
+                        {
+                            title: "Розробка \nта тестування",
+                            type: "list",
+                            text: [
+                                "Написання та затвердження вимог.",
+                                "Підготовка тестової документації.",
+                                "Розробка архітектури проєкту.",
+                                "Підготовка і затвердження дизайну.",
+                                "Кодування та розробка функціоналу сайту.",
+                                "Інтеграція сторонніх сервісів (за потреби) та підключення Google аналітики.",
+                                "Тестування на відповідність вимогам, виявлення та виправлення помилок.",
+                                "Підготовка контенту та його інтеграція на сайт.",
+                            ],
+                        },
+                        {
+                            title: "Завершальні роботи \nта запуск",
+                            type: "list",
+                            text: [
+                                "End-to-End тестування та розміщення продукту на сервері.",
+                                "Підготовка до запуску, налаштування хостингу, сертифікатів.",
+                                "Запуск сайту та  передача доступів для налаштувань.",
+                            ],
+                        },
+                        {
+                            title: "Підтримка \nта розвиток",
+                            type: "list",
+                            text: [
+                                "Надання підтримки після запуску.",
+                                "Подальший розвиток сайту, додавання нового функціоналу та контенту.",
+                            ],
+                        },
+                    ],
+                },
+            ],
+            fullAnswerBottomText: [
+                "Ми рекомендуємо обговорити з нашою командою терміни розробки для вашого конкретного проєкту, оскільки ми готові працювати з вами, щоб забезпечити вчасне та якісне виконання робіт.",
+            ],
+        },
+        pl: {
+            questionText: "Ile trwa stworzenie strony internetowej?",
+            shortAnswerText: [
+                "Zależy to od złożoności i składu zespołu. Opracowanie strony landing page ze standardową funkcjonalnością i prostym projektem może zająć od 2 do 6 tygodni. Zazwyczaj opracowanie standardowej strony wizytówki może zająć od kilku tygodni do kilku miesięcy. Tworzenie dużej strony internetowej z ponad 5 stronami i formularzami rejestracyjnymi,, autoryzacji, zamówień i płatności może zająć od 4 do 8 miesięcy, w zależności od projektu i zawartości.",
+            ],
+            imageAltText: "Ile trwa stworzenie strony internetowej?",
+            fullAnswerTopText: [
+                "Jednak czas realizacji gotowego produktu może się zmieniać w zależności od różnych czynników, takich jak zakres projektu, złożoność funkcjonalności, dostępność gotowych zasobów, specyfika działalności, jasność wymagań, liczba zmian w trakcie realizacji oraz inne czynniki.",
+            ],
+            fullAnswerContent: [
+                {
+                    layout: 1,
+
+                    data: [
+                        {
+                            title: "Etap \nprzygotowawczy",
+                            type: "list",
+                            text: [
+                                "Zebranie od klienta wstępnych wymagań dotyczących produktu.",
+                                "Omówienie wymagań i szczegółów projektu, uzgodnienie specyfikacji.",
+                                "Sformułowanie pomysłu, opracowanie koncepcji i wybór stylu.",
+                                "Określenie struktury i funkcjonalności strony internetowej.",
+                            ],
+                        },
+                        {
+                            title: "Rozwój \ni testowanie",
+                            type: "list",
+                            text: [
+                                "Pisanie i zatwierdzanie wymagań.",
+                                "Przygotowanie dokumentacji testowej.",
+                                "Opracowanie architektury projektu.",
+                                "Przygotowanie i zatwierdzenie projektu.",
+                                "Kodowanie i rozwój funkcjonalności strony internetowej.",
+                                "Integracja zewnętrznych usług (w razie potrzeby) oraz podłączenie Google Analytics.",
+                                "Testowanie zgodności z wymaganiami, identyfikowanie i usuwanie błędów.",
+                                "Przygotowanie treści i ich integracja na stronie.",
+                            ],
+                        },
+                        {
+                            title: "Prace końcowe \ni uruchomienie",
+                            type: "list",
+                            text: [
+                                "Testowanie End-to-End oraz umieszczenie produktu na serwerze.",
+                                "Przygotowanie do uruchomienia, konfiguracja hostingu, certyfikaty.",
+                                "Uruchomienie strony i przekazanie dostępów do ustawień.",
+                            ],
+                        },
+                        {
+                            title: "Wsparcie \ni rozwój",
+                            type: "list",
+                            text: [
+                                "Zapewnienie wsparcia po uruchomieniu.",
+                                "Dalszy rozwój strony, dodawanie nowych funkcji i treści.",
+                            ],
+                        },
+                    ],
+                },
+            ],
+            fullAnswerBottomText: [
+                "Zalecamy omówienie z naszym zespołem terminów realizacji dla konkretnego projektu, ponieważ jesteśmy gotowi do współpracy, aby zapewnić terminowe i wysokiej jakości wykonanie prac.",
+            ],
+        },
+        en: {
+            questionText:
+                "What are the terms of the development of the fully functional website?",
+            shortAnswerText: [
+                "It depends on the complexity and composition of the team. Developing a landing page with standardized functionality and a simple design can take from 2 to 6 weeks. Usually, the development of a standardized business card website can take from several weeks to several months. Development of a large website with 5+ pages and registration forms, authorization, product ordering, and payment can take from 4 to 8 months, depending on the design and content.",
+            ],
+            imageAltText:
+                "What are the terms of the development of the fully functional website?",
+            fullAnswerTopText: [
+                "However, the timeframe for developing a finished product can vary depending on various factors, such as the scope of the project, the complexity of the functionality, the availability of resources, the specifics of your business, the clarity of the requirements, the number of changes during the development process, and others.",
+            ],
+            fullAnswerContent: [
+                {
+                    layout: 1,
+                    data: [
+                        {
+                            title: "Preparation \nstage",
+                            type: "list",
+                            text: [
+                                "Collecting primary product requirements from the client.",
+                                "Discussing project details and aligning specifications.",
+                                "Formulating the idea, developing the concept, and choosing the style.",
+                                "Defining the structure and functionality of the website.",
+                            ],
+                        },
+                        {
+                            title: "Development \nand testing",
+                            type: "list",
+                            text: [
+                                "Writing and approving requirements.",
+                                "Preparing test documentation.",
+                                "Developing the project architecture.",
+                                "Preparing and approving the design.",
+                                "Coding and developing the functionality of the website.",
+                                "Integration of third-party services (if needed) and connecting Google Analytics.",
+                                "Testing compliance with requirements, identifying and fixing bugs.",
+                                "Preparing and integrating content into the website.",
+                            ],
+                        },
+                        {
+                            title: "Final steps \nand launch",
+                            type: "list",
+                            text: [
+                                "End-to-End testing and placing the product on the server.",
+                                "Preparing for launch, setting up hosting, certificates.",
+                                "Launching the website and transferring accesses for customization.",
+                            ],
+                        },
+                        {
+                            title: "Support \nand development",
+                            type: "list",
+                            text: [
+                                "Providing post-launch support.",
+                                "Further development of the website, adding new functionality and content.",
+                            ],
+                        },
+                    ],
+                },
+            ],
+            fullAnswerBottomText: [
+                "We recommend discussing the development timeframe for your specific project with our team, as we are ready to work with you to ensure timely and high-quality work.",
+            ],
+        },
+    },
+    {
+        data: {
+            slug: "how-much-does-development-cost",
+            image: "https://res.cloudinary.com/dvfu5vhjx/image/upload/v1742561943/answer4-1_ibcohz.jpg",
+            likes: null,
+            answerOrderImage:
+                "https://res.cloudinary.com/dvfu5vhjx/image/upload/v1742561946/answer4-2_qzjkjn.jpg",
+        },
+        ua: {
+            questionText: "Скільки коштує розробка?",
+            shortAnswerText: [
+                "Залежно від об’єму та складності продукту орієнтовна ціна лендінгу однією мовою без вибору світлої/темної теми від 800 доларів. Ціна сайту-візитки однією мовою без зміни теми до 5 сторінок орієнтовно від 1100 доларів. Ціна розробки інтернет-магазину на 10-15 продуктів та оплатою через одну платіжну систему  на сайті від 1600 доларів.",
+            ],
+            imageAltText: "Скільки коштує розробка?",
+            fullAnswerTopText: [
+                "Розробка сайту — це комплексний процес, вартість якого залежить від низки факторів: обсягу робіт, функціональних можливостей, дизайну та технічних рішень, які необхідно реалізувати. Різні типи сайтів мають різні вимоги до розробки, і це прямо впливає на кінцеву вартість. Нижче подані орієнтовні ціни:",
+            ],
+            fullAnswerContent: [
+                {
+                    layout: 2,
+                    data: [
+                        {
+                            title: "Лендінг",
+                            text: [
+                                {
+                                    title: "Односторінковий сайт",
+                                    text: [
+                                        "Такий сайт підходить для представлення одного продукту чи послуги та часто включає базові секції — заголовок, інформацію про продукт, переваги, відгуки клієнтів, форму зворотного зв’язку чи кнопку для дії (CTA). Ціна на розробку починається від 800 доларів, залежно від складності дизайну та інтеграцій.",
+                                    ],
+                                },
+                            ],
+                        },
+                        {
+                            title: "Сайт-візитка",
+                            text: [
+                                {
+                                    title: "До  5 сторінок",
+                                    text: [
+                                        'Цей формат підходить для представлення вашого бізнесу чи компанії. Сайт-візитка може включати сторінки "Про нас", "Послуги", "Контакти", "Портфоліо" тощо. Орієнтовна вартість стартує від 1100 доларів. Додаткові функції, такі як інтерактивні елементи чи форма заявок, можуть вплинути на загальну ціну.',
+                                    ],
+                                },
+                            ],
+                        },
+                        {
+                            title: "Інтернет-магазин",
+                            text: [
+                                {
+                                    title: "На 10-15 продуктів з можливістю здійснення покупок онлайн",
+                                    text: [
+                                        "Це складніший проєкт, який включає розробку каталогу товарів, сторінки для кожного продукту, кошика для покупок, інтеграцію з платіжними системами. Вартість стартує від 1600 доларів. Фінальна ціна може зростати залежно від кількості продуктів, потреб у фільтрах, функціональних можливостях обліку товарів та інтеграціях з логістичними чи маркетинговими системами.",
+                                    ],
+                                },
+                            ],
+                        },
+                    ],
+                },
+                {
+                    layout: 3,
+                    title: "Крім базової структури сайту, є кілька важливих факторів, що можуть вплинути на загальну вартість",
+                    data: [
+                        {
+                            title: "Дизайн",
+                            text: [
+                                "Унікальний і кастомний дизайн потребує більше часу і зусиль у порівнянні з використанням готових шаблонів, а також завжди значно здорожчує вартість розробки сайту.",
+                            ],
+                        },
+                        {
+                            title: "Функціональність",
+                            text: [
+                                "Чим більше складних функцій (форми зворотного зв’язку, калькулятори, інтерактивні елементи, інтеграції з зовнішніми сервісами), тим довшою і дорожчою буде розробка.",
+                            ],
+                        },
+                        {
+                            title: "SEO-оптимізація",
+                            text: [
+                                "Якщо ви плануєте просування сайту в пошукових системах, важливо заздалегідь налаштувати SEO-оптимізацію та підключити аналітику сайту, що також впливає на загальну вартість проєкту.",
+                            ],
+                        },
+                        {
+                            title: "Мобільна адаптація",
+                            text: [
+                                "Сайт має коректно працювати на всіх типах пристроїв — комп’ютерах, планшетах, смартфонах. Це може вимагати додаткових зусиль для забезпечення гарного користувацького досвіду на різних екранах. Якщо ви очікуєте, щоб ваш сайт красиво і логічно відображався на комп’ютерах, планшетах, телефонах — помножте базову ціну на 3. Бо адаптація під багато екранів вимагає розробки дизайну окремо під кожен екран, розробку кожної версії та тестування на кожному екрані окремо та додатково переходи з одного екрану на інший.",
+                            ],
+                        },
+                        {
+                            title: "Багатомовність",
+                            text: [
+                                "Якщо ваш бізнес працює більше ніж в одній країні рекомендуємо зосередитись на англомовній версії як основній. Або одразу передбачати кілька мов і які саме це будуть мови. Кожна мова має свої особливості написання і часто макет в англомовній версії виглядає ідеально, а при перекладі текстів на інші мови слова не поміщаються на кнопках або в блоках і доводиться переробляти макети заново. Крім того, багатомовність передбачає ускладнення в керуванні контентом на сайті, а також потребує більше часу на переклад та тестування самих текстів (перевірку на SEO-оптимізацію, можливість перефразування, при збереженні бізнес-суті). А також багатомовність значно ускладнює валідацію форм зворотного зв’язку, та заповнення даних з клавіатури користувачами сайту (відгуки, наприклад або коментарі).",
+                            ],
+                        },
+                        {
+                            title: "Кольорові теми сайту",
+                            text: [
+                                "Розробка світлої та темної теми сайту здорожчує сайт майже вдвічі. Тому рекомендуємо одразу визначитись чи хочете ви мати світлу і темну теми, чи працюємо виключно з однією.",
+                            ],
+                        },
+                        {
+                            title: "Інтеграція з системами управління",
+                            text: [
+                                "Якщо ваш сайт потребує інтеграцій з CRM, системами обліку товарів чи іншими зовнішніми сервісами, це також враховується в оцінці додатково і залежить від складності інтеграції, а також від вартості самої системи, яку потрібно інтегрувати.",
+                            ],
+                        },
+                    ],
+                },
+                {
+                    layout: 5,
+                    title: "Як отримати детальний розрахунок?",
+                    data: [
+                        {
+                            text: [
+                                "Якщо ви бажаєте отримати більш точну оцінку вартості вашого проєкту, найкраще рішення — зв’язатися з нашим менеджером, який  допоможе вам з’ясувати всі деталі: які функції будуть реалізовані, який дизайн вас цікавить, і які терміни виконання. Після цього ми зможемо підготувати для вас комерційну пропозицію з приблизною вартістю розробки та планом робіт.",
+                            ],
+                        },
+                        {
+                            text: [
+                                "Також ми пропонуємо варіант індивідуальної співпраці з конкретним спеціалістом де вартість розробки/підтримки буде розрахована на основі годинної ставки.",
+                            ],
+                        },
+                    ],
+                },
+            ],
+            fullAnswerBottomText: [
+                "Тому перш ніж вибирати розробника, рекомендуємо порівняти кілька пропозицій та вибрати ту, яка найбільше відповідає вашим потребам і бюджету.",
+            ],
+        },
+        pl: {
+            questionText:
+                "Ile kosztuje stworzenie strony internetowej lub sklepu internetowego?",
+            shortAnswerText: [
+                "Cena zależy od zakresu i złożoności projektu. Orientacyjny budżet na stronę typu landing page w jednym języku, bez wyboru jasnego/ciemnego motywu, zaczyna się od 800 USD. Koszt strony wizytówki w jednym języku, do 5 stron, bez zmiany motywu, wynosi około 1100 USD. Koszt stworzenia sklepu internetowego dla 10-15 produktów i jedną metodą płatności na stronie zaczyna się od 1600 USD.",
+            ],
+            imageAltText:
+                "Ile kosztuje stworzenie strony internetowej lub sklepu internetowego?",
+            fullAnswerTopText: [
+                "Tworzenie strony internetowej to złożony proces, którego koszt zależy od wielu czynników: zakresu prac, funkcjonalności, projektu graficznego i rozwiązań technicznych. Różne rodzaje stron mają odmienne wymagania, co bezpośrednio wpływa na końcową cenę. Oto przybliżone ceny:",
+            ],
+            fullAnswerContent: [
+                {
+                    layout: 2,
+                    data: [
+                        {
+                            title: "Landing page",
+                            text: [
+                                {
+                                    title: "Strona jednostronicowa",
+                                    text: [
+                                        "Idealna do prezentacji jednego produktu lub usługi, często zawiera podstawowe sekcje, takie jak nagłówek, informacje o produkcie, opinie klientów, formularz kontaktowy lub przycisk wezwania do działania (CTA). Koszt zaczyna się od 800 USD, zależnie od złożoności projektu graficznego i integracji.",
+                                    ],
+                                },
+                            ],
+                        },
+                        {
+                            title: "Strona wizytówka",
+                            text: [
+                                {
+                                    title: "Do 5 stron",
+                                    text: [
+                                        'Ten format sprawdzi się przy prezentacji firmy lub działalności. Może zawierać strony takie jak "O nas", "Usługi", "Kontakt", "Portfolio". Cena zaczyna się od 1100 USD. Dodatkowe funkcje, takie jak interaktywne elementy czy formularze, mogą wpłynąć na końcową cenę.',
+                                    ],
+                                },
+                            ],
+                        },
+                        {
+                            title: "Sklep internetowy",
+                            text: [
+                                {
+                                    title: "Dla 10-15 produktów i opcją zakupu online",
+                                    text: [
+                                        "Bardziej złożony projekt, który wymaga opracowania katalogu produktów, stron dla każdego z nich, koszyka na zakupy i integracji z systemami płatności. Koszt zaczyna się od 1600 USD. Ostateczna cena może wzrosnąć w zależności od liczby produktów, potrzebnych filtrów, dodatkowych funkcjonalności i integracji z systemami logistycznymi lub marketingowymi.",
+                                    ],
+                                },
+                            ],
+                        },
+                    ],
+                },
+                {
+                    layout: 3,
+                    title: "Oprócz podstawowej struktury strony, kilka dodatkowych czynników może wpłynąć na całkowity koszt",
+                    data: [
+                        {
+                            title: "Projekt graficzny",
+                            text: [
+                                "Unikalny, niestandardowy projekt wymaga więcej czasu i pracy w porównaniu do gotowych szablonów, co znacznie podnosi koszt tworzenia strony internetowej.",
+                            ],
+                        },
+                        {
+                            title: "Funkcjonalność",
+                            text: [
+                                "Im więcej skomplikowanych funkcji (formularze kontaktowe, kalkulatory, elementy interaktywne, integracje z zewnętrznymi usługami), tym dłuższy i droższy proces tworzenia.",
+                            ],
+                        },
+                        {
+                            title: "Optymalizacja SEO",
+                            text: [
+                                "Jeśli planujesz promować stronę w wyszukiwarkach, ważne jest, aby od razu zadbać o SEO i podpięcie analityki strony, co również wpływa na cenę projektu.",
+                            ],
+                        },
+                        {
+                            title: "Dostosowanie do urządzeń mobilnych",
+                            text: [
+                                "Strona powinna działać poprawnie na wszystkich urządzeniach — komputerach, tabletach i smartfonach. Może to wymagać dodatkowego wysiłku, aby zapewnić spójne doświadczenie użytkownika na różnych ekranach. Jeśli chcesz, aby strona była odpowiednio wyświetlana na różnych urządzeniach, koszt może wzrosnąć nawet trzykrotnie, ponieważ każdy ekran wymaga osobnego projektu, wdrożenia i testowania.",
+                            ],
+                        },
+                        {
+                            title: "Wielojęzyczność",
+                            text: [
+                                "Jeśli twój biznes działa w więcej niż jednym kraju, warto zainwestować w wersję anglojęzyczną lub od razu przygotować stronę w kilku językach. Każdy język ma swoje specyficzne wymagania, a tłumaczenie może wymagać modyfikacji układu graficznego. Ponadto wielojęzyczność komplikuje zarządzanie treścią, wymaga więcej czasu na tłumaczenia oraz testowanie treści (optymalizację SEO, zgodność tekstów z kontekstem biznesowym).",
+                            ],
+                        },
+                        {
+                            title: "Motywy kolorystyczne",
+                            text: [
+                                "Opracowanie zarówno jasnej, jak i ciemnej wersji strony podwaja koszt projektu, więc warto od razu zdecydować, czy chcesz obie wersje, czy tylko jedną.",
+                            ],
+                        },
+                        {
+                            title: "Integracje z systemami zarządzania",
+                            text: [
+                                "Jeśli twoja strona wymaga integracji z CRM, systemami księgowania produktów lub innymi usługami zewnętrznymi, również wpływa to na wycenę projektu w zależności od złożoności tych integracji.",
+                            ],
+                        },
+                    ],
+                },
+                {
+                    layout: 5,
+                    title: "Jak uzyskać szczegółową kalkulację?",
+                    data: [
+                        {
+                            text: [
+                                "Aby uzyskać dokładniejszą wycenę Twojego projektu, najlepiej skontaktować się z naszym menedżerem, który pomoże ustalić szczegóły: jakie funkcje zostaną wdrożone, jaki projekt Cię interesuje i jakie są terminy. Na tej podstawie przygotujemy dla ciebie ofertę wraz z wyceną i planem prac.",
+                            ],
+                        },
+                        {
+                            text: [
+                                "Oferujemy również opcję indywidualnej współpracy z wybranym specjalistą, gdzie koszt będzie ustalany na podstawie godzinowej stawki.",
+                            ],
+                        },
+                    ],
+                },
+            ],
+            fullAnswerBottomText: [
+                "Przed wyborem dewelopera zalecamy porównać kilka ofert, aby wybrać tę, która najlepiej odpowiada Twoim potrzebom i budżetowi.",
+            ],
+        },
+        en: {
+            questionText: "How much does development cost?",
+            shortAnswerText: [
+                "Depending on the scope and complexity of the product, the estimated budget for a single-language landing page without a light/dark theme option starts at $800. The cost of a single-language business card website with up to 5 pages and no theme changes is approximately from $1,100. The cost of developing an online store with 10-15 products and payment integration through one payment system starts at $1,600.",
+            ],
+            imageAltText: "How much does development cost?",
+            fullAnswerTopText: [
+                "Website development is a complex process, and its cost depends on several factors, including the scope of work, functionality, design, and technical solutions that need to be implemented. Different types of websites have varying development requirements, which directly affect the final cost. Here are some approximate rates:",
+            ],
+            fullAnswerContent: [
+                {
+                    layout: 2,
+                    data: [
+                        {
+                            title: "Landing page",
+                            text: [
+                                {
+                                    title: "One-page website",
+                                    text: [
+                                        "This type of website is suitable for presenting a single product or service and often includes basic sections such as a headline, product information, benefits, customer reviews, a contact form, or a call-to-action (CTA) button. The price for development starts at $800, depending on the complexity of the design and integrations.",
+                                    ],
+                                },
+                            ],
+                        },
+                        {
+                            title: "Business card website",
+                            text: [
+                                {
+                                    title: "Up to 5 pages",
+                                    text: [
+                                        'This format is suitable for introducing your business or company. A business card website can include pages like "About Us, " "Services, " "Contact, " "Portfolio, " etc. The approximate cost starts at $1,100. Additional features, such as interactive elements or a request form, may affect the total price.',
+                                    ],
+                                },
+                            ],
+                        },
+                        {
+                            title: "Online store",
+                            text: [
+                                {
+                                    title: "With 10–15 products",
+                                    text: [
+                                        "This is a more complex project that includes the development of a product catalog, individual product pages, a shopping cart, and integration with payment systems. The cost starts at $1,600. The final price may increase depending on the number of products, the need for filters, inventory management functionality, and integrations with logistics or marketing systems.",
+                                    ],
+                                },
+                            ],
+                        },
+                    ],
+                },
+                {
+                    layout: 3,
+                    title: "Beyond the basic website structure, several important factors can influence the total cost",
+                    data: [
+                        {
+                            title: "Design",
+                            text: [
+                                "Unique and custom design requires more time and effort compared to using ready-made templates, and it significantly increases the cost of website development.",
+                            ],
+                        },
+                        {
+                            title: "Functionality",
+                            text: [
+                                "The more complex the functions (such as feedback forms, calculators, interactive elements, integrations with external services), the longer and more expensive the development will be.",
+                            ],
+                        },
+                        {
+                            title: "SEO optimization",
+                            text: [
+                                "If you are planning to promote the website through search engines, it is important to set up SEO optimization and connect website analytics in advance, which also impacts the overall project cost.",
+                            ],
+                        },
+                        {
+                            title: "Mobile adaptation",
+                            text: [
+                                "The website must function correctly on all types of devices — computers, tablets, and smartphones. This may require additional effort to ensure a smooth user experience across various screen sizes. If you want your website to look good and work logically on computers, tablets, and phones, multiply the base price by 3. Because multiple screen adaptation requires separate design development for each screen, the development of each version, testing on each device, and seamless transitions between different screens.",
+                            ],
+                        },
+                        {
+                            title: "Multilingual support",
+                            text: [
+                                "If your business operates in more than one country, we recommend focusing on the English version as the primary one. Alternatively, you can plan for multiple languages from the start and decide which languages you need. Each language has its own writing characteristics, and often a layout that looks perfect in English may need adjustments when translated to other languages — words might not fit within buttons or blocks, requiring the redesign of layouts. Additionally, multilingual support complicates content management on the site and requires more time for text translation and testing (checking for SEO optimization and the ability to rephrase while maintaining business context). Multilingual functionality also makes feedback forms validation more complex, and filling in data from the keyboard by website users (such as reviews or comments).",
+                            ],
+                        },
+                        {
+                            title: "Color themes",
+                            text: [
+                                "Developing both light and dark themes for a website nearly doubles the cost. Therefore, we recommend deciding upfront whether you want both light and dark themes or prefer to work with just one.",
+                            ],
+                        },
+                        {
+                            title: "Integration with management systems",
+                            text: [
+                                "If your website requires integrations with CRM systems, product accounting systems, or other external services, this will also be considered in the additional evaluation and depends on the complexity of the integration, as well as the cost of the system that needs to be integrated.",
+                            ],
+                        },
+                    ],
+                },
+                {
+                    layout: 5,
+                    title: "How to get a detailed calculation?",
+                    data: [
+                        {
+                            text: [
+                                "If you want to get a more accurate estimate of the cost of your project, the best solution is to contact our manager, who will help you clarify all the details: what features will be implemented, what design you are interested in, and what are the deadlines. After that, we will be able to prepare a commercial offer for you with the approximate cost of development and a work plan.",
+                            ],
+                        },
+                        {
+                            text: [
+                                "We also offer the option of individual collaboration with a specific specialist, where the cost of development/support will be calculated based on an hourly rate.",
+                            ],
+                        },
+                    ],
+                },
+            ],
+            fullAnswerBottomText: [
+                "Therefore, before choosing a developer, we recommend comparing several offers and choosing the one that best suits your needs and budget.",
+            ],
+        },
+    },
+    {
+        data: {
+            slug: "can-i-choose-which-team-will-work-on-my-order",
+            image: "https://res.cloudinary.com/dvfu5vhjx/image/upload/v1742561949/answer5-1_xqxtj3.jpg",
+            likes: null,
+            removeOrderBtn: true,
+            answerOrderImage:
+                "https://res.cloudinary.com/dvfu5vhjx/image/upload/v1742561951/answer5-2_qabfjk.jpg",
+        },
+        ua: {
+            questionText: "Чи можу я самостійно \nпідібрати команду?",
+            shortAnswerText: [
+                "Так, ви можете вибрати окремих спеціалістів і сформувати команду самостійно. В такому випадку наполегливо рекомендуємо спочатку звернутись за консультацією до менеджера. Якщо ви потребуєте окремого спеціаліста на погодинні роботи з вашим уже реалізованим продуктом — зв’яжіться зі спеціалістом через його телеграм або лінкедін напряму і повідомте як ви його знайшли та чому обрали саме його/її.",
+            ],
+            imageAltText:
+                "Чи можу я самостійно обрати, яка команда працюватиме над моїм замовленням?",
+            fullAnswerTopText: [
+                "Ми розуміємо, що кожен проєкт має свої унікальні вимоги, і тому надаємо гнучкість у виборі спеціалістів, щоб ви могли сформувати команду, яка найкраще відповідатиме вашим цілям та задачам.",
+            ],
+            fullAnswerContent: [
+                {
+                    layout: 1,
+                    title: "Як це працює?",
+                    data: [
+                        {
+                            title: "Вибір окремих \nспеціалістів",
+                            text: [
+                                "На нашому сайті ви можете переглянути профілі розробників, дизайнерів, тестувальників, аналітиків, менеджерів та інших спеціалістів, які готові працювати над вашим проєктом. Кожен профіль містить інформацію про досвід, навички, попередні проєкти, погодинну ставку, а також контактну інформацію, що дозволяє вам оцінити відповідність фахівця вашим потребам.",
+                            ],
+                        },
+                        {
+                            title: "Формування \nкоманди",
+                            text: [
+                                "Ви можете обрати окремих фахівців або відразу сформувати повноцінну команду, залежно від вимог вашого проєкту. У цьому випадку ми наполегливо рекомендуємо звернутись за консультацією до нашого *link=`/${locale}/order` noblank*менеджера*/link*, який/яка допоможе вам правильно оцінити необхідні ресурси та функціональні ролі для успішної реалізації проєкту. Це особливо важливо, якщо ви не маєте досвіду в управлінні командою розробників або маєте складний проєкт, який вимагає кількох фахівців із різними компетенціями.",
+                            ],
+                        },
+                        {
+                            title: "Підтримка \nвід менеджера",
+                            text: [
+                                "Попри те, що ви можете самостійно підібрати команду, наша компанія завжди готова надати підтримку на кожному етапі. Менеджер допоможе вам правильно організувати процес розробки, налаштувати комунікацію та забезпечити ефективну взаємодію між членами команди. Якщо вам потрібно більше 3-х спеціалістів (дизайнер, розробник, тестувальник) то взявши в команду менеджера ви зекономите час та гроші, бо менеджер налагодить процес так, що вам не доведеться долучатися до роботи самостійно — ваша задача буде озвучувати/описувати свої вимоги та затверджувати макети та запропоновані технічні рішення, а не займатись управлінням людьми та їх взаємодією. Також менеджер буде вам регулярно звітувати про етапи роботи, проводити демо та консультації, а також забезпечить наявність всієї необхідної документації та розрахунків.",
+                            ],
+                        },
+                    ],
+                },
+            ],
+            fullAnswerBottomText: [
+                "Якщо ваш проєкт вже запущений і вам потрібен окремий спеціаліст для виконання погодинних завдань або внесення змін до наявного продукту, ви можете напряму *link=`${process.env.NEXT_PUBLIC_BASE_URL}/${locale}#team`*написати спеціалісту*/link*. Це зручний варіант для тих, хто потребує швидкого вирішення конкретної проблеми або оперативної допомоги з невеликим обсягом робіт. У таких випадках немає потреби формувати команду — достатньо обрати одного фахівця, який вирішить ваше питання.",
+            ],
+        },
+        pl: {
+            questionText: "Czy mogę samodzielnie \nwybrać zespół?",
+            shortAnswerText: [
+                "Tak, możesz samodzielnie wybrać poszczególnych specjalistów i utworzyć zespół. W takim przypadku zalecamy skontaktowanie się z menedżerem w celu konsultacji. Jeśli potrzebujesz specjalisty do pracy godzinowej nad już wdrożonym produktem, możesz skontaktować się bezpośrednio z wybranym specjalistą przez Telegram lub LinkedIn, informując go, jak go znalazłeś i dlaczego go wybrałeś.",
+            ],
+            imageAltText:
+                "Czy mogę wybrać zespół, który będzie pracował nad moją stroną internetową?",
+            fullAnswerTopText: [
+                "Rozumiemy, że każdy projekt ma swoje unikalne wymagania, dlatego dajemy możliwość elastycznego wyboru specjalistów, abyś mógł/mogła stworzyć zespół najlepiej dopasowany do Twoich celów i zadań.",
+            ],
+            fullAnswerContent: [
+                {
+                    layout: 1,
+                    title: "Jak to działa?",
+                    data: [
+                        {
+                            title: "Wybór poszczególnych \nspecjalistów",
+                            text: [
+                                "Na naszej stronie możesz przeglądać profile deweloperów, projektantów, testerów, analityków, menedżerów i innych specjalistów, którzy są gotowi pracować nad twoim projektem. Każdy profil zawiera informacje o doświadczeniu, umiejętnościach, poprzednich projektach, stawkach godzinowych oraz dane kontaktowe, co pozwala ocenić, czy dany specjalista spełnia Twoje potrzeby.",
+                            ],
+                        },
+                        {
+                            title: "Tworzenie \nzespołu",
+                            text: [
+                                "Możesz wybrać indywidualnych specjalistów lub od razu utworzyć pełny zespół, w zależności od wymagań twojego projektu. W takim przypadku zdecydowanie zalecamy konsultację z naszym *link=`/${locale}/order` noblank*menedżerem*/link*, który pomoże właściwie ocenić zasoby i role funkcjonalne potrzebne do realizacji projektu. Jest to szczególnie ważne, jeśli nie masz doświadczenia w zarządzaniu zespołem deweloperów lub jeśli projekt jest skomplikowany i wymaga wielu specjalistów o różnych kompetencjach.",
+                            ],
+                        },
+                        {
+                            title: "Wsparcie \nmenedżera",
+                            text: [
+                                "Chociaż możesz samodzielnie wybrać zespół, nasza firma zawsze służy wsparciem na każdym etapie. Menedżer pomoże Ci zorganizować proces deweloperski, ustawić komunikację i zapewnić efektywną współpracę w zespole. Jeśli potrzebujesz więcej niż trzech specjalistów (np. projektanta, dewelopera i testera), zaangażowanie menedżera pozwoli zaoszczędzić czas i pieniądze. Menedżer ustawi proces w taki sposób, abyś nie musiał sam angażować się w pracę — Twoim zadaniem będzie jedynie przedstawianie wymagań, zatwierdzanie projektów i proponowanych rozwiązań technicznych, a nie zarządzanie ludźmi i ich interakcjami. Menedżer będzie regularnie raportować postępy, przeprowadzać prezentacje i konsultacje, a także dbać o niezbędną dokumentację i kalkulacje.",
+                            ],
+                        },
+                    ],
+                },
+            ],
+            fullAnswerBottomText: [
+                "Jeśli Twój projekt jest już uruchomiony i potrzebujesz specjalisty do pracy godzinowej lub do wprowadzenia zmian w istniejącym produkcie, możesz *link=`${process.env.NEXT_PUBLIC_BASE_URL}/${locale}#team`*skontaktować się bezpośrednio ze specjalistą*/link* przez Telegram lub LinkedIn. Jest to wygodne rozwiązanie dla osób, które potrzebują szybkiego rozwiązania konkretnego problemu lub pomocy  przy niewielkim nakładzie pracy. W takich przypadkach nie ma potrzeby tworzenia zespołu — wystarczy wybrać jednego specjalistę, który rozwiąże dany problem.",
+            ],
+        },
+        en: {
+            questionText: "Can I choose which team \nwill work on my order?",
+            shortAnswerText: [
+                "Yes, you can choose individual specialists and assemble a team on your own. In this case, we strongly recommend first reaching out to a manager for consultation. If you need a specific specialist for hourly work on your existing product, contact the specialist directly through their Telegram or LinkedIn and let them know how you found them and why you chose them.",
+            ],
+            imageAltText: "Can I choose which team will work on my order?",
+            fullAnswerTopText: [
+                "We understand that each project has its unique requirements, which is why we provide flexibility in choosing specialists so you can form a team that best meets your goals and objectives.",
+            ],
+            fullAnswerContent: [
+                {
+                    layout: 1,
+                    title: "How it works?",
+                    data: [
+                        {
+                            title: "Choosing individual \nspecialists",
+                            text: [
+                                "On our website, you can view the profiles of developers, designers, testers, analysts, managers, and other specialists who are ready to work on your project. Each profile contains information about experience, skills, previous projects, hourly rate, and contact information, which allows you to assess whether the specialist meets your needs.",
+                            ],
+                        },
+                        {
+                            title: "Forming \na team",
+                            text: [
+                                "You can choose individual specialists or immediately form a full-fledged team, depending on the requirements of your project. In this case, we strongly recommend consulting with our *link=`/${locale}/order` noblank*manager*/link*, who will help you accurately assess the necessary resources and functional roles for the successful implementation of the project. This is especially important if you have no experience in managing a development team or if you have a complex project that requires several specialists with different competencies.",
+                            ],
+                        },
+                        {
+                            title: "Support \nfrom the manager",
+                            text: [
+                                "Even though you can assemble a team on your own, our company is always ready to provide support at every stage. The manager will help you properly organize the development process, set up communication, and ensure effective interaction among team members. If you need more than three specialists (such as a designer, developer, and tester), having a manager on the team will save you time and money. The manager will streamline the process so that you won’t have to get involved in the work yourself — your task will be to articulate/describe your requirements and approve designs and proposed technical solutions, rather than manage people and their interactions. Additionally, the manager will regularly report to you on the progress of the work, conduct demos and consultations, and ensure that all necessary documentation and calculations are available.",
+                            ],
+                        },
+                    ],
+                },
+            ],
+            fullAnswerBottomText: [
+                "If your project has already been launched, and you need an individual specialist to perform hourly tasks or make changes to an existing product, you can directly *link=`${process.env.NEXT_PUBLIC_BASE_URL}/${locale}#team`*contact the specialist*/link* via Telegram or LinkedIn. This is a convenient option for those who require a quick solution to a specific problem or prompt assistance with a small volume of work. In such cases, there is no need to form a team — you just need to choose one specialist who will solve your issue.",
+            ],
+        },
+    },
+    {
+        data: {
+            image: "https://res.cloudinary.com/dvfu5vhjx/image/upload/v1742561953/answer6-1_rc7hos.jpg",
+            likes: null,
+            slug: "can-i-make-changes-during-the-development-process",
+            answerOrderImage:
+                "https://res.cloudinary.com/dvfu5vhjx/image/upload/v1742561957/answer6-2_hbhojv.jpg",
+        },
+        ua: {
+            questionText: "Чи можу я внести зміни в процесі розробки?",
+            imageAltText: "Чи можу я внести зміни в процесі розробки?",
+            shortAnswerText: [
+                "Так, ви можете вносити зміни в процесі розробки. Це природна частина будь-якого проєкту, адже під час роботи можуть виникати нові ідеї, змінюватися бізнес-цілі або з’являтися нові технічні вимоги. Однак важливо розуміти, що будь-які зміни в ході розробки потребують уважного узгодження, щоб зберегти контроль над термінами, якістю продукту та бюджетом.",
+            ],
+            fullAnswerTopText: [
+                "Змін в процесі розробки важко уникнути — це нормальна частина процесу. Нижче, для кращого розуміння ви знайдете більш детальну інформацію про внесення змін.",
+            ],
+            fullAnswerContent: [
+                {
+                    layout: 1,
+                    title: "Як відбувається процес внесення змін?",
+                    data: [
+                        {
+                            title: "Звернення \nдо менеджера",
+                            text: [
+                                "Перший крок — це звернутися до менеджера, який керує розробкою вашого продукту. Менеджер координує всі етапи роботи та взаємодію команди, це та людина, яка допоможе вам зрозуміти, як найкраще впровадити зміни без шкоди для загальної концепції проєкту та в межах проговорених термінів та бюджету (якщо це можливо).",
+                            ],
+                        },
+                        {
+                            title: "Обговорення з \nкомандою розробки",
+                            text: [
+                                {
+                                    type: "none",
+                                    text: [
+                                        "Після того, як ви повідомите про бажання внести зміни, менеджер обговорить це з командою розробників, дизайнерів та інших спеціалістів, які працюють над вашим продуктом. Це дозволить оцінити:",
+                                    ],
+                                },
+                                {
+                                    type: "listItem",
+                                    title: "Складність та обсяг змін:",
+                                    text: [
+                                        "Чи ці зміни потребують повного перегляду поточних рішень, чи можуть бути реалізовані в межах наявного плану.",
+                                    ],
+                                },
+                                {
+                                    type: "listItem",
+                                    title: "Вплив на терміни виконання:",
+                                    text: [
+                                        "Зміни можуть вимагати додаткового часу на розробку та тестування, що може відтермінувати фінальну здачу проєкту.",
+                                    ],
+                                },
+                                {
+                                    type: "listItem",
+                                    title: "Вплив на бюджет:",
+                                    text: [
+                                        "Кожна зміна може потребувати додаткових ресурсів. Важливо провести оцінку вартості цих змін, щоб розуміти їх вплив на загальний бюджет проєкту.",
+                                    ],
+                                },
+                            ],
+                        },
+                        {
+                            title: "Оцінка \nвпливу змін",
+                            text: [
+                                {
+                                    type: "none",
+                                    text: [
+                                        "Після консультації з командою розробки менеджер надасть вам інформацію про:",
+                                    ],
+                                },
+                                {
+                                    type: "listItem",
+                                    text: [
+                                        "Орієнтовні терміни виконання змін,",
+                                    ],
+                                },
+                                {
+                                    type: "listItem",
+                                    text: ["Орієнтовну вартість нових робіт,"],
+                                },
+                                {
+                                    type: "listItem",
+                                    text: [
+                                        "Технічні та дизайн-аспекти, які можуть бути змінені.",
+                                    ],
+                                },
+                                {
+                                    type: "none",
+                                    text: [
+                                        "На основі цих даних ви зможете прийняти обґрунтоване рішення, чи впроваджувати ці зміни зараз, чи, можливо, краще відкласти їх на наступні етапи розробки.",
+                                    ],
+                                },
+                            ],
+                        },
+                        {
+                            title: "Затвердження \nта реалізація змін",
+                            text: [
+                                "Якщо ви вирішите продовжувати зі змінами, вони будуть внесені до плану робіт, і команда почне їх реалізацію. Після цього менеджер слідкуватиме за тим, щоб нові вимоги були впроваджені коректно, без порушень в архітектурі проєкту або загальній функціональності продукту.",
+                                "Варто також пам'ятати, що залежно від обсягу змін, можуть з’явитися додаткові витрати на роботу команди. Для цього варто провести детальну оцінку бюджету, щоб уникнути несподіваних витрат.",
+                            ],
+                        },
+                    ],
+                },
+            ],
+            fullAnswerBottomText: [
+                "Ми завжди намагаємось залишатися гнучкими у процесі розробки, але чим пізніше вносяться зміни, тим більше вони можуть вплинути на загальну структуру проєкту. Це означає, що зміни на пізніх етапах можуть потребувати коригування певних частин продукту, що зробить їх дорожчими та складнішими.",
+            ],
+        },
+        pl: {
+            imageAltText:
+                "Czy mogę wprowadzać zmiany w trakcie procesu tworzenia strony internetowej?",
+            questionText:
+                "Czy mogę wprowadzać zmiany w trakcie procesu tworzenia strony internetowej?",
+            shortAnswerText: [
+                "Tak, możesz wprowadzać zmiany w trakcie procesu tworzenia. To naturalna część każdego projektu, ponieważ w trakcie pracy mogą pojawiać się nowe pomysły, zmieniać cele biznesowe lub pojawiać się nowe wymagania techniczne. Należy jednak pamiętać, że wszelkie zmiany muszą być starannie uzgodnione, aby utrzymać kontrolę nad terminami, jakością produktu i budżetem.",
+            ],
+            fullAnswerTopText: [
+                "Trudno uniknąć zmian w procesie rozwoju — są one normalną częścią procesu. Poniżej, dla lepszego zrozumienia, znajdą się bardziej szczegółowe informacje na temat wprowadzania zmian.",
+            ],
+            fullAnswerContent: [
+                {
+                    layout: 1,
+                    title: "Jak przebiega proces wprowadzania zmian?",
+                    data: [
+                        {
+                            title: "Kontakt \nz menedżerem",
+                            text: [
+                                "Pierwszym krokiem jest skontaktowanie się z menedżerem, który zarządza rozwojem produktu. Menedżer koordynuje wszystkie etapy pracy oraz interakcję zespół i jest osobą, która pomoże Ci zrozumieć, jak najlepiej wprowadzić zmiany, nie naruszając ogólnej koncepcji projektu, i czy można to zrobić w ramach ustalonych terminów i budżetu (jeśli to jest możliwe).",
+                            ],
+                        },
+                        {
+                            title: "Dyskusja z \nzespołem deweloperskim",
+                            text: [
+                                {
+                                    type: "none",
+                                    text: [
+                                        "Po zgłoszeniu chęci wprowadzenia zmian, menedżer przedyskutuje to z zespołem deweloperów, projektantów i innych specjalistów pracujących nad projektem. To pozwoli ocenić:",
+                                    ],
+                                },
+                                {
+                                    type: "listItem",
+                                    title: "Złożoność i zakres zmian:",
+                                    text: [
+                                        "Czy zmiany wymagają całkowitego przeglądu dotychczasowych rozwiązań, czy można je wprowadzić w ramach istniejącego planu.",
+                                    ],
+                                },
+                                {
+                                    type: "listItem",
+                                    title: "Wpływ na terminy realizacji:",
+                                    text: [
+                                        "Zmiany mogą wymagać dodatkowego czasu na opracowanie i testowanie, co może opóźnić finalne oddanie projektu.",
+                                    ],
+                                },
+                                {
+                                    type: "listItem",
+                                    title: "Wpływ na budżet:",
+                                    text: [
+                                        "Każda zmiana może wymagać dodatkowych zasobów. Ważne jest dokonanie oceny kosztów, aby zrozumieć wpływ zmian na ogólny budżet projektu.",
+                                    ],
+                                },
+                            ],
+                        },
+                        {
+                            title: "Ocena \nwpływu zmian",
+                            text: [
+                                {
+                                    type: "none",
+                                    text: [
+                                        "Po konsultacjach z zespołem deweloperskim, menedżer nada informacje o:",
+                                    ],
+                                },
+                                {
+                                    type: "listItem",
+                                    text: [
+                                        "Szacowanym czasie realizacji zmian,",
+                                    ],
+                                },
+                                {
+                                    type: "listItem",
+                                    text: [
+                                        "Szacowanych kosztach dodatkowych prac,",
+                                    ],
+                                },
+                                {
+                                    type: "listItem",
+                                    text: [
+                                        "Aspektach technicznych i projektowych, które mogą ulec zmianie.",
+                                    ],
+                                },
+
+                                {
+                                    type: "none",
+                                    text: [
+                                        "Te dane pomogą Ci podjąć świadomą decyzję, czy wprowadzać zmiany teraz, czy może lepiej odłożyć je na kolejne etapy rozwoju.",
+                                    ],
+                                },
+                            ],
+                        },
+                        {
+                            title: "Zatwierdzenie \ni realizacja zmian",
+                            text: [
+                                "Jeśli zdecydujesz się kontynuować ze zmianami, zostaną one uwzględnione w planie pracy, a zespół rozpocznie ich realizację. Menedżer będzie monitorować, aby nowe wymagania zostały poprawnie wdrożone, bez naruszenia architektury projektu lub ogólnej funkcjonalności produktu.",
+                                "Należy również pamiętać, że w zależności od zakresu zmian, mogą pojawić się dodatkowe koszty związane z pracą zespołu. W tym celu warto przeprowadzić szczegółową estymację budżetu, aby uniknąć niespodziewanych kosztów.",
+                            ],
+                        },
+                    ],
+                },
+            ],
+            fullAnswerBottomText: [
+                "Zawsze staramy się być elastyczni w procesie tworzenia, ale im później zostaną wprowadzone zmiany, tym większy wpływ mogą one mieć na ogólną strukturę projektu. Oznacza to, że zmiany na późniejszych etapach mogą wymagać przebudowy niektórych części produktu, co sprawi, że będą one droższe i bardziej skomplikowane.",
+            ],
+        },
+        en: {
+            imageAltText: "Can I make changes during the development process?",
+            questionText: "Can I make changes during the development process?",
+            shortAnswerText: [
+                "Yes, you can make changes during the development process. This is a natural part of any project, as new ideas may arise, business goals may change, or new technical requirements may emerge. However, it's important to understand that any changes during development need to be carefully coordinated to maintain control over timelines, product quality, and budget.",
+            ],
+            fullAnswerTopText: [
+                "Changes during the development process are hard to avoid — they are a normal part of the process. Below, you’ll find more detailed information about implementing changes for better understanding.",
+            ],
+            fullAnswerContent: [
+                {
+                    layout: 1,
+                    title: "How does the change process work?",
+                    data: [
+                        {
+                            title: "Contacting \nthe manager",
+                            text: [
+                                "The first step is to contact the manager who is leading the development of your product. The manager coordinates all stages of the work and team interactions. This person will help you understand how to best implement the changes without disrupting the overall project concept and within the agreed timeline and budget (if possible).",
+                            ],
+                        },
+                        {
+                            title: "Discussion with \nthe development team",
+                            text: [
+                                {
+                                    type: "none",
+                                    text: [
+                                        "Once you've communicated your desire to make changes, the manager will discuss this with the team of developers, designers, and other specialists working on your product. This will help to assess:",
+                                    ],
+                                },
+                                {
+                                    type: "listItem",
+                                    title: "Complexity and scope of changes:",
+                                    text: [
+                                        "Will these changes require a complete review of the current solutions, or can they be implemented within the existing plan?",
+                                    ],
+                                },
+                                {
+                                    type: "listItem",
+                                    title: "Impact on deadlines:",
+                                    text: [
+                                        "Changes may require additional development and testing time, potentially delaying the final delivery of the project.",
+                                    ],
+                                },
+                                {
+                                    type: "listItem",
+                                    title: "Impact on the budget:",
+                                    text: [
+                                        "Each change may require additional resources. It’s important to assess the cost of these changes to understand their efect on the overall project budget.",
+                                    ],
+                                },
+                            ],
+                        },
+                        {
+                            title: "Change \nimpact assessment",
+                            text: [
+                                {
+                                    type: "none",
+                                    text: [
+                                        "After consulting with the development team, the manager will provide you with information about:",
+                                    ],
+                                },
+                                {
+                                    type: "listItem",
+                                    text: [
+                                        "Estimated timelines for implementing the changes,",
+                                    ],
+                                },
+                                {
+                                    type: "listItem",
+                                    text: ["Estimated cost of the new work,"],
+                                },
+                                {
+                                    type: "listItem",
+                                    text: [
+                                        "Technical and design aspects that may be changed.",
+                                    ],
+                                },
+                                {
+                                    type: "none",
+                                    text: [
+                                        "Based on this information, you will be able to make an informed decision on whether to implement these changes now or possibly postpone them to later stages of development.",
+                                    ],
+                                },
+                            ],
+                        },
+                        {
+                            title: "Approval \nand implementation of changes",
+                            text: [
+                                "If you decide to proceed with the changes, they will be added to the work plan, and the team will begin implementing them. Afterward, the manager will ensure that the new requirements are integrated correctly, without disrupting the project's architecture or overall functionality.",
+                                "It's also important to note that, depending on the scope of the changes, there may be additional costs for the team's work. A detailed budget evaluation should be carried out to avoid unexpected expenses.",
+                            ],
+                        },
+                    ],
+                },
+            ],
+            fullAnswerBottomText: [
+                "We always strive to remain flexible during the development process, but the later changes are introduced, the more they can affect the overall structure of the project. This means that changes at later stages may require reworking certain parts of the product, making them more expensive and complex.",
+            ],
+        },
+    },
+    {
+        data: {
+            image: "https://res.cloudinary.com/dvfu5vhjx/image/upload/v1742561960/answer7-1_dwnc4g.jpg",
+            likes: null,
+            slug: "do-you-provide-post-launch-support",
+
+            answerOrderImage:
+                "https://res.cloudinary.com/dvfu5vhjx/image/upload/v1742561965/answer7-2_uptw4h.jpg",
+        },
+        ua: {
+            questionText:
+                "Чи надаєте ви послуги підтримки після запуску сайту?",
+            imageAltText:
+                "Чи надаєте ви послуги підтримки після запуску сайту?",
+            shortAnswerText: [
+                "Так, ми надаємо підтримку після запуску сайтів, які розробляємо, а також можемо допомогти з підтримкою вже наявних продуктів. Після завершення розробки та запуску проєкту важливо забезпечити його належне функціонування та оперативно реагувати на можливі проблеми, тому ми пропонуємо кілька варіантів підтримки.",
+            ],
+            fullAnswerTopText: [
+                "Нижче детальніше описаний кожен з варіантів підтримки, а саме підтримка продуктів, які ми розробляємо для вас та підтримка ваших власних продуктів. Додатково зазначимо, ми відкриті до обговорення і впевнені, що можна знайти варіанти під кожен запит.",
+            ],
+            fullAnswerContent: [
+                {
+                    layout: 4,
+                    title: "Підтримка продуктів, які ми розробляємо",
+                    data: [
+                        {
+                            title: "Для наших клієнтів, які замовляють розробку вебсайту чи інтернет-магазину, ми пропонуємо послуги підтримки на умовах додаткового договору. Це дозволяє вам бути впевненими, що після запуску продукту він продовжуватиме працювати коректно, і будь-які технічні питання чи оновлення будуть вирішені вчасно. В рамках підтримки ми пропонуємо:",
+                            type: "list",
+                            decorate: 1,
+                            text: [
+                                {
+                                    title: "Технічну підтримку",
+                                    text: [
+                                        "Ми слідкуємо за тим, щоб ваш сайт працював стабільно, без збоїв та з найвищою швидкістю завантаження. У разі виникнення технічних проблем наша команда швидко вирішить їх і забезпечить безперебійне функціонування сайту.",
+                                    ],
+                                },
+                                {
+                                    title: "Оновлення та вдосконалення",
+                                    text: [
+                                        "Технології та інструменти постійно змінюються, тому важливо підтримувати ваш продукт в актуальному стані. Ми допоможемо інтегрувати нові функції, виправити помилки, а також провести оновлення системи безпеки, фреймворків та інших компонентів сайту.",
+                                    ],
+                                },
+                                {
+                                    title: "Контроль за безпекою",
+                                    text: [
+                                        "Після запуску ми можемо забезпечити моніторинг і захист вашого сайту від потенційних загроз, таких як хакерські атаки, шкідливі програми чи віруси. Регулярні оновлення безпеки та моніторинг серверів допоможуть забезпечити високий рівень захищеності.",
+                                    ],
+                                },
+                                {
+                                    title: "Оптимізація швидкодії",
+                                    text: [
+                                        "З часом ваш сайт може потребувати додаткової оптимізації для покращення швидкості завантаження, особливо якщо ви додаєте нові функції чи контент. Ми можемо допомогти з налаштуваннями та оптимізацією, щоб забезпечити максимальну ефективність роботи сайту.",
+                                    ],
+                                },
+                            ],
+                        },
+                    ],
+                },
+                {
+                    layout: 4,
+                    title: "Підтримка наявних продуктів",
+                    data: [
+                        {
+                            title: "Якщо ваш сайт уже запущений і був розроблений іншою компанією або командою, ми також можемо надати консультацію та допомогу з підтримкою цього продукту. У таких випадках ми оцінюємо, чи є у нас спеціалісти, які володіють необхідними інструментами та фреймворками, щоб працювати з вашим продуктом. Після цього ми можемо запропонувати варіанти підтримки, які включатимуть:",
+                            type: "list",
+                            decorate: 2,
+                            text: [
+                                {
+                                    title: "Аналіз наявної системи",
+                                    text: [
+                                        "Першим кроком буде здійснено аналіз того, як налаштований ваш сайт, які технології використовуються та які слабкі місця можуть вимагати уваги.",
+                                    ],
+                                },
+                                {
+                                    title: "Рекомендації щодо поліпшень",
+                                    text: [
+                                        " Після аналізу ми надамо рекомендації щодо оптимізації, безпеки або функціональних покращень, які допоможуть вашому сайту працювати краще та ефективніше.",
+                                    ],
+                                },
+                                {
+                                    title: "Оперативна підтримка",
+                                    text: [
+                                        "Якщо у вас виникають технічні проблеми чи необхідні термінові виправлення, ми надаємо допомогу з їх вирішенням. Це може бути вирішення проблем із сервером, внесення змін у код або оновлення плагінів.",
+                                    ],
+                                },
+                            ],
+                        },
+                    ],
+                },
+                {
+                    layout: 5,
+                    title: "Як замовити?",
+                    data: [
+                        {
+                            text: [
+                                "Для того, щоб замовити послуги підтримки або отримати консультацію, вам потрібно звернутися до нашого *link=`/${locale}/order` noblank*менеджера*/link*. Менеджер проведе консультацію щодо умов співпраці та допоможе вам підібрати оптимальний план підтримки для вашого продукту.",
+                            ],
+                        },
+                        {
+                            text: [
+                                {
+                                    type: "none",
+                                    text: [
+                                        "Ми пропонуємо різні варіанти підтримки, які можуть включати:",
+                                    ],
+                                },
+                                {
+                                    type: "listItem",
+                                    title: "Погодинну оплату:",
+                                    text: [
+                                        "Якщо вам потрібна підтримка для короткострокових задач або виправлення окремих помилок.",
+                                    ],
+                                },
+                                {
+                                    type: "listItem",
+                                    title: "Абонентське обслуговування:",
+                                    text: [
+                                        "Це варіант для тих, хто потребує регулярного моніторингу, оновлень та підтримки на довготривалій основі.",
+                                    ],
+                                },
+                            ],
+                        },
+                    ],
+                },
+            ],
+            fullAnswerBottomText: [
+                "Ми готові допомогти вам як із розробкою нових продуктів, так і з підтримкою вже наявних продуктів, щоб забезпечити їх надійну роботу та довговічність. Зв’яжіться з нами для отримання консультації та ми підкажемо  деталі та формати співпраці!",
+            ],
+        },
+        pl: {
+            questionText: "Czy zapewniacie wsparcie po uruchomieniu strony?",
+            imageAltText: "Czy zapewniacie wsparcie po uruchomieniu strony?",
+            shortAnswerText: [
+                "Tak, zapewniamy wsparcie po uruchomieniu stron, które tworzymy, a także możemy pomóc w utrzymaniu istniejących produktów. Po zakończeniu rozwoju i uruchomieniu projektu ważne jest, aby zapewnić jego prawidłowe działanie i szybko reagować na ewentualne problemy, dlatego oferujemy kilka opcji wsparcia.",
+            ],
+            fullAnswerTopText: [
+                "Poniżej opisujemy bardziej szczegółowo każdą z opcji wsparcia, a mianowicie wsparcie dla produktów, które opracowujemy dla Ciebie oraz wsparcie dla Twoich własnych produktów. Jesteśmy otwarci na dyskusje i jesteśmy przekonani, że znajdziemy rozwiązanie dla każdego zgłoszenia.",
+            ],
+            fullAnswerContent: [
+                {
+                    layout: 4,
+                    title: "Wsparcie produktów, które tworzymy",
+                    data: [
+                        {
+                            decorate: 1,
+                            type: "list",
+                            title: "Dla naszych klientów, którzy zamawiają stworzenie strony internetowej lub sklepu online, oferujemy usługi wsparcia na podstawie dodatkowej umowy. To pozwala mieć pewność, że po uruchomieniu produkt będzie działał poprawnie, a wszelkie kwestie techniczne lub aktualizacje zostaną rozwiązane na czas. W ramach wsparcia oferujemy:",
+                            text: [
+                                {
+                                    title: "Wsparcie techniczne.",
+                                    text: [
+                                        "Monitorujemy, aby Twoja strona działała stabilnie, bez zakłóceń i z najwyższą prędkością ładowania. W razie problemów technicznych nasz zespół szybko je rozwiąże, zapewniając sprawne funkcjonowanie strony",
+                                    ],
+                                },
+                                {
+                                    title: "Aktualizacje i ulepszenia",
+                                    text: [
+                                        "Technologie i narzędzia stale się zmieniają, dlatego ważne jest, aby Twój produkt był aktualizowany. Pomagamy zintegrować nowe funkcje, naprawić błędy oraz przeprowadzać aktualizacje systemów bezpieczeństwa, frameworków i innych elementów strony.",
+                                    ],
+                                },
+                                {
+                                    title: "Kontrola bezpieczeństwa",
+                                    text: [
+                                        " Po uruchomieniu możemy monitorować i chronić Twoją stronę przed potencjalnymi zagrożeniami, takimi jak ataki hakerskie, złośliwe oprogramowanie czy wirusy. Regularne aktualizacje bezpieczeństwa i monitoring serwerów zapewnią wysoki poziom bezpieczeństwa.",
+                                    ],
+                                },
+                                {
+                                    title: "Optymalizacja wydajności",
+                                    text: [
+                                        "Z czasem Twoja strona może wymagać dodatkowej optymalizacji w celu poprawy szybkości ładowania, zwłaszcza jeśli dodajesz nowe funkcje lub treści. Pomożemy z ustawieniami i optymalizacją, aby zapewnić maksymalną wydajność strony.",
+                                    ],
+                                },
+                            ],
+                        },
+                    ],
+                },
+                {
+                    layout: 4,
+                    title: "Wsparcie istniejących produktów",
+                    data: [
+                        {
+                            decorate: 2,
+                            type: "list",
+                            title: "Jeśli Twoja strona już działa i została stworzona przez inną firmę lub zespół, również możemy zaoferować konsultacje i pomoc w utrzymaniu tego produktu. W takich przypadkach oceniamy, czy posiadamy specjalistów, którzy znają niezbędne narzędzia i frameworki, aby pracować nad Twoim produktem. Następnie możemy zaproponować opcje wsparcia, które mogą obejmować:",
+                            text: [
+                                {
+                                    title: "Analizę istniejącego systemu",
+                                    text: [
+                                        "Pierwszym krokiem będzie analiza konfiguracji Twojej strony, technologii użytych do jej stworzenia oraz ewentualnych słabych punktów wymagających uwagi.",
+                                    ],
+                                },
+                                {
+                                    title: "Rekomendacje dotyczące ulepszeń",
+                                    text: [
+                                        "Po analizie dostarczymy rekomendacje dotyczące optymalizacji, bezpieczeństwa lub funkcjonalnych ulepszeń, które pomogą stronie działać lepiej i wydajniej.",
+                                    ],
+                                },
+                                {
+                                    title: "Wsparcie operacyjne",
+                                    text: [
+                                        "Jeśli pojawią się problemy techniczne, lub konieczne są pilne poprawki, zapewniamy wsparcie w ich rozwiązaniu. Może to obejmować naprawę problemów z serwerem, wprowadzanie zmian w kodzie lub aktualizację wtyczek.",
+                                    ],
+                                },
+                            ],
+                        },
+                    ],
+                },
+                {
+                    layout: 5,
+                    title: "Jak zamówić?",
+                    data: [
+                        {
+                            text: [
+                                "Aby zamówić usługi wsparcia lub uzyskać konsultację, wystarczy skontaktować się z naszym *link=`/${locale}/order` noblank*menedżerem*/link*. Menedżer przeprowadzi konsultację w sprawie warunków współpracy i pomoże dobrać optymalny plan wsparcia dla Twojego produktu.",
+                            ],
+                        },
+                        {
+                            text: [
+                                {
+                                    type: "none",
+                                    text: [
+                                        "Oferujemy różne opcje wsparcia, które mogą obejmować:",
+                                    ],
+                                },
+                                {
+                                    type: "listItem",
+                                    title: "Opłatę godzinową:",
+                                    text: [
+                                        "Jeśli potrzebujesz wsparcia w krótkoterminowych zadaniach lub naprawie pojedynczych błędów.",
+                                    ],
+                                },
+                                {
+                                    type: "listItem",
+                                    title: "Abonament serwisowy",
+                                    text: [
+                                        "To opcja dla tych, którzy potrzebują regularnego monitoringu, aktualizacji i wsparcia na długoterminowej podstawie.",
+                                    ],
+                                },
+                            ],
+                        },
+                    ],
+                },
+            ],
+            fullAnswerBottomText: [
+                "Jesteśmy gotowi pomóc Ci zarówno w rozwoju nowych produktów, jak i w utrzymaniu już istniejących, aby zapewnić ich niezawodne działanie i trwałość. Skontaktuj się z nami, aby uzyskać konsultację, a my przedstawimy szczegóły i formy współpracy.",
+            ],
+        },
+        en: {
+            questionText: "Do you provide post-launch support?",
+            imageAltText: "Do you provide post-launch support?",
+            shortAnswerText: [
+                "Yes, we provide post-launch support for the websites we develop, and can also assist with the maintenance of existing products. After the project is completed and launched, it is important to ensure its proper functioning and respond promptly to any issues. Therefore, we offer several support options.",
+            ],
+            fullAnswerTopText: [
+                "Below we describe each of the support options in more detail, namely support for products we develop for you and support for your own products. Please note that we are open to discussions and are confident that we can find options for each request.",
+            ],
+            fullAnswerContent: [
+                {
+                    layout: 4,
+                    title: "Support for the products we develop",
+                    data: [
+                        {
+                            decorate: 1,
+                            type: "list",
+                            title: "For our clients who order website or online store development, we offer support services under an additional agreement. This allows you to be confident that after the product launch, it will continue to function correctly, and any technical issues or updates will be addressed promptly. As part of our support services, we offer:",
+                            text: [
+                                {
+                                    title: "Technical support",
+                                    text: [
+                                        "We ensure that your website operates smoothly, without crashes, and with the highest loading speed. If any technical issues arise, our team will quickly resolve them to maintain uninterrupted site performance.",
+                                    ],
+                                },
+                                {
+                                    title: "Updates and improvements",
+                                    text: [
+                                        "Technologies and tools are constantly changing, so it's important to keep your product up to date. We help integrate new features, fix bugs, and carry out security updates, as well as updates to frameworks and other components of the website.",
+                                    ],
+                                },
+                                {
+                                    title: "Security monitoring",
+                                    text: [
+                                        "After the launch, we can provide monitoring and protection for your website against potential threats such as hacker attacks, malware, or viruses. Regular security updates and server monitoring will help maintain a high level of protection.",
+                                    ],
+                                },
+                                {
+                                    title: "Performance optimization",
+                                    text: [
+                                        "Over time, your website may require additional optimization to improve loading speed, especially if you're adding new features or content. We can assist with configuration and optimization to ensure maximum efficiency and performance of your site.",
+                                    ],
+                                },
+                            ],
+                        },
+                    ],
+                },
+                {
+                    layout: 4,
+                    title: "Support for existing products",
+                    data: [
+                        {
+                            decorate: 2,
+                            type: "list",
+                            title: "If your website has already been launched and was developed by another company or team, we can also provide consultation and assistance with maintaining that product. In such cases, we assess whether we have specialists who are proficient in the necessary tools and frameworks to work with your product. After this evaluation, we can offer support options that include:",
+                            text: [
+                                {
+                                    title: "Analysis of the existing system",
+                                    text: [
+                                        "The first step will be to analyze how your website is configured, what technologies are used, and any weaknesses that may need attention.",
+                                    ],
+                                },
+                                {
+                                    title: "Improvement recommendations",
+                                    text: [
+                                        "After the analysis, we will provide recommendations for optimization, security, or functional improvements that will help your website perform better and more efficiently.",
+                                    ],
+                                },
+                                {
+                                    title: "Prompt support",
+                                    text: [
+                                        "If you encounter technical issues or need urgent fixes, we offer assistance to resolve them. This could involve server troubleshooting, code modifications, or updating plugins.",
+                                    ],
+                                },
+                            ],
+                        },
+                    ],
+                },
+                {
+                    layout: 5,
+                    title: "How to order?",
+                    data: [
+                        {
+                            text: [
+                                "To order support services or request a consultation, you will need to contact our *link=`/${locale}/order` noblank*manager*/link*. The manager will provide a consultation regarding the terms of cooperation and help you choose the best support plan for your product.",
+                            ],
+                        },
+                        {
+                            text: [
+                                {
+                                    type: "none",
+                                    text: [
+                                        "We offer various support options, which may include:",
+                                    ],
+                                },
+                                {
+                                    type: "listItem",
+                                    title: "Hourly payment:",
+                                    text: [
+                                        "Ideal if you need support for short-term tasks or fixing specific issues.",
+                                    ],
+                                },
+                                {
+                                    type: "listItem",
+                                    title: "Subscription service:",
+                                    text: [
+                                        "This option is for those who require regular monitoring, updates, and long-term support.",
+                                    ],
+                                },
+                            ],
+                        },
+                    ],
+                },
+            ],
+            fullAnswerBottomText: [
+                "We are ready to assist you with both the development of new products and the maintenance of existing ones to ensure their reliable operation and longevity. Contact us for a consultation, and we'll provide more details and formats of cooperation!",
+            ],
+        },
+    },
+    {
+        data: {
+            image: "https://res.cloudinary.com/dvfu5vhjx/image/upload/v1742561967/answer8-1_j5f6pp.jpg",
+            likes: null,
+            slug: "what-is-a-landing-page-and-who-needs-it",
+            answerOrderImage:
+                "https://res.cloudinary.com/dvfu5vhjx/image/upload/v1742561975/answer8-2_zb8hjn.jpg",
+        },
+        ua: {
+            questionText: "Що таке лендінг? І кому він потрібен?",
+            imageAltText: "Що таке лендінг? І кому він потрібен?",
+            shortAnswerText: [
+                "Лендінг, або посадкова сторінка, — це спеціально розроблена вебсторінка,  де вся інформація розміщена на одній сторінці, яка спрямована на досягнення конкретної мети: перетворити відвідувачів у клієнтів, підписників або учасників. На відміну від багатосторінкових сайтів, лендінг має чітку структуру, де інформація подана лаконічно і продумано, з метою привернути увагу до конкретного продукту, послуги чи пропозиції.",
+            ],
+            fullAnswerTopText: [
+                "Основна мета лендінгу — отримання швидкого результату: це може бути покупка, підписка, реєстрація або замовлення дзвінка, тощо. Тому лендінг зазвичай не перевантажують зайвою інформацією чи елементами навігації, а подають матеріал послідовно, щоб спрямувати користувача до конкретної дії.",
+            ],
+            fullAnswerContent: [
+                {
+                    layout: 1,
+                    title: "Переваги лендінгу",
+                    data: [
+                        {
+                            title: "Фокус на результаті",
+                            text: [
+                                "Лендінг має єдину мету, тому увага користувача концентрується на головному, що знижує вірогідність відволікання та збільшує шанс залучення клієнта/підписника/учасника.",
+                            ],
+                        },
+                        {
+                            title: "Простота та швидкість створення",
+                            text: [
+                                "Розробка лендінгу часто займає менше часу і ресурсів порівняно зі створенням багатосторінкового сайту. Його структура більш лаконічна, тому він швидше налаштовується та запускається в роботу.",
+                            ],
+                        },
+                        {
+                            title: "Адаптивність та гнучкість",
+                            text: [
+                                "Лендінги можна легко оптимізувати під мобільні пристрої, змінювати чи тестувати різні варіанти дизайну та контенту, щоб визначити, який з них працює найкраще.",
+                            ],
+                        },
+                        {
+                            title: "Збільшення конверсії",
+                            text: [
+                                "Завдяки чіткому фокусу на конкретній дії, лендінг допомагає досягти вищого рівня конверсії у порівнянні зі звичайними сайтами, де користувачі можуть відволіктися на додатковий контент.",
+                            ],
+                        },
+                        {
+                            title: "Легкість аналітики та оптимізації",
+                            text: [
+                                "На лендінгу простіше аналізувати поведінку користувачів (наприклад, за допомогою теплових карт, клікових зон, часу на сторінці), що дозволяє швидко вносити зміни для покращення результатів.",
+                            ],
+                        },
+                    ],
+                },
+                {
+                    layout: 4,
+                    title: "Для кого може бути корисним лендінг?",
+                    data: [
+                        {
+                            title: "Лендінг буде корисним для підприємців, що прагнуть швидко запустити свої продукти, та компаній, які хочуть підвищити свою впізнаваність і довіру клієнтів. Він ідеально підходить для стартапів, малого та середнього бізнесу, а також для всіх, хто шукає ефективне рішення для презентації продукту чи послуги без великих затрат на розробку. Детальніше про переваги читайте нижче.",
+                            type: "list",
+                            decorate: 1,
+                            text: [
+                                {
+                                    title: "Фрилансери та спеціалісти",
+                                    text: [
+                                        "Лендінг може бути чудовим варіантом для самопрезентації фахівців у різних сферах: коучів, рекрутерів, юристів, менторів, консультантів, тощо. Він допоможе у  просуванні свого соло-бізнесу та формуванні  особистого бренду.",
+                                    ],
+                                },
+                                {
+                                    title: "Стартапи",
+                                    text: [
+                                        "Для стартапів важливо якомога швидше привернути увагу до своєї ідеї та зібрати базу користувачів. Лендінг допоможе презентувати продукт, зібрати попередні замовлення або запросити користувачів на бета-тестування.",
+                                    ],
+                                },
+                                {
+                                    title: "Малий та середній бізнес",
+                                    text: [
+                                        "Лендінг — ідеальне рішення для бізнесів, які прагнуть швидко протестувати ринок або новий продукт. Він дозволяє з мінімальними витратами вийти на ринок, протестувати попит, зібрати контакти та провести акцію.",
+                                    ],
+                                },
+                                {
+                                    title: "Організатори заходів",
+                                    text: [
+                                        "Лендінг ідеально підходить для розкрутки подій, таких як конференції, семінари чи вебінари, концерти, виставки або майстер-класи. На сторінці можна розмістити ключову інформацію про подію, спікерів, програму та форму для реєстрації.",
+                                    ],
+                                },
+                                {
+                                    title: "Інтернет-магазини",
+                                    text: [
+                                        "Для акцій чи розпродажів інтернет-магазини часто створюють лендінги, що присвячені конкретним продуктам або сезонним пропозиціям. Це допомагає зосередити увагу на певних товарах та спонукати клієнтів до швидкої покупки.",
+                                    ],
+                                },
+                            ],
+                        },
+                    ],
+                },
+                {
+                    layout: 4,
+                    title: "Терміни та Вартість",
+                    data: [
+                        {
+                            title: "Терміни та ціни виконання лендінгу можуть варіюватися залежно від складності проєкту, вимог замовника та особливостей дизайну й функціоналу. У середньому, на створення стандартного лендінгу зазвичай потрібно від 2 до 6 тижнів. \nЦіни на розробку лендінгу можуть стартувати від 800$ і вище, залежно від наповнення (шаблонний/індивідуальний/унікальний дизайн, базова інформація, мінімум функціоналу, базова інтерактивність, адаптивність, складна анімація, інтеграція з CRM та іншими системами). Кінцева ціна та терміни виконання визначаються лише після обговорення всіх вимог і побажань замовника. \nЗагалом, вони залежать від таких факторів:",
+                            type: "list",
+                            decorate: 2,
+                            text: [
+                                {
+                                    title: "Складність дизайну:",
+                                    text: [
+                                        "Якщо потрібен унікальний, індивідуально розроблений дизайн, ціна буде вищою, ніж для простого шаблонного рішення.",
+                                    ],
+                                },
+                                {
+                                    title: "Функціональність:",
+                                    text: [
+                                        "Інтеграція з CRM, анімації, форми зворотного зв'язку, адаптивність для мобільних пристроїв та інші додаткові елементи підвищують вартість.",
+                                    ],
+                                },
+                                {
+                                    title: "Терміновість:",
+                                    text: [
+                                        "Якщо проєкт потрібно виконати у стислі терміни, це також може вплинути на ціну.",
+                                    ],
+                                },
+                            ],
+                        },
+                    ],
+                },
+            ],
+            fullAnswerBottomText: [
+                "Лендінг — це потужний інструмент для бізнесу, який допомагає швидко і ефективно досягти конкретної мети, будь-то продаж, збір контактів чи реєстрація на подію. Його переваги у фокусованості, простоті та високій залученості користувачів роблять лендінг незамінним засобом для багатьох типів бізнесів та ініціатив.",
+            ],
+        },
+        pl: {
+            questionText: "Czym jest landing page i kto go potrzebuje?",
+            imageAltText: "Czym jest landing page i kto go potrzebuje?",
+            shortAnswerText: [
+                "Landing page, czyli strona docelowa, to specjalnie zaprojektowana strona internetowa, na której wszystkie informacje są umieszczone na jednej stronie, która ma na celu osiągnięcie określonego celu: przekształcenie odwiedzających w klientów, subskrybentów lub uczestników. W przeciwieństwie do wielostronicowych stron internetowych, landing page ma przejrzystą strukturę, w której informacje są prezentowane w sposób zwięzły i przemyślany, aby zwrócić uwagę na konkretny produkt, usługę lub ofertę.",
+            ],
+            fullAnswerTopText: [
+                "Głównym celem landing page jest uzyskanie szybkiego rezultatu: może to być zakup, subskrypcja, rejestracja lub zamówienie rozmowy telefonicznej. Dlatego też strony docelowe zazwyczaj nie są przeładowane niepotrzebnymi informacjami lub elementami nawigacyjnymi, ale raczej prezentują materiał sekwencyjnie, aby skierować użytkownika do określonej akcji.",
+            ],
+            fullAnswerContent: [
+                {
+                    layout: 1,
+                    title: "Zalety stron docelowych",
+                    data: [
+                        {
+                            title: "Skupienie na wyniku",
+                            text: [
+                                "Strona docelowa ma jeden cel, więc uwaga użytkownika jest skupiona na głównej rzeczy, co zmniejsza prawdopodobieństwo rozproszenia uwagi i zwiększa szansę na pozyskanie klienta/subskrybenta/uczestnika.",
+                            ],
+                        },
+                        {
+                            title: "Prostota i szybkość tworzenia",
+                            text: [
+                                "Stworzenie landing page'a często zajmuje mniej czasu i zasobów niż stworzenie wielostronicowej strony internetowej. Jego struktura jest bardziej zwięzła, więc jest szybszy w konfiguracji i uruchomieniu.",
+                            ],
+                        },
+                        {
+                            title: "Możliwość dostosowania i elastyczność",
+                            text: [
+                                "Strony docelowe można łatwo zoptymalizować pod kątem urządzeń mobilnych, zmienić lub przetestować różne opcje projektu i treści, aby znaleźć najbardziej skuteczne rozwiązanie.",
+                            ],
+                        },
+                        {
+                            title: "Zwiększenie konwersji",
+                            text: [
+                                "Ze względu na wyraźne skupienie na konkretnym działaniu, strona docelowa pomaga osiągnąć wyższy poziom konwersji w porównaniu do zwykłych stron internetowych, gdzie użytkownicy mogą być rozpraszani przez dodatkowe treści.",
+                            ],
+                        },
+                        {
+                            title: "Łatwa analityka i optymalizacja",
+                            text: [
+                                "Łatwiej jest analizować zachowanie użytkowników na landing page'u (na przykład za pomocą map cieplnych, stref kliknięć, czasu spędzonego na stronie), co pozwala na szybkie wprowadzanie zmian w celu poprawy wyników.",
+                            ],
+                        },
+                    ],
+                },
+                {
+                    layout: 4,
+                    title: "Dla kogo może być przydatny landing page?",
+                    data: [
+                        {
+                            title: "Strona docelowa jest przydatna dla przedsiębiorców, którzy chcą szybko wprowadzić swoje produkty na rynek oraz firm, które chcą zwiększyć swoją widoczność i zaufanie klientów. Jest to idealne rozwiązanie dla startupów, małych i średnich firm oraz każdego, kto szuka skutecznego rozwiązania do prezentacji produktu lub usługi bez wysokich kosztów rozwoju. Przeczytaj więcej o korzyściach poniżej.",
+                            type: "list",
+                            decorate: 1,
+                            text: [
+                                {
+                                    title: "Freelancerzy i specjaliści",
+                                    text: [
+                                        "Landing page może być świetną opcją do autoprezentacji specjalistów z różnych dziedzin: coachów, rekruterów, prawników, mentorów, konsultantów itp. w celu promowania ich solowej działalności i budowania marki osobistej.",
+                                    ],
+                                },
+                                {
+                                    title: "Start-upy",
+                                    text: [
+                                        "Dla startupów ważne jest jak najszybsze zwrócenie uwagi na swój pomysł i zebranie bazy użytkowników. Strona docelowa pomoże zaprezentować produkt, zebrać zamówienia w przedsprzedaży lub zaprosić użytkowników do testów beta.",
+                                    ],
+                                },
+                                {
+                                    title: "Małe i średnie przedsiębiorstwa",
+                                    text: [
+                                        "Landing page to idealne rozwiązanie dla firm, które chcą szybko przetestować rynek lub nowy produkt. Pozwala z minimalnymi kosztami wejść na rynek, sprawdzić popyt, zebrać kontakty i zorganizować promocję.",
+                                    ],
+                                },
+                                {
+                                    title: "Organizatorzy wydarzeń",
+                                    text: [
+                                        "Landing page sprawdza się doskonale przy promocji wydarzeń, takich jak konferencje, seminaria, webinary, koncerty, wystawy czy warsztaty. Można tam umieścić kluczowe informacje o wydarzeniu, prelegentach, programie oraz formularz rejestracyjny.",
+                                    ],
+                                },
+                                {
+                                    title: "Sklepy internetowe",
+                                    text: [
+                                        "Na potrzeby akcji promocyjnych czy wyprzedaży sklepy internetowe często tworzą landing page dedykowane konkretnym produktom lub ofertom sezonowym. Pomaga to skupić uwagę na wybranych towarach i zachęcić klientów do szybkiego zakupu.",
+                                    ],
+                                },
+                            ],
+                        },
+                    ],
+                },
+                {
+                    layout: 4,
+                    title: "Terminy i Koszty",
+                    data: [
+                        {
+                            title: "Terminy i koszty stworzenia strony docelowej mogą się różnić w zależności od stopnia skomplikowania projektu, wymagań klienta oraz szczególnych potrzeb dotyczących projektu i funkcjonalności. Średnio, wykonanie standardowej strony docelowej zajmuje od 2 do 6 tygodni. \nKoszt stworzenia strony docelowej zazwyczaj zaczyna się od 800 USD i może wzrosnąć w zależności od zawartości (projekt szablonowy/indywidualny/unikalny, podstawowe informacje, minimalna funkcjonalność, podstawowa interaktywność, responsywność, zaawansowana animacja, integracja z CRM i innymi systemami). \nOstateczna cena i terminy realizacji są ustalane dopiero po omówieniu wszystkich wymagań i preferencji klienta. Ogólnie, koszty i czas realizacji zależą od następujących czynników:",
+                            type: "list",
+                            decorate: 2,
+                            text: [
+                                {
+                                    title: "Złożoność projektu:",
+                                    text: [
+                                        "Jeśli potrzebny jest unikalny, indywidualnie zaprojektowany wygląd, cena będzie wyższa niż w przypadku prostego rozwiązania szablonowego.",
+                                    ],
+                                },
+                                {
+                                    title: "Funkcjonalność:",
+                                    text: [
+                                        "Integracje z CRM, animacje, formularze kontaktowe, responsywność na urządzeniach mobilnych i inne dodatkowe elementy zwiększają całkowity koszt.",
+                                    ],
+                                },
+                                {
+                                    title: "Pilność:",
+                                    text: [
+                                        "Jeśli projekt musi być zrealizowany w krótkim terminie, może to również wpłynąć na cenę.",
+                                    ],
+                                },
+                            ],
+                        },
+                    ],
+                },
+            ],
+            fullAnswerBottomText: [
+                "Strona docelowa to potężne narzędzie dla firm, które pozwala szybko i efektywnie osiągnąć konkretne cele, takie jak sprzedaż, zbieranie kontaktów czy rejestracja na wydarzenie. Jej zalety to ukierunkowanie, prostota i wysoki poziom zaangażowania użytkowników, co sprawia, że jest nieocenionym narzędziem dla wielu typów biznesów i inicjatyw.",
+            ],
+        },
+        en: {
+            questionText: "What is a landing page and who needs it?",
+            imageAltText: "What is a landing page and who needs it?",
+            shortAnswerText: [
+                "A landing page is a specially designed webpage where all information is presented on a single page, focused on achieving a specific goal: converting visitors into clients, subscribers, or participants. Unlike multi-page websites, a landing page has a clear structure where information is presented concisely and thoughtfully to draw attention to a specific product, service, or offer.",
+            ],
+            fullAnswerTopText: [
+                "The main goal of a landing page is to achieve a quick result—this could be a purchase, subscription, registration, or callback request. Thus, landing pages are typically free from excess information or navigation elements, presenting content sequentially to guide the user toward a specific action.",
+            ],
+            fullAnswerContent: [
+                {
+                    layout: 1,
+                    title: "Advantages of a landing page",
+                    data: [
+                        {
+                            title: "Focus on results",
+                            text: [
+                                "A landing page has a single goal, so the user's attention is focused on the main thing, which reduces the likelihood of distraction and increases the chance of attracting a client/subscriber/participant.",
+                            ],
+                        },
+                        {
+                            title: "Simplicity and speed of creation",
+                            text: [
+                                "Developing a landing page often requires less time and resources than building a multipage website. Its streamlined structure allows for quicker setup and launch.",
+                            ],
+                        },
+                        {
+                            title: "Adaptability and flexibility",
+                            text: [
+                                "Landing pages can be easily optimized for mobile devices, changed or tested with different design and content options to find the most effective version.",
+                            ],
+                        },
+                        {
+                            title: "Increase conversion rates",
+                            text: [
+                                "Due to the clear focus on a specific action, landing pages help to achieve a higher conversion rate compared to regular websites where users can be distracted by additional content.",
+                            ],
+                        },
+                        {
+                            title: "Easy analytics and optimization",
+                            text: [
+                                "It is easier to analyze user behavior on a landing page (for example, using heatmaps, click zones, time on a page), which allows you to quickly make changes to improve results.",
+                            ],
+                        },
+                    ],
+                },
+                {
+                    layout: 4,
+                    title: "Who can benefit from a landing page?",
+                    data: [
+                        {
+                            title: "The landing page will be useful for entrepreneurs who want to launch their products quickly and companies that want to increase their visibility and customer trust. It is ideal for startups, small and medium-sized businesses, and anyone looking for an effective solution to present a product or service without high development costs. Read more about the benefits below.",
+                            type: "list",
+                            decorate: 1,
+                            text: [
+                                {
+                                    title: "Freelancers and specialists",
+                                    text: [
+                                        "A landing page can be an excellent self-presentation tool for specialists like coaches, recruiters, lawyers, mentors, and consultants to promote their solo business and build a personal brand.",
+                                    ],
+                                },
+                                {
+                                    title: "Startups",
+                                    text: [
+                                        "For startups, it is important to draw attention to their idea as soon as possible and gather a user base. A landing page helps showcase a product, gather pre-orders, or invite users to beta testing.",
+                                    ],
+                                },
+                                {
+                                    title: "Small and medium-sized businesses",
+                                    text: [
+                                        "A landing page is an ideal solution for businesses that want to quickly test a market or a new product. It allows companies to enter the market, test demand, collect contacts, and conduct a promotion with minimal costs.",
+                                    ],
+                                },
+                                {
+                                    title: "Event organizers",
+                                    text: [
+                                        "Perfect for promoting events like conferences, seminars, webinars, concerts, exhibitions, or workshops. It can provide key event details, speaker info, program highlights, and a registration form.",
+                                    ],
+                                },
+                                {
+                                    title: "E-commerce sites",
+                                    text: [
+                                        "For promotions or sales, e-commerce sites often create landing pages dedicated to specific products or seasonal offers. This helps to focus attention on certain products and encourage customers to make a quick purchase.",
+                                    ],
+                                },
+                            ],
+                        },
+                    ],
+                },
+                {
+                    layout: 4,
+                    title: "Timelines and costs",
+                    data: [
+                        {
+                            title: "The timelines and costs for creating a landing page can vary depending on the project’s complexity, client requirements, and specific design and functionality needs. On average, a standard landing page usually takes between 2 to 6 weeks to complete. \nThe development cost for a landing page typically starts at $800 and can increase based on the content (template-based/custom/unique design, basic information, minimum functionality, basic interactivity, adaptability, advanced animation, CRM integration, and other systems). \nThe final price and timeline are determined only after discussing all of the client’s requirements and preferences. In general, the cost and timing are influenced by the following factors:",
+                            type: "list",
+                            decorate: 2,
+                            text: [
+                                {
+                                    title: "Design complexity ",
+                                    text: [
+                                        "If a unique, custom-designed look is required, the price will be higher than for a simple template-based solution.",
+                                    ],
+                                },
+                                {
+                                    title: "Functionality",
+                                    text: [
+                                        "Integrations with CRM, animations, feedback forms, mobile responsiveness, and other added elements increase the overall cost.",
+                                    ],
+                                },
+                                {
+                                    title: "Urgency",
+                                    text: [
+                                        "If the project needs to be completed within a tight deadline, this may also impact the price.",
+                                    ],
+                                },
+                            ],
+                        },
+                    ],
+                },
+            ],
+            fullAnswerBottomText: [
+                "A landing page is a powerful tool for businesses, enabling them to quickly and effectively achieve specific goals, whether it’s sales, contact collection, or event registration. Its advantages lie in its focus, simplicity, and high user engagement, making it an essential asset for many types of businesses and initiatives.",
+            ],
+        },
+    },
+
+    {
+        data: {
+            image: "https://res.cloudinary.com/dvfu5vhjx/image/upload/v1742561978/answer9-1_mdwwbr.jpg",
+            likes: null,
+            slug: "redesign-what-is-it-and-why-is-it-necessary",
+            answerOrderImage:
+                "https://res.cloudinary.com/dvfu5vhjx/image/upload/v1742561984/answer9-2_coj57s.jpg",
+        },
+        ua: {
+            questionText: "Редизайн: що це і навіщо він потрібен?",
+            imageAltText: "Редизайн: Що це і навіщо він потрібен?",
+            shortAnswerText: [
+                "Редизайн — це процес оновлення зовнішнього вигляду, структури або функціональних елементів вебсайту, мобільного додатку чи іншого цифрового продукту. Основною метою редизайну є покращення зручності використання (UX) і сучасного вигляду  (UI), та відповідність актуальним вимогам ринку чи бізнесу.",
+            ],
+            fullAnswerTopText: [
+                "Редизайн — це не просто зміна вигляду сайту чи продукту, це справжнє перезавантаження, що додає свіжості, ефективності та зручності. Уявіть, що ваш сайт — це вітрина вашого бізнесу. Чи хочете ви, щоб вона виглядала застарілою або заплутаною? Ось де на сцену виходить редизайн!",
+            ],
+            fullAnswerContent: [
+                {
+                    layout: 1,
+                    title: "Види редизайну",
+                    data: [
+                        {
+                            title: "Графічний редизайн",
+                            text: [
+                                "Зміна зовнішнього вигляду продукту, нові кольори, шрифти, графіка — усе для того, щоб виглядати стильно та сучасно.",
+                            ],
+                        },
+                        {
+                            title: "Редизайн сайту",
+                            text: [
+                                "Швидкий, зручний і більш інтуїтивний інтерфейс для користувачів. ",
+                            ],
+                        },
+                        {
+                            title: "Структурний редизайн",
+                            text: [
+                                "Зміна структури, забезпечення логічної навігації та зрозумілий розподіл інформації. Може включати зміну категорій, додавання або видалення розділів.",
+                            ],
+                        },
+                        {
+                            title: "Контентний редизайн",
+                            text: [
+                                "Це оновлення контенту, такого як тексти, зображення та відео, для забезпечення актуальності та відповідності потребам аудиторії.",
+                            ],
+                        },
+                    ],
+                },
+
+                {
+                    layout: 4,
+                    title: "Коли варто подумати про редизайн?",
+                    data: [
+                        {
+                            type: "list",
+                            decorate: 1,
+                            text: [
+                                {
+                                    text: [
+                                        "Ребрендинг - повна зміна фірмового стилю компанії, сайт повинен відображати ці зміни.",
+                                    ],
+                                },
+                                {
+                                    text: [
+                                        "Застарілий дизайн та інтерфейс користувача, який не сприяє досягненню бізнес-цілей, таких як конверсія або утримання користувачів.",
+                                    ],
+                                },
+                                {
+                                    text: [
+                                        "Новий рівень бізнесу, розширення послуг? Ваш сайт має це відображати.",
+                                    ],
+                                },
+                                {
+                                    text: [
+                                        "Технологічні зміни - це необхідність адаптації до нових технологій або платформ, наприклад, оптимізація під мобільні пристрої.",
+                                    ],
+                                },
+                            ],
+                        },
+                    ],
+                },
+                {
+                    layout: 4,
+                    title: "Які переваги дає редизайн?",
+                    data: [
+                        {
+                            title: "",
+                            type: "list",
+                            decorate: 2,
+                            text: [
+                                {
+                                    text: [
+                                        "Сучасний, привабливий вигляд і зручність використання підвищують лояльність клієнтів.",
+                                    ],
+                                },
+                                {
+                                    text: [
+                                        "Вищі показники ефективності. Сайт перетворюється на потужний інструмент для продажів і залучення клієнтів.",
+                                    ],
+                                },
+                                {
+                                    text: [
+                                        "Покращення SEO. Новий, технічно вдосконалений сайт краще індексується пошуковими системами.",
+                                    ],
+                                },
+                            ],
+                        },
+                    ],
+                },
+            ],
+            fullAnswerBottomText: [
+                'Запитайте себе: чи отримуєте ви бажані результати від свого сайту? Якщо відповідь "ні", можливо, настав час оновити вітрину вашого бізнесу.',
+                "Редизайн — це не витрата, а інвестиція в майбутнє. Дозвольте вашому бізнесу виглядати так, як він заслуговує!",
+            ],
+        },
+        pl: {
+            questionText: "Redesign: co to i dlaczego jest potrzebny?",
+            imageAltText: "Redesign: co to i dlaczego jest potrzebny?",
+            shortAnswerText: [
+                "Redesign to kompleksowy proces doskonalenia estetyki, organizacji i funkcjonalności witryny internetowej, aplikacji mobilnej lub innego produktu cyfrowego. Głównym celem redesignu jest poprawa użyteczności (UX), unowocześnienie wyglądu (UI) oraz dostosowanie do aktualnych wymagań rynku lub biznesu.",
+            ],
+            fullAnswerTopText: [
+                "Redesign to nie tylko zmiana wyglądu strony czy produktu—jest to prawdziwe odświeżenie, które wnosi świeżość, efektywność i wygodę użytkowania. Wyobraź sobie, że Twoja strona internetowa to witryna Twojego biznesu. Czy chcesz, aby wyglądała staromodnie lub była nieintuicyjna? Właśnie tu pojawia się redesign!",
+            ],
+            fullAnswerContent: [
+                {
+                    layout: 1,
+                    title: "Rodzaje  redesignu",
+                    data: [
+                        {
+                            title: "Graficzny redesign",
+                            text: [
+                                " Zmiana wyglądu produktu, nowe kolory, czcionki, grafiki—wszystko po to, aby produkt wyglądał stylowo i nowocześnie.",
+                            ],
+                        },
+                        {
+                            title: "Redesign strony internetowej",
+                            text: [
+                                "Tworzy szybszy, wygodniejszy i bardziej intuicyjny interfejs dla użytkowników.",
+                            ],
+                        },
+                        {
+                            title: "Strukturalny redesign",
+                            text: [
+                                "Zmiana struktury, zapewnienie logicznej nawigacji i przejrzystego podziału informacji. Może obejmować zmiany kategorii, dodanie lub usunięcie sekcji.",
+                            ],
+                        },
+                        {
+                            title: "Redesign treści",
+                            text: [
+                                "Aktualizacja treści, takich jak teksty, zdjęcia i filmy, aby były zgodne z potrzebami odbiorców i aktualne.",
+                            ],
+                        },
+                    ],
+                },
+
+                {
+                    layout: 4,
+                    title: "Kiedy warto pomyśleć o redesignie?",
+                    data: [
+                        {
+                            type: "list",
+                            decorate: 1,
+                            text: [
+                                {
+                                    text: [
+                                        "Rebranding. Pełna zmiana stylu firmy wymaga, aby strona internetowa odzwierciedlała te zmiany.",
+                                    ],
+                                },
+                                {
+                                    text: [
+                                        "Przestarzały design i interfejs, który nie pomaga osiągać celów biznesowych, takich jak konwersja lub utrzymanie użytkowników.",
+                                    ],
+                                },
+                                {
+                                    text: [
+                                        "Nowy poziom biznesu, rozszerzenie usług? Twoja strona powinna to pokazać.",
+                                    ],
+                                },
+                                {
+                                    text: [
+                                        "Zmiany technologiczne. Dostosowanie do nowych technologii lub platform, np. optymalizacja pod urządzenia mobilne.",
+                                    ],
+                                },
+                            ],
+                        },
+                    ],
+                },
+                {
+                    layout: 4,
+                    title: "Jakie korzyści daje redesign?",
+                    data: [
+                        {
+                            title: "",
+                            type: "list",
+                            decorate: 2,
+                            text: [
+                                {
+                                    text: [
+                                        "Nowoczesny, atrakcyjny wygląd i lepsza użyteczność zwiększają lojalność klientów.",
+                                    ],
+                                },
+                                {
+                                    text: [
+                                        "Wyższa efektywność. Strona staje się potężnym narzędziem sprzedaży i pozyskiwania klientów.",
+                                    ],
+                                },
+                                {
+                                    text: [
+                                        "Poprawa SEO. Nowa, technicznie zaawansowana strona lepiej indeksuje się w wyszukiwarkach.",
+                                    ],
+                                },
+                            ],
+                        },
+                    ],
+                },
+            ],
+            fullAnswerBottomText: [
+                "Zadaj sobie pytanie: Czy osiągasz zamierzone rezultaty dzięki swojej stronie? Jeśli odpowiedź brzmi „nie”, być może nadszedł czas na odświeżenie witryny Twojego biznesu.",
+                "Redesign to nie wydatek, lecz inwestycja w przyszłość. Pozwól, aby Twój biznes wyglądał tak, jak na to zasługuje!",
+            ],
+        },
+        en: {
+            questionText: "Redesign: what is it, and why is it necessary?",
+            imageAltText: "Redesign: what is it, and why is it necessary?",
+            shortAnswerText: [
+                "Redesign is the process of updating the appearance, structure, or functional elements of a website, mobile application, or other digital product. The main goal of redesigning is to improve usability (UX), modernize the look (UI), and meet current market or business demands.",
+            ],
+            fullAnswerTopText: [
+                "Redesign is not just about changing the look of a site or product—it’s a complete refresh that brings new energy, efficiency, and user-friendliness. Imagine your website as the storefront of your business. Do you want it to look outdated or confusing? That’s where redesign comes in!",
+            ],
+            fullAnswerContent: [
+                {
+                    layout: 1,
+                    title: "Types of redesign",
+                    data: [
+                        {
+                            title: "Graphic Redesign",
+                            text: [
+                                "Updates to the product’s appearance, including new colors, fonts, and graphics, to look stylish and modern.",
+                            ],
+                        },
+                        {
+                            title: "Website Redesign",
+                            text: [
+                                "Enhances the interface to be faster, more user-friendly, and intuitive.",
+                            ],
+                        },
+                        {
+                            title: "Structural Redesign",
+                            text: [
+                                "Focuses on logical navigation and clear information organization, which may involve restructuring categories, adding, or removing sections.",
+                            ],
+                        },
+                        {
+                            title: "Content Redesign",
+                            text: [
+                                "Updates content such as text, images, and videos to meet the audience's needs and maintain relevance.",
+                            ],
+                        },
+                    ],
+                },
+
+                {
+                    layout: 4,
+                    title: "When should you consider a redesign?",
+                    data: [
+                        {
+                            type: "list",
+                            decorate: 1,
+                            text: [
+                                {
+                                    text: [
+                                        "Rebranding. When your company undergoes a brand style overhaul, your website must reflect those changes.",
+                                    ],
+                                },
+                                {
+                                    text: [
+                                        "Outdated design and user interface that fails to meet business goals like conversions or user retention.",
+                                    ],
+                                },
+                                {
+                                    text: [
+                                        "Business growth. If your business expands or introduces new services, your website should showcase these changes.",
+                                    ],
+                                },
+                                {
+                                    text: [
+                                        "Technological advancements. Adapting to new technologies or platforms, such as optimizing for mobile devices.",
+                                    ],
+                                },
+                            ],
+                        },
+                    ],
+                },
+                {
+                    layout: 4,
+                    title: "What are the benefits of a redesign?",
+                    data: [
+                        {
+                            title: "",
+                            type: "list",
+                            decorate: 2,
+                            text: [
+                                {
+                                    text: [
+                                        "A modern, attractive look and improved usability boost customer loyalty.",
+                                    ],
+                                },
+                                {
+                                    text: [
+                                        "Better performance. The site becomes a powerful tool for sales and client acquisition.",
+                                    ],
+                                },
+                                {
+                                    text: [
+                                        "SEO improvements. A technically advanced site is better indexed by search engines.",
+                                    ],
+                                },
+                            ],
+                        },
+                    ],
+                },
+            ],
+            fullAnswerBottomText: [
+                'Ask yourself: Are you getting the desired results from your website? If the answer is "no," it might be time to refresh your business storefront.',
+                "Redesign is not an expense - it’s an investment in the future. Let your business shine as it deserves to!",
+            ],
+        },
+    },
+    {
+        data: {
+            slug: "how-to-bring-content-to-life-and-make-products-more-attractive",
+            image: "https://res.cloudinary.com/dvfu5vhjx/image/upload/v1742561987/answer10-1_fupfgt.jpg",
+            likes: null,
+            answerOrderImage:
+                "https://res.cloudinary.com/dvfu5vhjx/image/upload/v1742561989/answer10-2_lf2qah.jpg",
+        },
+        ua: {
+            questionText:
+                "Як оживити контент та зробити продукт більш привабливим?",
+            shortAnswerText: [
+                "Анімація — це технологія створення ілюзії руху за допомогою зміни статичних кадрів. Вона широко використовується в дизайні сайтів, мобільних додатків, рекламі, відеопрезентаціях та навіть у навчальних матеріалах.",
+            ],
+            imageAltText:
+                "Як оживити контент та зробити продукт більш привабливим?",
+            fullAnswerTopText: [
+                "У сучасному цифровому середовищі рухомі елементи допомагають краще донести інформацію, підсилюють емоційний ефект та покращують загальне сприйняття бренду. Технології розвиваються, і анімація стає ще більш реалістичною та інтерактивною. Штучний інтелект та машинне навчання допомагають автоматизувати процеси створення анімації, а віртуальна та доповнена реальність (VR/AR) відкривають нові можливості для взаємодії з користувачами.",
+            ],
+            fullAnswerContent: [
+                {
+                    layout: 3,
+                    title: "Види анімації",
+                    data: [
+                        {
+                            title: "2D-анімація",
+                            text: [
+                                "Традиційний вид анімації, у якому зображення рухаються у двовимірному просторі. Використовується в мультфільмах, рекламних роликах та освітніх відео.",
+                            ],
+                        },
+                        {
+                            title: "3D-анімація",
+                            text: [
+                                "Більш реалістичний формат, який додає глибину та об’єм. Використовується у відеоіграх, кіноіндустрії, архітектурних візуалізаціях.",
+                            ],
+                        },
+                        {
+                            title: "Motion Graphics",
+                            text: [
+                                "Анімація графічних елементів, що часто використовується у презентаціях, рекламі та пояснювальних відео.",
+                            ],
+                        },
+                        {
+                            title: "Stop-motion",
+                            text: [
+                                "Техніка, коли об'єкти фізично переміщуються та фотографуються покадрово, створюючи ефект плавного руху.",
+                            ],
+                        },
+                        {
+                            title: "CSS та SVG-анімація",
+                            text: [
+                                "Застосовується у вебдизайні для створення плавних переходів, мікроанімацій та інтерактивних ефектів.",
+                            ],
+                        },
+                    ],
+                },
+                {
+                    layout: 6,
+                    title: "Чому анімація важлива?",
+                    data: [
+                        {
+                            title: "Привертає увагу",
+                            text: [
+                                "Люди краще реагують на рух, що робить контент більш помітним.",
+                            ],
+                        },
+                        {
+                            title: "Збільшує взаємодію",
+                            text: [
+                                "Анімовані елементи заохочують користувачів натискати на кнопки та залишатися довше на сторінці.",
+                            ],
+                        },
+                        {
+                            title: "Пояснює складну інформацію",
+                            text: [
+                                "Ідеально підходить для інфографіки, презентацій та навчальних матеріалів.",
+                            ],
+                        },
+                        {
+                            title: "Покращує візуальне сприйняття",
+                            text: ["Робить дизайн приємним та сучасним."],
+                        },
+                        {
+                            title: "Підвищує конверсію",
+                            text: [
+                                "Сайти з анімованими елементами можуть отримувати більше кліків та продажів.",
+                            ],
+                        },
+                    ],
+                },
+            ],
+            fullAnswerBottomText: [
+                "Анімація — це не просто «гарна картинка», вона має практичні переваги. У майбутньому анімація не просто стане частиною дизайну – вона визначатиме, як ми сприймаємо цифровий контент. Тож, якщо ви ще не використовуєте її у своїх проєктах, саме час це зробити! Напишіть нам, і ми допоможемо оживити ваш сайт!",
+            ],
+        },
+        pl: {
+            questionText:
+                "Jak ożywić treści i uczynić je bardziej atrakcyjnymi?",
+            shortAnswerText: [
+                "Animacja to technologia tworzenia iluzji ruchu poprzez zmianę statycznych klatek. Jest szeroko stosowana w projektowaniu stron internetowych, aplikacjach mobilnych, reklamach, prezentacjach wideo, a nawet w materiałach edukacyjnych.",
+            ],
+            imageAltText:
+                "Jak ożywić treści i uczynić je bardziej atrakcyjnymi?",
+            fullAnswerTopText: [
+                "We współczesnym środowisku cyfrowym ruchome elementy pomagają lepiej przekazywać informacje, wzmacniają efekt emocjonalny i poprawiają ogólne postrzeganie marki. Technologia rozwija się, a animacja staje się coraz bardziej realistyczna i interaktywna. Sztuczna inteligencja i uczenie maszynowe automatyzują procesy tworzenia animacji, a rzeczywistość wirtualna i rozszerzona (VR/AR) otwierają nowe możliwości interakcji z użytkownikami.",
+            ],
+            fullAnswerContent: [
+                {
+                    layout: 3,
+                    title: "Rodzaje animacji",
+                    data: [
+                        {
+                            title: "Animacja 2D",
+                            text: [
+                                "Tradycyjna forma animacji, w której obrazy poruszają się w przestrzeni dwuwymiarowej. Jest wykorzystywana w kreskówkach, reklamach i filmach edukacyjnych.",
+                            ],
+                        },
+                        {
+                            title: "Animacja 3D",
+                            text: [
+                                "Bardziej realistyczny format, który dodaje głębi i objętości. Stosowana w grach wideo, przemyśle filmowym i wizualizacjach architektonicznych.",
+                            ],
+                        },
+                        {
+                            title: "Motion Graphics",
+                            text: [
+                                "Animacja elementów graficznych, często wykorzystywana w prezentacjach, reklamach i filmach wyjaśniających.",
+                            ],
+                        },
+                        {
+                            title: "Stop-motion",
+                            text: [
+                                "Technika, w której obiekty są fizycznie przemieszczane i fotografowane klatka po klatce, tworząc efekt płynnego ruchu.",
+                            ],
+                        },
+                        {
+                            title: "Animacja CSS i SVG",
+                            text: [
+                                "Stosowana w projektowaniu stron internetowych do tworzenia płynnych przejść, mikroanimacji i efektów interaktywnych.",
+                            ],
+                        },
+                    ],
+                },
+                {
+                    layout: 6,
+                    title: "Dlaczego animacja jest ważna?",
+                    data: [
+                        {
+                            title: "Przyciąga uwagę",
+                            text: [
+                                "Ludzie lepiej reagują na ruch, co sprawia, że treści są bardziej widoczne.",
+                            ],
+                        },
+                        {
+                            title: "Zwiększa zaangażowanie",
+                            text: [
+                                "Animowane elementy zachęcają użytkowników do interakcji i dłuższego pozostawania na stronie.",
+                            ],
+                        },
+                        {
+                            title: "Wyjaśnia skomplikowane informacje",
+                            text: [
+                                "Idealna do infografik, prezentacji i materiałów edukacyjnych.",
+                            ],
+                        },
+                        {
+                            title: "Poprawia odbiór wizualny",
+                            text: [
+                                "Sprawia, że projekt jest nowoczesny i estetyczny.",
+                            ],
+                        },
+                        {
+                            title: "Zwiększa konwersje",
+                            text: [
+                                "Strony z animacjami generują więcej kliknięć i sprzedaży.",
+                            ],
+                        },
+                    ],
+                },
+            ],
+            fullAnswerBottomText: [
+                "Animacja to nie tylko «ładny efekt wizualny» – ma ona praktyczne zalety. W przyszłości animacja nie tylko będzie częścią designu, ale także wpłynie na sposób, w jaki postrzegamy treści cyfrowe. Jeśli jeszcze jej nie używasz, to najwyższy czas to zmienić! Skontaktuj się z nami, a pomożemy ożywić Twoją stronę!",
+            ],
+        },
+        en: {
+            questionText:
+                "How to bring content to life and make products more attractive?",
+            shortAnswerText: [
+                "Animation is a technology that creates the illusion of movement by changing static frames. It is widely used in web design, mobile applications, advertising, video presentations, and even educational materials.",
+            ],
+            imageAltText:
+                "How to bring content to life and make products more attractive?",
+            fullAnswerTopText: [
+                "In the modern digital environment, animated elements help convey information more effectively, enhance emotional impact, and improve overall brand perception. As technology advances, animation is becoming more realistic and interactive. Artificial intelligence and machine learning are automating animation creation, while virtual and augmented reality (VR/AR) are opening up new possibilities for user interaction.",
+            ],
+            fullAnswerContent: [
+                {
+                    layout: 3,
+                    title: "Types of Animation",
+                    data: [
+                        {
+                            title: "2D Animation",
+                            text: [
+                                "A traditional form of animation where images move in a two-dimensional space. It is used in cartoons, advertisements, and educational videos.",
+                            ],
+                        },
+                        {
+                            title: "3D Animation",
+                            text: [
+                                "A more realistic format that adds depth and volume. Used in video games, the film industry, and architectural visualizations.",
+                            ],
+                        },
+                        {
+                            title: "Motion Graphics",
+                            text: [
+                                "The animation of graphic elements often used in presentations, advertisements, and explainer videos.",
+                            ],
+                        },
+                        {
+                            title: "Stop-Motion",
+                            text: [
+                                "A technique where objects are physically moved and photographed frame by frame to create a smooth motion effect.",
+                            ],
+                        },
+                        {
+                            title: "CSS & SVG Animation",
+                            text: [
+                                "Used in web design to create smooth transitions, micro-animations, and interactive effects.",
+                            ],
+                        },
+                    ],
+                },
+                {
+                    layout: 6,
+                    title: "Why Is Animation Important?",
+                    data: [
+                        {
+                            title: "Attracts attention",
+                            text: [
+                                "People respond better to movement, making content more noticeable.",
+                            ],
+                        },
+                        {
+                            title: "Increases engagement",
+                            text: [
+                                "Animated elements encourage users to click buttons and stay on the page longer.",
+                            ],
+                        },
+                        {
+                            title: "Explains complex information",
+                            text: [
+                                " Ideal for infographics, presentations, and educational materials.",
+                            ],
+                        },
+                        {
+                            title: "Enhances visual perception",
+                            text: [
+                                "Makes the design more modern and aesthetically pleasing.",
+                            ],
+                        },
+                        {
+                            title: "Boosts conversions",
+                            text: [
+                                "Websites with animated elements tend to receive more clicks and sales.",
+                            ],
+                        },
+                    ],
+                },
+            ],
+            fullAnswerBottomText: [
+                "Animation is not just a «beautiful picture» — it has practical benefits. In the future, animation will not only be part of design but will also shape how we perceive digital content. If you're not using animation in your projects yet, now is the time to start! ",
+            ],
+        },
+    },
+    {
+        data: {
+            slug: "how-to-speed-up-your-website-and-improve-user-experience",
+            image: "https://res.cloudinary.com/dvfu5vhjx/image/upload/v1742561992/answer11-1_ls6kij.jpg",
+            likes: null,
+            answerOrderImage:
+                "https://res.cloudinary.com/dvfu5vhjx/image/upload/v1742561994/answer11-2_cwjcdu.jpg",
+        },
+        ua: {
+            questionText: "Як прискорити сайт і покращити UX?",
+            shortAnswerText: [
+                "Перформанс – це швидкість і ефективність роботи вебсайту або додатка. Чим швидше завантажується сторінка, тим зручніше користувачам її переглядати та взаємодіяти з нею. \nДослідження показують, що 53% мобільних користувачів залишають сайт, якщо він завантажується довше ніж 3 секунди. Поганий перформанс негативно впливає на SEO, зменшує кількість конверсій та підвищує рівень відмов.",
+            ],
+            imageAltText: "Як прискорити сайт і покращити UX?",
+            fullAnswerTopText: [
+                "Користувачі очікують, що сайт буде не лише швидким, а й стабільним, без затримок у відображенні контенту чи зависань під час взаємодії. \nНавіть незначні затримки можуть викликати роздратування і змусити користувача перейти до конкурентів. Саме тому оптимізація продуктивності є не лише технічним, а й бізнес-завданням, яке впливає на утримання відвідувачів та прибутковість проєкту.",
+            ],
+            fullAnswerContent: [
+                {
+                    layout: 2,
+                    title: "Що впливає на продуктивність сайту?",
+                    data: [
+                        {
+                            title: "Великі файли",
+                            text: [
+                                {
+                                    text: [
+                                        "Важкі зображення та відео уповільнюють завантаження сторінки.",
+                                    ],
+                                },
+                            ],
+                        },
+                        {
+                            title: "Якість коду",
+                            text: [
+                                {
+                                    text: [
+                                        "Застарілий або перевантажений код та непотрібні плагіни можуть гальмувати роботу сайту.",
+                                    ],
+                                },
+                            ],
+                        },
+                        {
+                            title: "Кількість HTTP-запитів",
+                            text: [
+                                {
+                                    text: [
+                                        "Що більше запитів до сервера, то довше триває завантаження сторінки.",
+                                    ],
+                                },
+                            ],
+                        },
+                        {
+                            title: "Відсутність кешування",
+                            text: [
+                                {
+                                    text: [
+                                        "Якщо браузер не зберігає тимчасові файли, сайт щоразу завантажується «з нуля».",
+                                    ],
+                                },
+                            ],
+                        },
+                        {
+                            title: "Потужність сервера",
+                            text: [
+                                {
+                                    text: [
+                                        "Якщо сервер слабкий і знаходиться дуже далеко від користувача, завантаження буде повільним.",
+                                    ],
+                                },
+                            ],
+                        },
+                    ],
+                },
+                {
+                    layout: 3,
+                    title: "Як покращити перформанс сайту?",
+                    data: [
+                        {
+                            title: "Оптимізація зображень",
+                            text: [
+                                "Використовуйте формати WebP, AVIF і зменшуйте розмір файлів без втрати якості.",
+                            ],
+                        },
+                        {
+                            title: "Регулярний перегляд коду",
+                            text: [
+                                "Покращуйте якість коду, видаляйте зайві рядки та усувайте помилки.",
+                            ],
+                        },
+                        {
+                            title: "Використання CDN",
+                            text: [
+                                "Мережа серверів, яка допомагає швидше доставляти контент у різних країнах.",
+                            ],
+                        },
+                        {
+                            title: "Автоматичне Кешування",
+                            text: [
+                                "Збереження файлів у браузері користувача допомагає прискорити повторне завантаження сторінки.",
+                            ],
+                        },
+                        {
+                            title: "Мінімізація HTTP-запитів",
+                            text: [
+                                "Об’єднання зображень, файлів, скриптів та таблиць стилів зменшує навантаження на сервер.",
+                            ],
+                        },
+                        {
+                            title: "Лінива загрузка (Lazy Loading)",
+                            text: [
+                                "Дозволяє завантажувати зображення та відео тільки тоді, коли вони потрапляють у зону перегляду.",
+                            ],
+                        },
+                    ],
+                },
+                {
+                    layout: 7,
+                    title: "Чому варто дбати про швидкість сайту?",
+                    data: [
+                        {
+                            title: "Вищі позиції в Google ",
+                            text: [
+                                "Швидкі сайти отримують перевагу в пошуковій системі.",
+                            ],
+                        },
+                        {
+                            title: "Збільшення конверсій",
+                            text: [
+                                " Швидке завантаження покращує показники продажів та кліків.",
+                            ],
+                        },
+                        {
+                            title: "Кращий користувацький досвід",
+                            text: [
+                                "Відвідувачі не люблять чекати, швидкий сайт = задоволений користувач.",
+                            ],
+                        },
+                    ],
+                },
+            ],
+            fullAnswerBottomText: [
+                "Тенденції показують, що користувачі очікують миттєвої реакції на свій запит, і компанії, які інвестують у швидкість своїх сайтів, отримують конкурентну перевагу.",
+            ],
+        },
+        pl: {
+            questionText:
+                "Jak przyspieszyć stronę i poprawić doświadczenie użytkownika?",
+            shortAnswerText: [
+                "Performance to szybkość i efektywność działania strony internetowej lub aplikacji. Im szybciej ładuje się strona, tym wygodniej użytkownicy mogą ją przeglądać i z nią wchodzić w interakcję. \nBadania pokazują, że 53% użytkowników mobilnych opuszcza stronę, jeśli ładuje się ona dłużej niż 3 sekundy. Słaba wydajność negatywnie wpływa na SEO, zmniejsza liczbę konwersji i zwiększa wskaźnik odrzuceń.",
+            ],
+            imageAltText:
+                "Jak przyspieszyć stronę i poprawić doświadczenie użytkownika?",
+            fullAnswerTopText: [
+                "Użytkownicy oczekują, że witryna będzie nie tylko szybka, ale także stabilna, bez opóźnień w wyświetlaniu treści czy zawieszeń podczas interakcji. \nNawet drobne opóźnienia mogą wywołać irytację i zmusić użytkownika do przejścia na produkty konkurencji. Dlatego optymalizacja wydajności jest zadaniem nie tylko technicznym, ale także biznesowym, które wpływa na utrzymanie odwiedzających i rentowność projektu.",
+            ],
+            fullAnswerContent: [
+                {
+                    layout: 2,
+                    title: "Co wpływa na wydajność strony?",
+                    data: [
+                        {
+                            title: "Duże pliki",
+                            text: [
+                                {
+                                    text: [
+                                        "Ciężkie obrazy i filmy spowalniają ładowanie strony.",
+                                    ],
+                                },
+                            ],
+                        },
+                        {
+                            title: "Jakość kodu",
+                            text: [
+                                {
+                                    text: [
+                                        "Przestarzały lub przeładowany kod oraz niepotrzebne wtyczki mogą powodować spowolnienia.",
+                                    ],
+                                },
+                            ],
+                        },
+                        {
+                            title: "Liczba żądań HTTP",
+                            text: [
+                                {
+                                    text: [
+                                        "Im więcej zapytań do serwera, tym dłużej trwa ładowanie strony.",
+                                    ],
+                                },
+                            ],
+                        },
+                        {
+                            title: "Brak cache’owania",
+                            text: [
+                                {
+                                    text: [
+                                        "Jeśli przeglądarka nie zapisuje plików tymczasowych, strona za każdym razem ładuje się „od zera”.",
+                                    ],
+                                },
+                            ],
+                        },
+                        {
+                            title: "Moc serwera",
+                            text: [
+                                {
+                                    text: [
+                                        "Słaby serwer lub duża odległość od użytkownika powodują wolniejsze ładowanie strony.",
+                                    ],
+                                },
+                            ],
+                        },
+                    ],
+                },
+                {
+                    layout: 3,
+                    title: "Jak poprawić performance strony?",
+                    data: [
+                        {
+                            title: "Optymalizacja obrazów",
+                            text: [
+                                "Używaj formatów WebP, AVIF i zmniejszaj rozmiar plików bez utraty jakości.",
+                            ],
+                        },
+                        {
+                            title: "Regularny przegląd kodu",
+                            text: [
+                                "Poprawiaj jakość kodu, usuwaj zbędne linie i naprawiaj błędy.",
+                            ],
+                        },
+                        {
+                            title: "Wykorzystanie CDN",
+                            text: [
+                                "Sieć serwerów, która przyspiesza dostarczanie treści w różnych regionach.",
+                            ],
+                        },
+                        {
+                            title: "Automatyczne cache’owanie",
+                            text: [
+                                "Przechowywanie plików w przeglądarce użytkownika przyspiesza ponowne ładowanie strony.",
+                            ],
+                        },
+                        {
+                            title: "Minimalizacja żądań HTTP",
+                            text: [
+                                "Łączenie obrazów, plików, skryptów i arkuszy stylów zmniejsza obciążenie serwera.",
+                            ],
+                        },
+                        {
+                            title: "Leniwe ładowanie (Lazy Loading)",
+                            text: [
+                                "Obrazy i filmy ładują się dopiero wtedy, gdy użytkownik przewija stronę do ich sekcji.",
+                            ],
+                        },
+                    ],
+                },
+                {
+                    layout: 7,
+                    title: "Dlaczego warto zadbać o szybkość strony?",
+                    data: [
+                        {
+                            title: "Wyższe pozycje w Google",
+                            text: [
+                                "Szybkie strony mają przewagę w wynikach wyszukiwania.",
+                            ],
+                        },
+                        {
+                            title: "Większa liczba konwersji",
+                            text: [
+                                " Szybsze ładowanie poprawia wskaźniki sprzedaży i kliknięć.",
+                            ],
+                        },
+                        {
+                            title: "Lepsze doświadczenie użytkownika",
+                            text: [
+                                "Użytkownicy nie lubią czekać – szybka strona = zadowolony odwiedzający.",
+                            ],
+                        },
+                    ],
+                },
+            ],
+            fullAnswerBottomText: [
+                "Trendy pokazują, że użytkownicy oczekują natychmiastowej reakcji na swoje zapytania. Firmy, które inwestują w szybkość swoich stron, zdobywają przewagę konkurencyjną.",
+            ],
+        },
+        en: {
+            questionText:
+                "How to speed up your website and improve user experience?",
+            shortAnswerText: [
+                "Performance refers to the speed and efficiency of a website or application. The faster a page loads, the easier it is for users to browse and interact with it. \nStudies show that 53% of mobile users leave a site if it takes longer than 3 seconds to load. Poor performance negatively affects SEO, reduces conversions, and increases bounce rates.",
+            ],
+            imageAltText:
+                "How to speed up your website and improve user experience?",
+            fullAnswerTopText: [
+                "Users expect a website to be not only fast, but also stable, without delays in displaying content or freezing during interaction. Even minor delays can cause irritation and force a user to switch to competitors. That is why optimizing performance is not only a technical task, but also a business task that affects visitor retention and project profitability.",
+            ],
+            fullAnswerContent: [
+                {
+                    layout: 2,
+                    title: "What affects website performance?",
+                    data: [
+                        {
+                            title: "Large files",
+                            text: [
+                                {
+                                    text: [
+                                        "Heavy images and videos slow down page loading.",
+                                    ],
+                                },
+                            ],
+                        },
+                        {
+                            title: "Code quality",
+                            text: [
+                                {
+                                    text: [
+                                        "Outdated or overloaded code and unnecessary plugins can slow down the website.",
+                                    ],
+                                },
+                            ],
+                        },
+                        {
+                            title: "Number of HTTP requests",
+                            text: [
+                                {
+                                    text: [
+                                        "More server requests mean longer page loading times.",
+                                    ],
+                                },
+                            ],
+                        },
+                        {
+                            title: "Lack of caching",
+                            text: [
+                                {
+                                    text: [
+                                        " If the browser doesn't save temporary files, the website loads „from scratch” every time.",
+                                    ],
+                                },
+                            ],
+                        },
+                        {
+                            title: "Server power",
+                            text: [
+                                {
+                                    text: [
+                                        "If the server is weak or far from the user, loading will be slow.",
+                                    ],
+                                },
+                            ],
+                        },
+                    ],
+                },
+                {
+                    layout: 3,
+                    title: "How to improve website performance?",
+                    data: [
+                        {
+                            title: "Optimize images",
+                            text: [
+                                "Use WebP and AVIF formats and reduce file sizes without losing quality.",
+                            ],
+                        },
+                        {
+                            title: "Regular code review",
+                            text: [
+                                "Improve code quality, remove unnecessary lines, and fix errors.",
+                            ],
+                        },
+                        {
+                            title: "Use a CDN",
+                            text: [
+                                "A content delivery network helps deliver content faster worldwide.",
+                            ],
+                        },
+                        {
+                            title: "Enable caching",
+                            text: [
+                                "Storing files in the user's browser speeds up repeat visits.",
+                            ],
+                        },
+                        {
+                            title: "Minimize HTTP requests",
+                            text: [
+                                "Combining images, files, scripts, and stylesheets reduces server load.",
+                            ],
+                        },
+                        {
+                            title: "Lazy loading",
+                            text: [
+                                "Loads images and videos only when they appear in the viewport.",
+                            ],
+                        },
+                    ],
+                },
+                {
+                    layout: 7,
+                    title: "Why does website speed matter?",
+                    data: [
+                        {
+                            title: "Higher Google rankings",
+                            text: [
+                                "Fast websites get a search engine advantage.",
+                            ],
+                        },
+                        {
+                            title: "Increased conversions",
+                            text: [
+                                " Faster loading improves sales and click-through rates.",
+                            ],
+                        },
+                        {
+                            title: "Better user experience",
+                            text: [
+                                "Visitors dislike waiting — a fast website = happy users.",
+                            ],
+                        },
+                    ],
+                },
+            ],
+            fullAnswerBottomText: [
+                "Trends show that users expect instant responses, and companies that invest in website speed gain a competitive advantage.",
+            ],
+        },
+    },
+    {
+        data: {
+            slug: "can-i-update-the-content-on-my-website-independently",
+            image: "https://res.cloudinary.com/dvfu5vhjx/image/upload/v1743185509/answer12-1_vyhybz.jpg",
+            likes: null,
+            answerOrderImage:
+                "https://res.cloudinary.com/dvfu5vhjx/image/upload/v1743185511/answer12-2_m4sasb.jpg",
+        },
+        ua: {
+            imageAltText: "Чи можу я оновлювати контент на сайті самостійно?",
+            questionText: "Чи можу я оновлювати контент на сайті самостійно?",
+            shortAnswerText: [
+                "Це залежить від формату сайту, який ви оберете та наявності адміністративної панелі для управління контентом. Якщо вам потрібен лендінг або сайт-візитка, то немає необхідності створювати дорогий і витратний функціонал адміністрування сайту.",
+            ],
+            fullAnswerTopText: [
+                "Вам буде простіше і дешевше за необхідності найняти розробника погодинно, який і внесе вам зміни швидко, без додаткових зусиль та нервів. Cамостійне керування оновленнями вашого продукту, чи то лендінг, сайт-візитка або багатосторінковий сайт має свої переваги та недоліки.",
+            ],
+            fullAnswerContent: [
+                {
+                    layout: 4,
+                    title: "Переваги самостійного оновлення контенту",
+
+                    data: [
+                        {
+                            title: "Оновлюючи контент вашого продукту самостійно ви отримуєте такі переваги:",
+                            decorate: 2,
+                            text: [
+                                {
+                                    title: "Оперативність та гнучкість",
+                                    text: [
+                                        "Ви можете миттєво, або ж відносно швидко, залежно від складності контенту, оновлювати інформацію,  не чекаючи наявності розробників або узгодження графіків.",
+                                    ],
+                                },
+                                {
+                                    title: "Потенційна економія коштів",
+                                    text: [
+                                        "Відсутність необхідності оплачувати послуги розробників за кожне незначне оновлення може зекономити вам кошти, особливо при частих та невеликих змінах.",
+                                    ],
+                                },
+                                {
+                                    title: "Розвиток знань",
+                                    text: [
+                                        "Bи можете краще зрозуміти функціональність свого продукту та набути цінних навичок.",
+                                    ],
+                                },
+                            ],
+                        },
+                    ],
+                },
+                {
+                    layout: 4,
+                    title: "Недоліки самостійного оновлення контенту",
+                    data: [
+                        {
+                            decorate: 1,
+                            title: "Попри існуючі переваги ви можете зіштовхнутися й з ризиками, які коштуватимуть вам набагато дорожче. Найболючіші з ризиків:",
+                            text: [
+                                {
+                                    title: "Внесення помилок та порушення цілісності контенту",
+                                    text: [
+                                        "Без належної підготовки та розуміння принципів веб розробки ви можете випадково припуститися помилок, які призведуть до випадкового видалення важливого контенту або елементів сайту, відповідно, це може негативно вплинути на пошукову оптимізацію.",
+                                    ],
+                                },
+                                {
+                                    title: "Порушення дизайну та макету веб сайту",
+                                    text: [
+                                        "Без  досвіду у веб дизайні ви  можете ненавмисно змінити візуальне оформлення, структуру сторінок або елементи брендингу,  і ваш сайт виглядатиме непрофесійно та втратить консистентність.",
+                                    ],
+                                },
+                                {
+                                    title: "Проблеми з функціональністю",
+                                    text: [
+                                        "Неправильне встановлення оновлень може спричинити збої в роботі окремих функцій або погіршити загальну продуктивність сайту.",
+                                    ],
+                                },
+                                {
+                                    title: "Безпека",
+                                    text: [
+                                        "Є надзвичайно важливим аспектом, який часто недооцінюється при самостійному оновленні контенту. Ви можете не достатньо приділити уваги встановленню важливих оновлень безпеки що зробить ваш продукт вразливим до хакерських атак та шкідливого програмного забезпечення та призведе до витоку даних і завдасть шкоди репутації.",
+                                    ],
+                                },
+                                {
+                                    title: "Часові витрати",
+                                    text: [
+                                        "Як не дивно, але  самостійне оновлення контенту, навіть прості зміни, можуть зайняти більше часу, ніж очікувалося, особливо для користувачів без відповідних навичок. Витрачений час на навчання, внесення змін та усунення можливих помилок може відволікати від основних бізнес-завдань.",
+                                    ],
+                                },
+                            ],
+                        },
+                    ],
+                },
+                {
+                    layout: 5,
+
+                    data: [
+                        {
+                            text: [
+                                "Позбавити Вас від вирішення цих проблем допоможе команда наших розробників, яка готова надавати якісні та оперативні послуги з оновлення контенту.",
+                                "Наші розробники мають експертні знання та глибоке розуміння структури розроблених нами сайтів, що гарантує бездоганне та ефективне внесення будь-яких змін. Оскільки саме наша команда створювала ваш веб сайт, ми володіємо унікальним розумінням його архітектури та кожної деталі, що дозволяє нам здійснювати оновлення швидко та без ризику виникнення помилок.",
+                                "Ми гарантуємо високу якість та консистентність усіх оновлень, підтримуючи бездоганний вигляд та функціональність вашого веб сайту.  Ви можете бути впевнені, що ваш контент буде оновлено точно, акуратно та відповідно до вашого бренду.",
+                            ],
+                        },
+                    ],
+                },
+            ],
+            fullAnswerBottomText: [
+                "Ми цінуємо ваш час і пропонуємо оперативне та ефективне обслуговування. Наша команда готова швидко реагувати на ваші запити та виконувати оновлення контенту в найкоротші терміни.",
+            ],
+        },
+        en: {
+            imageAltText:
+                "Can I update the content on my website independently?",
+            questionText:
+                "Can I update the content on my website independently?",
+            shortAnswerText: [
+                "This depends on the type of website you choose and whether it has an administrative panel for site management. If you need a landing page or a business card website, there is no need to create an expensive and complex site administration system.",
+            ],
+            fullAnswerTopText: [
+                "In such cases, it may be simpler and more cost-effective to hire a developer on an hourly basis to make the necessary updates quickly and without effort or stress on your part. Managing your website updates independently — whether it's a landing page, a business card website, or a multi-page site — has its advantages and disadvantages.",
+            ],
+            fullAnswerContent: [
+                {
+                    layout: 4,
+                    title: "Advantages of updating content independently",
+
+                    data: [
+                        {
+                            title: "By updating your website content yourself, you get the following benefits:",
+                            decorate: 2,
+                            text: [
+                                {
+                                    title: "Speed and flexibility",
+                                    text: [
+                                        "You can update information instantly or relatively quickly, depending on the complexity of the content, without waiting for developers or coordinating schedules.",
+                                    ],
+                                },
+                                {
+                                    title: "Potential cost savings",
+                                    text: [
+                                        "Eliminating the need to pay developers for every minor update can lead to reduced expenses, especially when frequent or small changes are required.",
+                                    ],
+                                },
+                                {
+                                    title: "Knowledge development",
+                                    text: [
+                                        "You gain a better understanding of your website’s functionality and acquire valuable skills.",
+                                    ],
+                                },
+                            ],
+                        },
+                    ],
+                },
+                {
+                    layout: 4,
+                    title: "Disadvantages of updating content independently",
+                    data: [
+                        {
+                            decorate: 1,
+                            title: "However, despite these advantages, you may face risks that could end up costing you much more. The most critical risks include:",
+                            text: [
+                                {
+                                    title: "Errors and content integrity issues",
+                                    text: [
+                                        " Without proper preparation and understanding of web development principles, you might accidentally introduce errors, delete important content, or disrupt elements of the website. This can negatively impact search engine optimization (SEO).",
+                                    ],
+                                },
+                                {
+                                    title: "Design and layout disruptions",
+                                    text: [
+                                        "Without experience in web design, you could unintentionally alter the visual appearance, page structure, or branding elements, making the site look unprofessional or inconsistent.",
+                                    ],
+                                },
+                                {
+                                    title: "Functionality problems",
+                                    text: [
+                                        "Incorrectly implementing updates may cause certain features to break or degrade the overall performance of the site.",
+                                    ],
+                                },
+                                {
+                                    title: "Security risks",
+                                    text: [
+                                        "Security is a crucial aspect often underestimated in self-managed updates. Neglecting important security updates can leave your site vulnerable to hacking attempts, malware, and data breaches, damaging your reputation.",
+                                    ],
+                                },
+                                {
+                                    title: "Time consumption",
+                                    text: [
+                                        "Surprisingly, even simple content updates can take longer than expected, especially for users without the necessary skills. The time spent learning, making updates, and fixing potential mistakes can divert attention from core business tasks.",
+                                    ],
+                                },
+                            ],
+                        },
+                    ],
+                },
+                {
+                    layout: 5,
+
+                    data: [
+                        {
+                            text: [
+                                "Our team of developers can help you avoid these challenges by providing high-quality and efficient content update services.",
+                                "Our developers have expert knowledge and a deep understanding of the websites we create, ensuring flawless and effective implementation of any changes. Since our team originally built your website, we have unique insights into its architecture and every detail, allowing us to carry out updates quickly and without errors.",
+                                "We guarantee high-quality and consistent updates, maintaining your website’s perfect appearance and functionality. You can be confident that your content will be updated accurately, professionally, and in alignment with your brand.",
+                            ],
+                        },
+                    ],
+                },
+            ],
+            fullAnswerBottomText: [
+                "We value your time and offer fast and efficient service. Our team is ready to respond quickly to your requests and implement content updates in the shortest possible time.",
+            ],
+        },
+
+        pl: {
+            imageAltText:
+                "Czy mogę samodzielnie aktualizować treści na stronie?",
+            questionText:
+                "Czy mogę samodzielnie aktualizować treści na stronie?",
+            shortAnswerText: [
+                "To zależy od formatu strony, którą wybierzesz, oraz od tego, czy posiada ona panel administracyjny do zarządzania treścią. Jeśli potrzebujesz landing page’a lub strony wizytówki, nie ma konieczności tworzenia kosztownej i skomplikowanej funkcji zarządzania stroną.",
+            ],
+            fullAnswerTopText: [
+                "W takim przypadku łatwiej i taniej będzie zatrudnić programistę na godziny, który szybko wprowadzi zmiany bez Twojego wysiłku i stresu. Samodzielne zarządzanie aktualizacjami – niezależnie od tego, czy chodzi o landing page, stronę wizytówkę czy stronę wielostronicową – ma swoje zalety i wady.",
+            ],
+            fullAnswerContent: [
+                {
+                    layout: 4,
+                    title: "Zalety samodzielnej aktualizacji treści",
+
+                    data: [
+                        {
+                            title: "Samodzielna aktualizacja treści Twojego produktu daje następujące korzyści:",
+                            decorate: 2,
+                            text: [
+                                {
+                                    title: "Wydajność i elastyczność",
+                                    text: [
+                                        "Możesz natychmiast lub stosunkowo szybko (w zależności od złożoności treści) wprowadzać zmiany bez oczekiwania na dostępność programistów czy uzgadniania harmonogramów.",
+                                    ],
+                                },
+                                {
+                                    title: "Potencjalna oszczędność kosztów",
+                                    text: [
+                                        "Brak konieczności opłacania usług programistów za każdą drobną aktualizację może przynieść oszczędności, zwłaszcza przy częstych i niewielkich zmianach.",
+                                    ],
+                                },
+                                {
+                                    title: "Rozwój wiedzy",
+                                    text: [
+                                        "Lepiej poznasz funkcjonalność swojego produktu i zdobędziesz cenne umiejętności.",
+                                    ],
+                                },
+                            ],
+                        },
+                    ],
+                },
+                {
+                    layout: 4,
+                    title: "Wady samodzielnej aktualizacji treści",
+                    data: [
+                        {
+                            decorate: 1,
+                            title: "Pomimo istniejących zalet możesz napotkać również ryzyka, które mogą Cię kosztować znacznie więcej. Najpoważniejsze z nich to:",
+                            text: [
+                                {
+                                    title: "Wprowadzenie błędów i naruszenie integralności treści",
+                                    text: [
+                                        "Bez odpowiedniego przygotowania i zrozumienia zasad tworzenia stron internetowych możesz przypadkowo popełnić błędy, które doprowadzą do usunięcia ważnych treści lub elementów strony. Może to negatywnie wpłynąć na optymalizację pod kątem wyszukiwarek (SEO).",
+                                    ],
+                                },
+                                {
+                                    title: "Zakłócenie wyglądu i układu strony internetowej",
+                                    text: [
+                                        "Bez doświadczenia w web designie możesz nieumyślnie zmienić wizualny wygląd, strukturę stron lub elementy brandingu. Może to sprawić, że Twoja strona będzie wyglądać nieprofesjonalnie i straci spójność.",
+                                    ],
+                                },
+                                {
+                                    title: "Problemy z funkcjonalnością",
+                                    text: [
+                                        "Nieprawidłowa instalacja aktualizacji może spowodować awarie poszczególnych funkcji lub pogorszyć ogólną wydajność strony.",
+                                    ],
+                                },
+                                {
+                                    title: "Bezpieczeństwo ",
+                                    text: [
+                                        "To niezwykle ważny aspekt, który często jest niedoceniany podczas samodzielnej aktualizacji treści. Możesz nie poświęcić wystarczającej uwagi instalacji istotnych aktualizacji zabezpieczeń, co sprawi, że Twój produkt stanie się podatny na ataki hakerskie i złośliwe oprogramowanie. Może to prowadzić do wycieku danych oraz szkodzić reputacji Twojej firmy.",
+                                    ],
+                                },
+                                {
+                                    title: "Koszty czasowe",
+                                    text: [
+                                        "Choć może się to wydawać zaskakujące, samodzielna aktualizacja treści, nawet przy prostych zmianach, może zająć więcej czasu, niż się spodziewasz – zwłaszcza jeśli nie masz odpowiednich umiejętności. Czas poświęcony na naukę, wprowadzanie zmian oraz naprawianie ewentualnych błędów może odciągać Cię od kluczowych zadań biznesowych.",
+                                    ],
+                                },
+                            ],
+                        },
+                    ],
+                },
+                {
+                    layout: 5,
+                    data: [
+                        {
+                            text: [
+                                "Aby uniknąć tych problemów, skorzystaj z usług naszego zespołu programistów, który zapewni Ci szybkie i profesjonalne aktualizacje treści.",
+                                "Nasi programiści posiadają ekspercką wiedzę oraz dogłębne zrozumienie struktury stworzonych przez nas stron internetowych, co gwarantuje bezbłędne i efektywne wprowadzanie wszelkich zmian. Ponieważ to właśnie nasz zespół zaprojektował Twoją stronę, mamy unikalną znajomość jej architektury i każdej jej części, co pozwala nam wprowadzać aktualizacje szybko i bez ryzyka błędów.",
+                                "Gwarantujemy wysoką jakość i spójność wszystkich aktualizacji, dbając o nienaganny wygląd oraz pełną funkcjonalność Twojej strony internetowej. Możesz mieć pewność, że treści zostaną zaktualizowane precyzyjnie, starannie i zgodnie z wizerunkiem Twojej marki.",
+                            ],
+                        },
+                    ],
+                },
+            ],
+            fullAnswerBottomText: [
+                "Szanujemy Twój czas i oferujemy szybkie oraz efektywne wsparcie. Nasz zespół jest gotowy błyskawicznie reagować na Twoje potrzeby i aktualizować treści tak szybko, jak to możliwe.",
+            ],
+        },
+    },
+    {
+        data: {
+            image: "https://res.cloudinary.com/dvfu5vhjx/image/upload/v1752658483/answer13-1_vaqfti.jpg",
+            likes: null,
+            slug: "what-is-a-brief-for-website-or-landing-page-development",
+            answerOrderImage:
+                "https://res.cloudinary.com/dvfu5vhjx/image/upload/v1752658483/answer13-2_jgskyq.jpg",
+        },
+
+        ua: {
+            questionText:
+                "Що таке бриф на розробку сайту або лендінгу і навіщо він потрібен?",
+            shortAnswerText: [
+                "Бриф - це перший спільний документ між замовником і командою, який фіксує цілі, аудиторію, функціонал і стиль проєкту. Він допомагає уникнути зайвих правок, заощадити час і досягти спільного бачення результату ще до старту розробки.",
+            ],
+            fullAnswerTopText: [
+                "Бриф не є технічним завданням чи контрактом, але саме з нього починається якісний проєкт. Грамотно складений бриф - це орієнтир для дизайнерів, розробників та аналітиків і надійна опора при прийманні робіт, плануванні бюджету та визначенні пріоритетів.",
+            ],
+            imageAltText:
+                "Що таке бриф на розробку сайту або лендінгу і навіщо він потрібен?",
+            fullAnswerBottomText: [
+                "Бриф - це не просто формальність, а перший крок, що формує спільне бачення, допомагає уникнути зайвих правок і робить розробку швидшою та ефективнішою.",
+                "Якщо у вас вже є ідея проєкту чи продукту - обговорімо її разом і створимо бриф, з якого почнеться шлях до результату.",
+            ],
+            fullAnswerContent: [
+                {
+                    layout: 4,
+                    title: "Що таке бриф і чим він відрізняється від інших документів?",
+                    data: [
+                        {
+                            title: "Бриф - це перший і найважливіший документ, з якого починається розробка сайту чи цифрового продукту. Його суть у тому, щоб зібрати і зафіксувати в одному місці ключову інформацію про проєкт: цілі, очікування, особливості бізнесу, цільову аудиторію, функціонал, вподобання в дизайні, бюджет і дедлайни. Це своєрідна «карта» для команди, яка дозволяє зрозуміти, що саме потрібно створити, для кого і навіщо.",
+                            decorate: 1,
+                            text: [
+                                {
+                                    title: "Це не технічне завдання",
+                                    text: [
+                                        "У брифі не описується логіка роботи продукту, технічні сценарії, деталі інтеграцій чи специфічні вимоги до технологій. Бриф лише фіксує, що потрібно створити та навіщо, а не «як» це реалізувати.",
+                                    ],
+                                },
+                                {
+                                    title: "Це не контракт",
+                                    text: [
+                                        "У брифі не прописують юридичні зобов’язання, умови оплати чи відповідальність сторін. Хоча бриф можна прикріпити до договору як додаток, він сам по собі не має сили юридичного документа.",
+                                    ],
+                                },
+                                {
+                                    title: "Це не список задач",
+                                    text: [
+                                        "Бриф не містить конкретних user stories, етапів чи черговості виконання. Він слугує основою, на якій команда формує список задач, деталізує вимоги та планує роботу.",
+                                    ],
+                                },
+                            ],
+                        },
+                    ],
+                },
+                {
+                    layout: 6,
+                    title: "Основні переваги брифу",
+                    data: [
+                        {
+                            text: ["Саме завдяки брифу можна:"],
+                            type: "unchecked",
+                        },
+                        {
+                            text: [
+                                "Швидко зрозуміти головну ідею та цілі продукту;",
+                            ],
+                        },
+
+                        {
+                            text: [
+                                "Визначити tone of voice та візуальний стиль;",
+                            ],
+                        },
+                        {
+                            text: [
+                                "Зібрати приклади, які подобаються замовнику, і конкретизувати очікування.",
+                            ],
+                        },
+                        {
+                            text: [
+                                "І найголовніше: бриф створює спільну мову між командою та замовником ще до початку розробки, що економить час, зменшує кількість правок і дозволяє зосередитися на найважливішому.",
+                            ],
+                            type: "unchecked",
+                        },
+                    ],
+                },
+                {
+                    layout: 2,
+                    title: "Як зібрати інформацію для брифу?",
+                    text: "Щоб створити дійсно корисний бриф, важливо не просто «написати анкету», а зрозуміти бізнес, продукт і очікування замовника. \nЗбирати дані можна двома шляхами: усно (під час інтерв’ю чи зустрічі) та письмово (анкета або документ).",
+
+                    data: [
+                        {
+                            title: "Усний брифінг (під час зустрічі або дзвінка)",
+                            text: [
+                                {
+                                    title: "Переваги:",
+                                    type: "listItem",
+                                    list: "sublist",
+                                    text: [
+                                        "Дозволяє одразу ставити уточнюючі питання;",
+                                        "Легше зрозуміти реальні потреби, а не лише те, що клієнт написав;",
+                                        "Створює довіру і демонструє експертизу команди;",
+                                        "Можна одразу обговорити ідеї, референси, обмеження.",
+                                    ],
+                                },
+                                {
+                                    title: "Недоліки:",
+                                    type: "listItem",
+                                    list: "sublist",
+                                    text: [
+                                        "Потребує часу (з обох сторін);",
+                                        "Ризик забути зафіксувати деякі деталі;",
+                                        "Не завжди зручно, якщо ви з клієнтом перебуваєте у різних часових поясах або клієнту важко сформулювати свої потреби.",
+                                    ],
+                                },
+                            ],
+                        },
+                        {
+                            title: "Письмовий бриф (анкета або документ)",
+                            text: [
+                                {
+                                    title: "Переваги:",
+                                    type: "listItem",
+                                    list: "sublist",
+                                    text: [
+                                        "Структурує думки замовника;",
+                                        "Дає можливість клієнту обдумати відповіді;",
+                                        "Результат зберігається в єдиному місці як документ;",
+                                        "Зручно для швидких уточнень або коли немає змоги провести дзвінок.",
+                                    ],
+                                },
+                                {
+                                    title: "Недоліки:",
+                                    type: "listItem",
+                                    list: "sublist",
+                                    text: [
+                                        "Замовникам часто лінь заповнювати довгі анкети;",
+                                        "Відповіді можуть бути надто короткі або нечіткі;",
+                                        "Без розмови важче зʼясувати справжні бізнес-цілі;",
+                                        "Ризик, що великий бриф відлякає замовника, і він не повернеться.",
+                                    ],
+                                },
+                            ],
+                        },
+                    ],
+                },
+                {
+                    layout: 1,
+                    title: "Як зробити бриф ефективним: поради з досвіду",
+                    text: "Щоб бриф справді працював, важливо не лише «дати замовнику документ», а правильно організувати процес. \nМи зібрали головні поради з нашої практики, які допомагають зберегти фокус, економлять час і зменшують кількість правок.",
+
+                    data: [
+                        {
+                            title: "Почати з \nживої розмови",
+                            text: [
+                                "Замовникам часто складно одразу заповнити довгу форму.",
+                                "Краще спочатку провести онлайн-зустріч або дзвінок, щоб зрозуміти бізнес, цілі та очікування, а вже потім надіслати стислий бриф для фіксації деталей.",
+                            ],
+                        },
+                        {
+                            title: "Використовувати різні типи брифів залежно від задачі",
+                            text: [
+                                {
+                                    title: "Повний бриф",
+                                    text: [
+                                        "- для складних продуктів, e-commerce чи редизайну.",
+                                    ],
+                                },
+                                {
+                                    title: "Скорочений бриф",
+                                    text: [
+                                        "- для лендінгів чи MVP з обмеженими термінами.",
+                                    ],
+                                },
+                                {
+                                    title: "Технічний бриф",
+                                    text: [
+                                        "- коли потрібен мінімум тексту, але треба зафіксувати інтеграції чи обмеження.",
+                                    ],
+                                },
+                                {
+                                    title: "Візуальний бриф",
+                                    text: [
+                                        "- для moodboard, стилю та дизайну.",
+                                    ],
+                                },
+                                {
+                                    text: [
+                                        "Такий підхід дозволяє не перевантажувати клієнта зайвими питаннями.",
+                                    ],
+                                },
+                            ],
+                        },
+                        {
+                            title: "Питати головне, але не забувати про деталі",
+                            text: [
+                                {
+                                    text: ["Обов’язково дізнайтесь:"],
+                                },
+                                {
+                                    text: ["Мету сайту або продукту;"],
+                                    type: "listItem",
+                                },
+                                {
+                                    text: ["Цільову аудиторію;"],
+                                    type: "listItem",
+                                },
+                                {
+                                    text: [
+                                        "Уподобання в стилі та приклади сайтів;",
+                                    ],
+                                    type: "listItem",
+                                },
+                                {
+                                    text: ["Наявний контент і брендбук;"],
+                                    type: "listItem",
+                                },
+                                {
+                                    text: ["Ключовий функціонал;"],
+                                    type: "listItem",
+                                },
+                                {
+                                    text: ["Бюджет і дедлайн."],
+                                    type: "listItem",
+                                },
+                                {
+                                    text: [
+                                        "А ще: конкуренти, tone of voice, можливість розміщення проєкту в портфоліо, потреби в аналітиці.",
+                                    ],
+                                },
+                            ],
+                        },
+                        {
+                            title: "Спочатку збір, \nпотім фіксація",
+                            text: [
+                                "Ідеально: спочатку зібрати вимоги при першій зустрічі, а потім сформувати письмовий документ, погодити його з клієнтом і зберігати як основу для всіх рішень у проєкті. Так бриф стає не просто анкетою, а надійною точкою опори для команди та замовника.",
+                            ],
+                        },
+                    ],
+                },
+            ],
+        },
+        en: {
+            questionText:
+                "What is a brief for website or landing page development, and why is it important",
+            shortAnswerText: [
+                "A brief is the first shared document between the client and the team that defines the project's goals, target audience, functionality, and visual style. It helps avoid unnecessary revisions, saves time, and ensures a shared vision of the final result before development begins.",
+            ],
+            fullAnswerTopText: [
+                "A brief is not a technical specification or a contract, but it is the starting point of a high-quality project. A well-crafted brief serves as a guide for designers, developers, and analysts, and acts as a solid foundation for reviewing deliverables, planning the budget, and setting priorities.",
+            ],
+            imageAltText:
+                "What is a brief for website or landing page development, and why is it important?",
+            fullAnswerBottomText: [
+                "A brief is not just a formality - it’s the first step toward a shared vision. It helps avoid unnecessary revisions and makes the development process faster and more efficient.",
+                "If you already have an idea for a project or product, let’s discuss it together and create a brief that will mark the beginning of your journey to results.",
+            ],
+            fullAnswerContent: [
+                {
+                    layout: 4,
+                    title: "What is a brief, and how is it different from other documents?",
+                    data: [
+                        {
+                            title: 'A brief is the first and most important document that marks the beginning of a website or digital product development. Its purpose is to collect and record all the key information about the project in one place: goals, expectations, business specifics, target audience, functionality, design preferences, budget, and deadlines. It serves as a kind of "map" for the team, helping everyone understand what exactly needs to be created, for whom, and why.',
+                            decorate: 1,
+                            text: [
+                                {
+                                    title: "It is not a technical specification",
+                                    text: [
+                                        "A brief does not describe how the product works, technical scenarios, integration details, or specific technology requirements. It simply outlines what needs to be created and why - not how it should be implemented.",
+                                    ],
+                                },
+                                {
+                                    title: "It is not a contract",
+                                    text: [
+                                        "A brief does not define legal obligations, payment terms, or responsibilities of the parties. While it can be attached to a contract as an appendix, it does not carry legal force on its own.",
+                                    ],
+                                },
+                                {
+                                    title: "It is not a task list",
+                                    text: [
+                                        "A brief does not include specific user stories, phases, or execution order. It serves as a foundation on which the team builds the task list, elaborates requirements, and plans the workflow.",
+                                    ],
+                                },
+                            ],
+                        },
+                    ],
+                },
+                {
+                    layout: 6,
+                    title: "Key benefits of a brief",
+                    data: [
+                        {
+                            text: ["A brief allows you to:"],
+                            type: "unchecked",
+                        },
+                        {
+                            text: [
+                                "Quickly understand the core idea and goals of the product;",
+                            ],
+                        },
+
+                        {
+                            text: [
+                                "Define the tone of voice and visual style;",
+                            ],
+                        },
+                        {
+                            text: [
+                                "Collect examples that the client likes and clarify expectations.",
+                            ],
+                        },
+                        {
+                            text: [
+                                "And most importantly: a brief establishes a common language between the team and the client before development even begins. This saves time, reduces the number of revisions, and allows everyone to focus on what truly matters.",
+                            ],
+                            type: "unchecked",
+                        },
+                    ],
+                },
+                {
+                    layout: 2,
+                    title: "How to collect information for a brief?",
+                    text: 'To create a truly useful brief, it’s important not just to "write a questionnaire", but to understand the client’s business, product, and expectations. \nYou can collect data in two ways: verbally (during an interview or meeting) and in writing (via a questionnaire or document).',
+
+                    data: [
+                        {
+                            title: "Verbal briefing (during a meeting or call)",
+                            text: [
+                                {
+                                    title: "Advantages:",
+                                    type: "listItem",
+                                    list: "sublist",
+                                    text: [
+                                        "Allows you to ask clarifying questions right away;",
+                                        "Makes it easier to uncover real needs, not just what the client wrote;",
+                                        "Builds trust and demonstrates the team’s expertise;",
+                                        "Enables immediate discussion of ideas, references, and limitations.",
+                                    ],
+                                },
+                                {
+                                    title: "Disadvantages:",
+                                    type: "listItem",
+                                    list: "sublist",
+                                    text: [
+                                        "Requires time from both sides;",
+                                        "There’s a risk of forgetting to document important details;",
+                                        "Not always convenient if you and the client are in different time zones or if the client struggles to articulate their needs.",
+                                    ],
+                                },
+                            ],
+                        },
+                        {
+                            title: "Written brief (questionnaire or document)",
+                            text: [
+                                {
+                                    title: "Advantages:",
+                                    type: "listItem",
+                                    list: "sublist",
+                                    text: [
+                                        "Helps the client structure their thoughts;",
+                                        "Gives them time to reflect on their answers;",
+                                        "The result is stored in one place as a reference document;",
+                                        "Convenient for quick clarifications or when a call is not possible.",
+                                    ],
+                                },
+                                {
+                                    title: "Disadvantages:",
+                                    type: "listItem",
+                                    list: "sublist",
+                                    text: [
+                                        "Clients often find it tedious to fill out long forms;",
+                                        "Answers may be too brief or unclear;",
+                                        "Without conversation, it's harder to identify true business goals;",
+                                        "A large brief may scare off the client, and they might not return.",
+                                    ],
+                                },
+                            ],
+                        },
+                    ],
+                },
+                {
+                    layout: 1,
+                    title: "How to make a brief effective: lessons from experience",
+                    text: "To make a brief truly effective, it’s important not just to “hand the client a document,” but to organize the process properly. \nWe’ve gathered key tips from our own experience that help maintain focus, save time, and reduce the number of revisions.",
+
+                    data: [
+                        {
+                            title: "Start with \na live conversation",
+                            text: [
+                                "Clients often find it difficult to fill out a long form right away.",
+                                "It’s better to first hold an online meeting or call to understand the business, goals, and expectations - and only then send a short brief to capture the details.",
+                            ],
+                        },
+                        {
+                            title: "Use different types of briefs depending on the task",
+                            text: [
+                                {
+                                    title: "Full brief",
+                                    text: [
+                                        "- for complex products, e-commerce projects, or redesigns.",
+                                    ],
+                                },
+                                {
+                                    title: "Short brief",
+                                    text: [
+                                        "- for landing pages or MVPs with tight deadlines.",
+                                    ],
+                                },
+                                {
+                                    title: "Technical brief",
+                                    text: [
+                                        "- when minimal text is needed, but integrations or constraints must be specified.",
+                                    ],
+                                },
+                                {
+                                    title: "Visual brief",
+                                    text: [
+                                        "- for moodboards, style, and design direction.",
+                                    ],
+                                },
+                                {
+                                    text: [
+                                        "This approach helps avoid overwhelming the client with unnecessary questions.",
+                                    ],
+                                },
+                            ],
+                        },
+                        {
+                            title: "Ask the essentials - but don’t forget the details",
+                            text: [
+                                {
+                                    text: ["Be sure to find out:"],
+                                },
+                                {
+                                    text: [
+                                        "The goal of the website or product;",
+                                    ],
+                                    type: "listItem",
+                                },
+                                {
+                                    text: ["The target audience;"],
+                                    type: "listItem",
+                                },
+                                {
+                                    text: [
+                                        "Design preferences and example websites;",
+                                    ],
+                                    type: "listItem",
+                                },
+                                {
+                                    text: [
+                                        "Available content and brand guidelines;",
+                                    ],
+                                    type: "listItem",
+                                },
+                                {
+                                    text: ["Key functionality;"],
+                                    type: "listItem",
+                                },
+                                {
+                                    text: ["Budget and deadline."],
+                                    type: "listItem",
+                                },
+                                {
+                                    text: [
+                                        "And also: competitors, tone of voice, whether the project can be featured in your portfolio, and any analytics needs.",
+                                    ],
+                                },
+                            ],
+                        },
+                        {
+                            title: "Gather first, \ndocument later",
+                            text: [
+                                "Ideally, collect all requirements during the initial meeting, then create a written document, align it with the client, and keep it as a reference point for all decisions throughout the project. \nThis way, the brief becomes more than just a questionnaire - it turns into a reliable foundation for both the team and the client.",
+                            ],
+                        },
+                    ],
+                },
+            ],
+        },
+        pl: {
+            questionText:
+                "Czym jest brief dotyczący rozwoju strony internetowej lub landing page'a i dlaczego jest potrzebny?",
+            shortAnswerText: [
+                "Brief to pierwszy wspólny dokument między klientem a zespołem, który określa cele, odbiorców, funkcjonalność i styl projektu. Pomaga uniknąć niepotrzebnych zmian, zaoszczędzić czas i osiągnąć wspólną wizję wyniku przed rozpoczęciem rozwoju.",
+            ],
+            fullAnswerTopText: [
+                "Brief nie jest specyfikacją techniczną ani umową, ale stanowi punkt wyjścia dla wysokiej jakości projektu. Dobrze napisany brief jest wskazówką dla projektantów, deweloperów i analityków oraz niezawodnym wsparciem przy akceptowaniu pracy, planowaniu budżetów i ustalaniu priorytetów.",
+            ],
+            imageAltText:
+                "Czym jest brief dotyczący rozwoju strony internetowej lub landing page'a i dlaczego jest potrzebny?",
+            fullAnswerBottomText: [
+                "Brief to nie tylko formalność, ale pierwszy krok, który tworzy wspólną wizję, pomaga uniknąć niepotrzebnych zmian i sprawia, że rozwój jest szybszy i bardziej wydajny.",
+                "Jeśli masz już pomysł na projekt lub produkt, omówmy go razem i stwórzmy brief, który rozpocznie podróż do rezultatu.",
+            ],
+            fullAnswerContent: [
+                {
+                    layout: 4,
+                    title: "Czym jest brief i czym różni się od innych dokumentów?",
+                    data: [
+                        {
+                            title: "Brief jest pierwszym i najważniejszym dokumentem, który rozpoczyna tworzenie strony internetowej lub produktu cyfrowego. Jego celem jest zebranie i zapisanie kluczowych informacji o projekcie w jednym miejscu: cele, oczekiwania, cechy biznesowe, grupa docelowa, funkcjonalność, preferencje projektowe, budżet i terminy. Jest to rodzaj „mapy” dla zespołu, która pozwala im zrozumieć, co dokładnie należy stworzyć, dla kogo i dlaczego.",
+                            decorate: 1,
+                            text: [
+                                {
+                                    title: "Nie jest zadaniem technicznym",
+                                    text: [
+                                        "Brief nie opisuje logiki produktu, scenariuszy technicznych, szczegółów integracji ani konkretnych wymagań technologicznych. Brief określa jedynie, co należy stworzyć i dlaczego, a nie „jak” to wdrożyć.",
+                                    ],
+                                },
+                                {
+                                    title: "Nie jest to umowa",
+                                    text: [
+                                        "Brief nie określa zobowiązań prawnych, warunków płatności ani obowiązków stron. Chociaż brief może być dołączony do umowy jako załącznik, nie ma on mocy dokumentu prawnego.",
+                                    ],
+                                },
+                                {
+                                    title: "Nie jest to lista zadań",
+                                    text: [
+                                        "Brief nie zawiera konkretnych historyj użytkownika, kamieni milowych ani kolejności realizacji. Służy jako podstawa, na której zespół tworzy listę zadań, określa wymagania i planuje pracę.",
+                                    ],
+                                },
+                            ],
+                        },
+                    ],
+                },
+                {
+                    layout: 6,
+                    title: "Główne zalety briefu",
+                    data: [
+                        {
+                            text: ["To dzięki briefowi można:"],
+                            type: "unchecked",
+                        },
+                        {
+                            text: [
+                                "Szybko zrozumieć główną ideę i cele produktu;",
+                            ],
+                        },
+
+                        {
+                            text: ["Określić ton głosu i styl wizualny;"],
+                        },
+                        {
+                            text: [
+                                "Zebrać przykłady, które podobają się klientowi i sprecyzować oczekiwania.",
+                            ],
+                        },
+                        {
+                            text: [
+                                "A co najważniejsze, brief tworzy wspólny język między zespołem a klientem przed rozpoczęciem rozwoju, co oszczędza czas, zmniejsza liczbę zmian i pozwala skupić się na najważniejszych rzeczach.",
+                            ],
+                            type: "unchecked",
+                        },
+                    ],
+                },
+                {
+                    layout: 2,
+                    title: "Jak zbierać informacje do briefu?",
+                    text: "Aby stworzyć naprawdę użyteczny brief, ważne jest nie tylko „napisać ankietę”, ale przede wszystkim zrozumieć biznes, produkt i oczekiwania klienta. \nDane można zbierać na dwa sposoby: ustnie (podczas spotkania lub wywiadu) oraz pisemnie (ankieta lub dokument).",
+
+                    data: [
+                        {
+                            title: "Brief ustny (podczas spotkania lub rozmowy)",
+                            text: [
+                                {
+                                    title: "Zalety:",
+                                    type: "listItem",
+                                    list: "sublist",
+                                    text: [
+                                        "Pozwala od razu zadawać pytania doprecyzowujące;",
+                                        "Łatwiej zrozumieć prawdziwe potrzeby, a nie tylko to, co klient napisał;",
+                                        "Buduje zaufanie i pokazuje kompetencje zespołu;",
+                                        "Można od razu omówić pomysły, inspiracje i ograniczenia.",
+                                    ],
+                                },
+                                {
+                                    title: "Wady:",
+                                    type: "listItem",
+                                    list: "sublist",
+                                    text: [
+                                        "Wymaga czasu (po obu stronach);",
+                                        "Ryzyko pominięcia niektórych szczegółów;",
+                                        "Może być niewygodny, jeśli klient jest w innej strefie czasowej lub trudno mu sprecyzować swoje potrzeby.",
+                                    ],
+                                },
+                            ],
+                        },
+                        {
+                            title: "Brief pisemny (ankieta lub dokument)",
+                            text: [
+                                {
+                                    title: "Zalety:",
+                                    type: "listItem",
+                                    list: "sublist",
+                                    text: [
+                                        "Pomaga uporządkować myśli klienta;",
+                                        "Daje czas na przemyślenie odpowiedzi;",
+                                        "Wynik zostaje zapisany w jednym miejscu jako dokument;",
+                                        "Wygodny do szybkiego uzupełnienia lub gdy nie ma możliwości rozmowy.",
+                                    ],
+                                },
+                                {
+                                    title: "Wady:",
+                                    type: "listItem",
+                                    list: "sublist",
+                                    text: [
+                                        "Klientom często nie chce się wypełniać długich formularzy;",
+                                        "Odpowiedzi mogą być zbyt krótkie lub nieprecyzyjne;",
+                                        "Bez rozmowy trudniej ustalić prawdziwe cele biznesowe;",
+                                        "Istnieje ryzyko, że zbyt obszerny brief zniechęci klienta i ten już nie wróci.",
+                                    ],
+                                },
+                            ],
+                        },
+                    ],
+                },
+                {
+                    layout: 1,
+                    title: "Jak sprawić, by brief był skuteczny: wskazówki z doświadczenia",
+                    text: "Aby brief naprawdę działał, ważne jest nie tylko „przekazać klientowi dokument”, ale też odpowiednio zorganizować cały proces. \nZebraliśmy kluczowe wskazówki z naszej praktyki, które pomagają zachować koncentrację, oszczędzają czas i ograniczają liczbę poprawek.",
+
+                    data: [
+                        {
+                            title: "Zacząć od \nrozmowy na żywo",
+                            text: [
+                                "Klientom często trudno jest od razu wypełnić długi formularz.",
+                                "Lepiej najpierw przeprowadzić spotkanie online lub rozmowę telefoniczną, aby zrozumieć biznes, cele i oczekiwania, a dopiero potem wysłać skrócony brief w celu doprecyzowania szczegółów.",
+                            ],
+                        },
+                        {
+                            title: "Stosowanie różnych typów briefów w zależności od zadania",
+                            text: [
+                                {
+                                    title: "Pełny brief",
+                                    text: [
+                                        "- dla złożonych produktów, e-commerce lub redesignu.",
+                                    ],
+                                },
+                                {
+                                    title: "Skrócony brief",
+                                    text: [
+                                        "- dla landing page’y lub MVP przy ograniczonym czasie.",
+                                    ],
+                                },
+                                {
+                                    title: "Brief techniczny",
+                                    text: [
+                                        "- gdy tekstu potrzeba minimum, ale trzeba określić integracje lub ograniczenia.",
+                                    ],
+                                },
+                                {
+                                    title: "Brief wizualny",
+                                    text: ["- do moodboardu, stylu i designu."],
+                                },
+                                {
+                                    text: [
+                                        "Takie podejście pozwala nie obciążać klienta zbędnymi pytaniami.",
+                                    ],
+                                },
+                            ],
+                        },
+                        {
+                            title: "Pytać o najważniejsze, ale nie zapominać o szczegółach",
+                            text: [
+                                {
+                                    text: ["Koniecznie dowiedz się:"],
+                                },
+                                {
+                                    text: ["Cel strony lub produktu;"],
+                                    type: "listItem",
+                                },
+                                {
+                                    text: ["Docelowi odbiorcy;"],
+                                    type: "listItem",
+                                },
+                                {
+                                    text: [
+                                        "Preferencje stylu i przykłady stron;",
+                                    ],
+                                    type: "listItem",
+                                },
+                                {
+                                    text: ["Istniejąca treść i książka marki;"],
+                                    type: "listItem",
+                                },
+                                {
+                                    text: ["Kluczowe funkcje;"],
+                                    type: "listItem",
+                                },
+                                {
+                                    text: ["Budżet i termin."],
+                                    type: "listItem",
+                                },
+                                {
+                                    text: [
+                                        "A także: konkurencja, ton głosu, możliwość umieszczenia projektu w portfolio, potrzeby analityczne.",
+                                    ],
+                                },
+                            ],
+                        },
+                        {
+                            title: "Najpierw zebranie, \npotem zatwierdzenie",
+                            text: [
+                                "Idealnie: najpierw zebrać wymagania podczas pierwszego spotkania, a następnie przygotować pisemny dokument, uzgodnić go z klientem i przechowywać jako punkt odniesienia dla wszystkich decyzji w projekcie. W ten sposób brief staje się nie tylko ankietą, ale solidnym punktem oparcia zarówno dla zespołu, jak i dla klienta.",
+                            ],
+                        },
+                    ],
+                },
+            ],
+        },
+    },
+    {
+        data: {
+            image: "https://res.cloudinary.com/dvfu5vhjx/image/upload/v1756819468/answer14-1_kng1dj.jpg",
+            likes: null,
+            slug: "how-should-you-package-your-services-on-a-landing-page-to-get-the-maximum-results",
+            answerOrderImage:
+                "https://res.cloudinary.com/dvfu5vhjx/image/upload/v1756311900/answer14-2_cbhhuw.jpg",
+        },
+
+        ua: {
+            questionText:
+                "Як правильно упакувати свої послуги на лендінгу, щоб отримати максимальну віддачу?",
+            shortAnswerText: [
+                "Щоб підвищити конверсію в заявки на лендінгу потрібно подати послуги структуровано та послідовно в порядку зростання їх цінності та ціни, упакувати в пакети по кілька послуг, якщо передбачається довгострокова співпраця, а також  чітко описати склад та переваги для потенційних клієнтів.  Це необхідно для того, щоб користувачу було легко зробити вибір: від першого знайомства з вами - до основної покупки. Правильна упаковка послуг одразу підвищує конверсію і може суттєво збільшити  прибуток.",
+            ],
+            fullAnswerTopText: [
+                "Дуже часто створення лендінгу помилково починають одразу із дизайну, але саме структура і зміст послуг визначає, чи захоче клієнт залишити заявку. Якщо не зрозуміло, які саме продукти ви пропонуєте, скільки вони коштують і для кого призначені - увага користувача розсіюється, і він не робить цільової дії та залишає сторінку. Тому, ми завжди починаємо розробку не з дизайну, а з бізнес-логіки.",
+            ],
+            imageAltText:
+                "Як правильно упакувати свої послуги на лендінгу, щоб отримати максимальну віддачу?",
+            fullAnswerBottomText: [
+                "Ваш сайт може бути більше, ніж просто візитівкою. Він може стати головним каналом для залучення клієнтів і демонстрації вашої експертності. Ми допоможемо зробити з нього потужний інструмент, який працює на ваші цілі щодня.",
+            ],
+            fullAnswerContent: [
+                {
+                    title: "Визначення цільової аудиторії та асортименту",
+                    layout: 8,
+                    data: [
+                        {
+                            text: [
+                                {
+                                    text: ["Перший крок - це зрозуміти:"],
+                                },
+                                {
+                                    text: ["з ким ви вже працюєте;"],
+                                    type: "listItem",
+                                },
+                                {
+                                    text: ["хто ваші потенційні замовники."],
+                                    type: "listItem",
+                                },
+                                {
+                                    text: [
+                                        "Це не абстрактне «для всіх», а чіткий портрет клієнта: вік, статус, потреби, поведінка, очікування. Така конкретика дозволяє створити сайт та запропонувати послуги, які відповідають реальним запитам цільової аудиторії, а не узагальненим запитам.",
+                                    ],
+                                },
+                            ],
+                        },
+                        {
+                            text: [
+                                {
+                                    text: [
+                                        "Другий крок — скласти повний список послуг та сформувати цінову політику на них. Навіть, якщо на сайті будуть опубліковані/представлені не всі послуги, ви повинні розуміти:",
+                                    ],
+                                },
+                                {
+                                    text: [
+                                        "які продукти та послуги приносять основний дохід;",
+                                    ],
+                                    type: "listItem",
+                                },
+                                {
+                                    text: [
+                                        "які допомагають залучати нових клієнтів;",
+                                    ],
+                                    type: "listItem",
+                                },
+                                {
+                                    text: [
+                                        "які виснажують ресурси, але не приносять прибутку.",
+                                    ],
+                                    type: "listItem",
+                                },
+                            ],
+                        },
+                        {
+                            text: [
+                                "Важливо співставити кожну послугу з портретом клієнта. Якщо відповідності немає - варто переглянути позиціонування або виключити зайве.",
+                            ],
+                        },
+                    ],
+                },
+                {
+                    layout: 1,
+                    title: "Перевірку якості асортименту послуг варто почати з простих питань",
+                    data: [
+                        {
+                            title: "Чи зрозуміло одразу, що саме пропонується на сайті?",
+                            type: "list",
+                            text: [
+                                "Які переваги та цінності для клієнта обрати саме цю послугу?",
+                                "Як буде проходити взаємодія і як оформити замовлення або куди звертатись із запитаннями?",
+                            ],
+                        },
+                        {
+                            title: "Наскільки легко клієнту прийняти рішення?",
+                            type: "list",
+                            text: [
+                                "Чи зрозуміла ціна і цінність запропонованої послуги?",
+                                "Чи є час подумати і до коли діє спеціальна пропозиція?",
+                                "Чи є відгуки інших користувачів і чи залишились вони задоволеними?",
+                                "Чи передбачено повернення грошей, якщо послуга була надана неякісно?",
+                            ],
+                        },
+                        {
+                            title: "Чи вигідний продукт/послуга для бізнесу?",
+                            type: "list",
+                            text: [
+                                "Яка маржинальність?",
+                                "Які супровідні витрати та блокери з надання послуги можуть бути?",
+                                "Чи є обмеження по кількості одиниць товару/годин консультацій/кількості учасників курсу (в залежності від специфіки бізнесу)?",
+                            ],
+                        },
+                        {
+                            title: "Чи отримує клієнт позитивний досвід і повернеться знову?",
+                            type: "list",
+                            text: [
+                                "Як забезпечити задоволеність клієнта?",
+                                "Як зібрати та обробити відгуки від клієнтів?",
+                                "Як висвітлити відгуки від задоволених клієнтів?",
+                            ],
+                        },
+                        {
+                            title: "Чи можна масштабувати цей продукт/послугу?",
+                            type: "list",
+                            text: [
+                                "А чи зможете ви надавати таких послуг в рази більше, якщо клієнтів буде вдвічі більше?",
+                                "А чи буде зберігатись маржинальність при масштабуванні?",
+                                "Чи є якісь способи надавати ті самі послуги більшій кількості клієнтів, при цьому не збільшувати витрати часу та ресурсів?",
+                                "Як ви будете діяти, якщо кількість запитів перевищить ваші можливості з масштабування?",
+                            ],
+                        },
+                        {
+                            text: [
+                                "Таке поєднання чіткого портрета клієнта/користувача та структурованого асортименту формує основу для ефективного просування й розвитку бізнесу.",
+                            ],
+                        },
+                    ],
+                },
+                {
+                    layout: 3,
+                    title: "Як структурувати послуги на сайті?",
+                    text: "Послуги на сайті працюють ефективно тоді, коли вони вибудувані в логічний шлях. Клієнт має розуміти, з чого почати і куди рухатися далі. Такий підхід знімає сумніви, формує довіру і поступово веде до оформлення замовлення. \nСтатистика показує: сайти зі структурованою подачею послуг мають конверсію у 2-3 рази вищу, ніж ті, де послуги подаються хаотично. Причина проста - клієнт не любить думати та вибирати серед десятків варіантів. Він хоче зрозумілий шлях від проблеми до рішення. \nЛендінг повинен вести клієнта по логічному шляху. Для цього зручно подати послуги у форматі «рівнів»:",
+                    data: [
+                        {
+                            title: "Вхідний продукт",
+                            text: [
+                                "Знайомство з бізнесом відбувається через просту й доступну пропозицію: пробний урок, коротку консультацію, метаріали у відкритому доступі, пробний період або демо версію курсу, урок, консультацію, демо чи пробний період. Тут головне - показати цінність і дати клієнту маленьку перемогу  безкоштовний, щоб він захотів рухатися далі.",
+                            ],
+                        },
+                        {
+                            title: "Основний продукт",
+                            text: [
+                                "Це серце бізнесу, його ключова пропозиція. Саме на цьому етапі клієнт платить за основну послугу чи продукт. Важливо чітко показати, яку проблему він вирішує та яку вигоду отримує клієнт/користувач.",
+                            ],
+                        },
+                        {
+                            title: "Преміум-пропозиція",
+                            text: [
+                                "Для тих, хто хоче більше - розширений пакет, персональний супровід або ексклюзивні умови. Преміум-пропозиція створює відчуття вибору та підкреслює цінність основного продукту та надає статусності тим, хто обере максимальний пакет.",
+                            ],
+                        },
+                        {
+                            title: "Рекурентні продукти/послуги",
+                            text: [
+                                "Наступний рівень взаємодії - регулярні послуги чи підписки. Це можуть бути абонементи, автоматичні платежі або сервіси з повторюваними оплатами. Вони формують довготривалі стосунки й стабільний дохід і надають регулярну цінність для користувачів, підвищуючи їх лояльність та підігрівають зацікавленість в основному продукті/пакеті послуг.",
+                            ],
+                        },
+                        {
+                            title: "Лід-магніти",
+                            text: [
+                                "Щоб залучати більше потенційних клієнтів, додатково можна використати так звані лід-магніти - це прості безоплатні  матеріали: чеклісти, шаблони, калькулятори чи покрокові інструкції. Людина залишає свій контакт, ви даєте їй користь - і будуєте довіру ще до першої покупки.",
+                            ],
+                        },
+                    ],
+                },
+                {
+                    layout: 4,
+                    title: "Чого уникати при структуризації послуг?",
+
+                    data: [
+                        {
+                            decorate: 1,
+                            title: "Навіть маючи чудові пропозиції, можна зіпсувати враження, якщо вони подані неправильно. Є кілька типових помилок, яких варто уникати:",
+                            text: [
+                                {
+                                    title: "Забагато варіантів",
+                                    text: [
+                                        "Коли на сторінці є 7–10 схожих послуг, відвідувачі сайту плутаються і губляться. Замість вибору вони відкладають рішення або взагалі покидають сайт. Оптимально залишати 3–4 варіанти, які закривають ключові потреби цільової аудиторії і спонукають до вибору одного з трьох варіантів.",
+                                    ],
+                                },
+                                {
+                                    title: "Незрозумілі відмінності",
+                                    text: [
+                                        "Якщо пакети виглядають майже однаково, клієнт не розуміє, за що він платить більше чи менше. Важливо підкреслити відмінності: різний обсяг робіт, рівень персоналізації, додаткові сервіси чи швидкість виконання.",
+                                    ],
+                                },
+                                {
+                                    title: "Складні або абстрактні назви",
+                                    text: [
+                                        "Назви на кшталт «Преміум+» чи «Рішення 360» нічого не пояснюють. Клієнт має одразу зрозуміти зміст послуги: наприклад, «Базова консультація», «Супровід під ключ», «Аудит сайту». Прості й конкретні формулювання працюють краще, ніж маркетингові «загадки».",
+                                    ],
+                                },
+                                {
+                                    title: "Відсутність логіки у подачі",
+                                    text: [
+                                        "Якщо послуги розташовані хаотично, без порядку від простого до складного — користувачу важче знайти потрібне. Варто вибудувати зрозумілий шлях: від «швидкого входу» до комплексних рішень.",
+                                    ],
+                                },
+                            ],
+                        },
+                    ],
+                },
+                {
+                    layout: 5,
+                    title: "Додаткові поради",
+                    data: [
+                        {
+                            text: [
+                                "І не забувайте про SEO: останній штрих до ідеальної пропозиції.",
+                            ],
+                        },
+                        {
+                            text: [
+                                "Близько 70% клієнтів шукають послуги через Google. Якщо ключові слова підібрані правильно, ви отримуєте дві переваги: менше конкуренції та більше цільових клієнтів. SEO працює довгостроково і не потребує додаткових витрат на рекламу. Саме тому воно стає стратегічним інструментом для кожного експерта чи бізнесу, який хоче бути видимим і зрозумілим онлайн.",
+                            ],
+                        },
+                        {
+                            text: [
+                                {
+                                    text: [
+                                        "Щоб SEO справді працювало, варто врахувати кілька ключових аспектів:",
+                                    ],
+                                },
+                                {
+                                    text: [
+                                        "грамотний підбір «золотих» ключових слів;",
+                                    ],
+                                    type: "listItem",
+                                },
+                                {
+                                    text: [
+                                        "аналіз конкурентів і застосування практичних порад для поступового зростання сайту;",
+                                    ],
+                                    type: "listItem",
+                                },
+                                {
+                                    text: [
+                                        "семантична верстка та інші важливі фішки, про які знають розробники сайтів, але не завжди розказують про це своїм замовникам.",
+                                    ],
+                                    type: "listItem",
+                                },
+                            ],
+                        },
+                    ],
+                },
+            ],
+        },
+        en: {
+            questionText:
+                "How should you package your services on a landing page to get the maximum results?",
+            shortAnswerText: [
+                "To increase conversions into inquiries on a landing page,  present your services in a structured and logical way, starting with lower-value offers and progressing to higher-value, higher-priced ones. If you expect long-term collaboration, group them into service packages. Clearly describe what each package includes and highlight the benefits for potential clients. This is necessary to make it easy for the user to make a choice: from the first acquaintance with you to the main purchase. Proper service packaging immediately boosts conversion and can significantly increase revenue.",
+            ],
+            fullAnswerTopText: [
+                "Very often, the creation of a landing page mistakenly begins with design. However, it is the structure and content of your services that determine whether a customer will want to submit a request. If it’s unclear which products you offer, how much they cost, and who they are intended for - the visitor’s attention scatters. As a result, the user doesn’t take the desired action and simply leaves the page. That’s why we always start development not with design, but with business logic.",
+            ],
+            imageAltText:
+                "How should you package your services on a landing page to get the maximum results?",
+            fullAnswerBottomText: [
+                "Your website can be more than just a business card. It can become the main channel for attracting clients and showcasing your expertise. We’ll help you turn it into a powerful tool that works for your goals every single day.",
+            ],
+            fullAnswerContent: [
+                {
+                    title: "Defining the target audience and product range",
+                    layout: 8,
+                    data: [
+                        {
+                            text: [
+                                {
+                                    text: ["The first step is to understand:"],
+                                },
+                                {
+                                    text: [
+                                        "who you are already working with; ",
+                                    ],
+                                    type: "listItem",
+                                },
+                                {
+                                    text: ["who your potential customers are."],
+                                    type: "listItem",
+                                },
+                                {
+                                    text: [
+                                        "This is not an abstract “for everyone”, but a clear client profile: age, status, needs, behavior, and expectations. Such specificity allows you to create a website and offer services that match the real demands of your target audience, not generalized requests.",
+                                    ],
+                                },
+                            ],
+                        },
+                        {
+                            text: [
+                                {
+                                    text: [
+                                        "The second step is to compile a complete list of services and establish a pricing strategy for them. Even if not all services are published on the website, you must clearly understand:",
+                                    ],
+                                },
+                                {
+                                    text: [
+                                        "which products and services generate the main revenue;",
+                                    ],
+                                    type: "listItem",
+                                },
+                                {
+                                    text: [
+                                        "which ones help attract new clients;",
+                                    ],
+                                    type: "listItem",
+                                },
+                                {
+                                    text: [
+                                        "which ones drain resources without bringing profit.",
+                                    ],
+                                    type: "listItem",
+                                },
+                            ],
+                        },
+                        {
+                            text: [
+                                "It is crucial to match each service with the client profile. If there is no alignment, you should reconsider the positioning or remove the unnecessary offer.",
+                            ],
+                        },
+                    ],
+                },
+                {
+                    layout: 1,
+                    title: "Quality verification of your service range should begin with simple questions",
+                    data: [
+                        {
+                            title: "Is it immediately clear what is being offered on the website?",
+                            type: "list",
+                            text: [
+                                "What benefits and value does the client get from choosing this service?",
+                                "How will the interaction proceed and how to place an order or where to turn with questions?",
+                            ],
+                        },
+                        {
+                            title: "How easy is it for the client to make a decision?",
+                            type: "list",
+                            text: [
+                                "Is the price and value of the proposed service clear?",
+                                "Is there time to think it over, and until when does a special offer remain valid?",
+                                "Are there testimonials from other users, and were they satisfied?",
+                                "Is there a money-back guarantee if the service is delivered poorly?",
+                            ],
+                        },
+                        {
+                            title: "Is this product/service profitable for the business?",
+                            type: "list",
+                            text: [
+                                "What is the profit margin?",
+                                "What are the accompanying costs or blockers that may arise when delivering the service?",
+                                "Are there limits on the number of items, consultation hours, or course participants (depending on the specifics of the business)?",
+                            ],
+                        },
+                        {
+                            title: "Does the client have a positive experience and come back again?",
+                            type: "list",
+                            text: [
+                                "How can you ensure customer satisfaction?",
+                                "How do you collect and process client feedback?",
+                                "How do you showcase positive testimonials from satisfied customers?",
+                            ],
+                        },
+                        {
+                            title: "Can this product/service be scaled?",
+                            type: "list",
+                            text: [
+                                "Will you be able to deliver several times more services if the number of clients doubles?",
+                                "Will profitability remain stable when scaling?",
+                                "Are there efficient ways to deliver the same services to a larger customer base without increasing time and resource costs?",
+                                "How will you act if demand exceeds your current capacity for scaling?",
+                            ],
+                        },
+                        {
+                            text: [
+                                "Such a combination of a clear client profile and a structured service offering creates the foundation for effective promotion and sustainable business growth.",
+                            ],
+                        },
+                    ],
+                },
+                {
+                    layout: 3,
+                    title: "How to structure services on a website?",
+                    text: "Services on a website work effectively when they are arranged into a logical path. A client should clearly understand where to start and what the next steps are. This approach removes doubts, builds trust, and gradually leads to placing an order. \nStatistics show: websites with structured service presentation have conversion rates 2-3 times higher than those where services are presented chaotically.  The reason is simple - clients don’t like to overthink or choose among dozens of options. They want a clear path from problem to solution. \nA landing page should guide the client step by step along this logical path. One of the most convenient ways is to present services in the format of “levels”:",
+                    data: [
+                        {
+                            title: "Entry-level product",
+                            text: [
+                                "The introduction to your business begins with a simple and accessible offer: a trial lesson, a short consultation, free resources, a demo version, or a limited free period. The main goal here is to show value and give the client a small win - often free of charge - so they are motivated to move forward.",
+                            ],
+                        },
+                        {
+                            title: "Main product",
+                            text: [
+                                "This is the heart of the business - the key offering. At this stage, the client pays for the main service or product. It’s important to clearly demonstrate what problem it solves and what specific benefits the client or user receives.",
+                            ],
+                        },
+                        {
+                            title: "Premium offer",
+                            text: [
+                                "For those who want more - an extended package, personalized support, or exclusive conditions. A premium offer creates a sense of choice, emphasizes the value of the main product, and adds prestige for clients who select the maximum package.",
+                            ],
+                        },
+                        {
+                            title: "Recurring services/subscriptions",
+                            text: [
+                                "The next stage of interaction is ongoing services or subscriptions. These can be memberships, automatic payments, or repeat services. They build long-term relationships, provide stable income, and deliver continuous value to users, increasing loyalty and maintaining interest in the core service.",
+                            ],
+                        },
+                        {
+                            title: "Lead magnets",
+                            text: [
+                                "Additionally, to attract more potential clients, you can use lead magnets - simple, free materials such as checklists, templates, calculators, or step-by-step guides. The visitor shares their contact details, you provide real value, and trust is built even before the first purchase.",
+                            ],
+                        },
+                    ],
+                },
+                {
+                    layout: 4,
+                    title: "What to avoid when structuring services?",
+
+                    data: [
+                        {
+                            decorate: 1,
+                            title: "Even with excellent offers, you can spoil the overall impression if they are presented incorrectly. Here are a few common mistakes to avoid:",
+                            text: [
+                                {
+                                    title: "Too many options",
+                                    text: [
+                                        "When there are 7-10 similar services on a page, website visitors get confused and lost. Instead of choosing, they postpone the decision or leave the site. The optimal approach is to present 3–4 options that cover key target audience needs and encourage choosing one of the three variants.",
+                                    ],
+                                },
+                                {
+                                    title: "Unclear differences",
+                                    text: [
+                                        "If the packages look almost identical, the client won’t understand why they should pay more or less. It’s important to highlight differences: the scope of work, level of personalization, additional services, or delivery speed.",
+                                    ],
+                                },
+                                {
+                                    title: "Complicated or abstract names",
+                                    text: [
+                                        "Titles like “Premium+” or “Solution 360” don’t explain much. Clients should immediately understand what the service is about: for example, “Basic Consultation”, “Turnkey Support,” or “Website Audit.” Clear and concrete labels work much better than marketing “mysteries.",
+                                    ],
+                                },
+                                {
+                                    title: "Lack of logical flow",
+                                    text: [
+                                        'If services are presented chaotically, without a clear order from simple to complex, it’s harder for the user to find the right option. It\'s worth building a clear path: from "quick entry" to comprehensive solutions.',
+                                    ],
+                                },
+                            ],
+                        },
+                    ],
+                },
+                {
+                    layout: 5,
+                    title: "Additional tips",
+                    data: [
+                        {
+                            text: [
+                                "Don’t forget about SEO - the final touch to a perfect offer.",
+                            ],
+                        },
+                        {
+                            text: [
+                                "Around 70% of clients search for services through Google. If the right keywords are chosen, you gain two advantages: less competition and more targeted customers. SEO is a long-term strategy that does not require ongoing advertising costs. That’s why it becomes a strategic tool for every expert or business that wants to be visible and clearly understood online.",
+                            ],
+                        },
+                        {
+                            text: [
+                                {
+                                    text: [
+                                        "For SEO to truly work, you need to consider several key aspects:",
+                                    ],
+                                },
+                                {
+                                    text: [
+                                        "smart selection of “golden” keywords; ",
+                                    ],
+                                    type: "listItem",
+                                },
+                                {
+                                    text: [
+                                        "competitor analysis and the use of practical tactics for gradual website growth;",
+                                    ],
+                                    type: "listItem",
+                                },
+                                {
+                                    text: [
+                                        "semantic markup and other important techniques that web developers know but don’t always share with their clients.",
+                                    ],
+                                    type: "listItem",
+                                },
+                            ],
+                        },
+                    ],
+                },
+            ],
+        },
+        pl: {
+            questionText:
+                "Jak prawidłowo zapakować swoje usługi na stronie docelowej, aby uzyskać maksymalny efekt?",
+            shortAnswerText: [
+                "Aby zwiększyć konwersję w formularzu zgłoszeniowym na stronie docelowej, należy przedstawić usługi w sposób uporządkowany i konsekwentny, w kolejności rosnącej ich wartości oraz ceny. Połączyć kilka usług w pakiety, jeśli przewiduje się długoterminową współpracę, a także  dokładnie opisać skład i korzyści dla potencjalnych klientów.  Jest to konieczne, aby użytkownik mógł łatwo dokonać wyboru: od pierwszego kontaktu z Tobą do zakupu głównej usługi. Prawidłowe zaprezentowanie usług natychmiast zwiększa konwersję i może znacząco podnieść zysk.",
+            ],
+            fullAnswerTopText: [
+                "Bardzo często tworzenie landing page'a błędnie rozpoczyna się od projektu graficznego, ale to właśnie struktura i treść usług decydują o tym, czy klient zechce złożyć zamówienie. Jeśli nie jest jasne, jakie dokładnie produkty oferujesz, ile kosztują i dla kogo są przeznaczone, uwaga użytkownika rozprasza się, a on nie podejmuje zamierzonego działania i opuszcza stronę. Dlatego zawsze zaczynamy projektowanie nie od designu, ale od logiki biznesowej.",
+            ],
+            imageAltText:
+                "Jak prawidłowo zapakować swoje usługi na stronie docelowej, aby uzyskać maksymalny efekt?",
+            fullAnswerBottomText: [
+                "Twoja strona internetowa może być czymś więcej niż tylko wizytówką. Może stać się głównym kanałem pozyskiwania klientów i demonstrowania Twojej wiedzy eksperckiej. Pomożemy Ci przekształcić ją w potężne narzędzie, które codziennie będzie pracować na rzecz Twoich celów.",
+            ],
+            fullAnswerContent: [
+                {
+                    title: "Określenie grupy docelowej i asortymentu",
+                    layout: 8,
+                    data: [
+                        {
+                            text: [
+                                {
+                                    text: [
+                                        "Pierwszym krokiem jest zrozumienie:",
+                                    ],
+                                },
+                                {
+                                    text: ["z kim już współpracujesz;"],
+                                    type: "listItem",
+                                },
+                                {
+                                    text: ["kim są Twoi potencjalni klienci."],
+                                    type: "listItem",
+                                },
+                                {
+                                    text: [
+                                        "Nie chodzi tu o abstrakcyjne „dla wszystkich”, ale o jasny portret klienta: wiek, status, potrzeby, zachowanie, oczekiwania. Takie konkretne informacje pozwalają stworzyć stronę internetową i zaoferować usługi, które odpowiadają rzeczywistym potrzebom grupy docelowej, a nie ogólnym wymaganiom.",
+                                    ],
+                                },
+                            ],
+                        },
+                        {
+                            text: [
+                                {
+                                    text: [
+                                        "Drugi krok to sporządzenie pełnej listy usług i sformułowanie polityki cenowej dla nich. Nawet jeśli na stronie nie zostaną opublikowane/przedstawione wszystkie usługi, musisz zrozumieć:",
+                                    ],
+                                },
+                                {
+                                    text: [
+                                        "które produkty i usługi przynoszą główny dochód;",
+                                    ],
+                                    type: "listItem",
+                                },
+                                {
+                                    text: [
+                                        "które pomagają przyciągnąć nowych klientów;",
+                                    ],
+                                    type: "listItem",
+                                },
+                                {
+                                    text: [
+                                        "które wyczerpują zasoby, ale nie przynoszą zysków.",
+                                    ],
+                                    type: "listItem",
+                                },
+                            ],
+                        },
+                        {
+                            text: [
+                                "Ważne jest, aby porównać każdą usługę z profilem klienta. Jeśli nie ma zgodności, warto ponownie przeanalizować pozycjonowanie lub wyeliminować zbędne elementy.",
+                            ],
+                        },
+                    ],
+                },
+                {
+                    layout: 1,
+                    title: "Sprawdzanie jakości asortymentu usług warto zacząć od prostych pytań",
+                    data: [
+                        {
+                            title: "Czy od razu wiadomo, co dokładnie jest oferowane na stronie?",
+                            type: "list",
+                            text: [
+                                "Jakie korzyści i wartości dla klienta wynikają z wyboru właśnie tej usługi?",
+                                "Jak będzie przebiegała współpraca i jak złożyć zamówienie lub gdzie kierować pytania?",
+                            ],
+                        },
+                        {
+                            title: "Na ile łatwo klientowi podjąć decyzję?",
+                            type: "list",
+                            text: [
+                                "Czy cena i wartość oferowanej usługi są zrozumiałe?",
+                                "Czy jest czas na zastanowienie się i do kiedy obowiązuje oferta specjalna?",
+                                "Czy są opinie innych użytkowników i czy byli oni zadowoleni?",
+                                "Czy przewidziano zwrot pieniędzy, jeśli usługa została wykonana nienależycie?",
+                            ],
+                        },
+                        {
+                            title: "Czy produkt/usługa jest opłacalny dla biznesu?",
+                            type: "list",
+                            text: [
+                                "Jaka jest marżowość?",
+                                "Jakie mogą być koszty towarzyszące i potencjalne blokery w świadczeniu usługi?",
+                                "Czy istnieją ograniczenia dotyczące liczby sztuk produktu/godzin konsultacji/liczby uczestników kursu (w zależności od specyfiki działalności)?",
+                            ],
+                        },
+                        {
+                            title: "Czy klient otrzymuje pozytywne doświadczenie i wróci ponownie?",
+                            type: "list",
+                            text: [
+                                "Jak zapewnić satysfakcję klienta?",
+                                "Jak zebrać i przetworzyć opinie klientów?",
+                                "Jak prezentować opinie zadowolonych klientów?",
+                            ],
+                        },
+                        {
+                            title: "Czy można skalować ten produkt/usługę?",
+                            type: "list",
+                            text: [
+                                "Czy jesteście w stanie świadczyć kilkukrotnie więcej usług, jeśli liczba klientów się podwoi?",
+                                "Czy marżowość zostanie zachowana przy skalowaniu?",
+                                "Czy istnieją sposoby, aby dostarczać te same usługi większej liczbie klientów bez zwiększania nakładów czasu i zasobów?",
+                                "Jak postąpisz, jeśli liczba zapytań przekroczy Twoje możliwości skalowania?",
+                            ],
+                        },
+                        {
+                            text: [
+                                "Takie połączenie jasno określonego profilu klienta/użytkownika oraz uporządkowanego asortymentu stanowi podstawę skutecznej promocji i rozwoju biznesu.",
+                            ],
+                        },
+                    ],
+                },
+                {
+                    layout: 3,
+                    title: "Jak uporządkować usługi na stronie internetowej?",
+                    text: "Usługi na stronie internetowej działają skutecznie, gdy są uporządkowane w logiczny sposób. Klient musi rozumieć, od czego zacząć i jak postępować dalej. Takie podejście rozwiewa wątpliwości, buduje zaufanie i stopniowo prowadzi do złożenia zamówienia. \nStatystyki pokazują, że strony internetowe z uporządkowaną strukturą usług mają 2-3 razy wyższą konwersję niż te, na których usługi są przedstawione w sposób chaotyczny. Powód jest prosty — klient nie lubi myśleć i wybierać spośród dziesiątek opcji. Chce zrozumiałej ścieżki od problemu do rozwiązania. \nStrona docelowa powinna prowadzić klienta logiczną ścieżką. W tym celu wygodnie jest przedstawić usługi w formacie „poziomów”:",
+                    data: [
+                        {
+                            title: "Produkt wejściowy",
+                            text: [
+                                "Zapoznanie się z biznesem odbywa się poprzez prostą i dostępną ofertę: lekcję próbną, krótką konsultację, materiały w otwartym dostępie, okres próbny lub wersję demo kursu, lekcję, konsultację, demo lub okres próbny. Najważniejsze jest tutaj pokazanie wartości i zapewnienie klientowi małego zwycięstwa  bezpłatnego, aby chciał iść dalej.",
+                            ],
+                        },
+                        {
+                            title: "Produkt podstawowy",
+                            text: [
+                                "To serce biznesu, jego kluczowa oferta. Na tym etapie klient płaci za podstawową usługę lub produkt. Ważne jest, aby jasno pokazać, jaki problem rozwiązuje i jakie korzyści odnosi klient/użytkownik.",
+                            ],
+                        },
+                        {
+                            title: "Oferta premium",
+                            text: [
+                                "Dla tych, którzy chcą więcej – rozszerzony pakiet, indywidualna obsługa lub ekskluzywne warunki. Oferta premium stwarza poczucie wyboru i podkreśla wartość głównego produktu oraz nadaje status tym, którzy wybiorą pakiet maksymalny.",
+                            ],
+                        },
+                        {
+                            title: "Produkty/usługi cykliczne",
+                            text: [
+                                "Kolejny poziom interakcji – regularne usługi lub subskrypcje. Mogą to być abonamenty, automatyczne płatności lub usługi z powtarzającymi się opłatami. Tworzą one długotrwałe relacje i stabilny dochód oraz zapewniają regularną wartość dla użytkowników, zwiększając ich lojalność i podsycając zainteresowanie głównym produktem/pakietem usług.",
+                            ],
+                        },
+                        {
+                            title: "Lead magnety",
+                            text: [
+                                "Aby przyciągnąć więcej potencjalnych klientów, można dodatkowo wykorzystać tak zwane lead magnety – są to proste, bezpłatne materiały: listy kontrolne, szablony, kalkulatory lub instrukcje krok po kroku. Osoba pozostawia swoje dane kontaktowe, a Ty dajesz jej korzyść – i budujesz zaufanie jeszcze przed pierwszym zakupem.",
+                            ],
+                        },
+                    ],
+                },
+                {
+                    layout: 4,
+                    title: "Czego unikać podczas strukturyzacji usług?",
+
+                    data: [
+                        {
+                            decorate: 1,
+                            title: "Nawet mając doskonałe oferty, można zepsuć wrażenie, jeśli są one przedstawione w niewłaściwy sposób. Istnieje kilka typowych błędów, których należy unikać:",
+                            text: [
+                                {
+                                    title: "Zbyt wiele opcji",
+                                    text: [
+                                        "Gdy na stronie znajduje się 7–10 podobnych usług, odwiedzający stronę są zdezorientowani i zagubieni.  Zamiast dokonać wyboru, odkładają decyzję lub w ogóle opuszczają stronę. Optymalnie jest pozostawić 3–4 opcje, które zaspokajają kluczowe potrzeby docelowej grupy odbiorców i zachęcają do wyboru jednej z trzech opcji.",
+                                    ],
+                                },
+                                {
+                                    title: "Niezrozumiałe różnice",
+                                    text: [
+                                        "Jeśli pakiety wyglądają prawie identycznie, klient nie rozumie, za co płaci więcej lub mniej. Ważne jest, aby podkreślić różnice: różny zakres prac, poziom personalizacji, dodatkowe usługi lub szybkość wykonania.",
+                                    ],
+                                },
+                                {
+                                    title: "Skomplikowane lub abstrakcyjne nazwy",
+                                    text: [
+                                        "Nazwy takie jak „Premium+” lub „Rozwiązanie 360” niczego nie wyjaśniają. Klient musi od razu zrozumieć treść usługi: na przykład „Podstawowa konsultacja”, „Kompleksowa obsługa”, „Audyt strony internetowej”. Proste i konkretne sformułowania działają lepiej niż marketingowe „zagadki”",
+                                    ],
+                                },
+                                {
+                                    title: "Brak logiki w prezentacji",
+                                    text: [
+                                        "Jeśli usługi są rozmieszczone chaotycznie, bez porządku od prostych do złożonych, użytkownikowi trudniej jest znaleźć to, czego potrzebuje. Warto stworzyć zrozumiałą ścieżkę: od „szybkiego wejścia” do kompleksowych rozwiązań.",
+                                    ],
+                                },
+                            ],
+                        },
+                    ],
+                },
+                {
+                    layout: 5,
+                    title: "Dodatkowe wskazówki",
+                    data: [
+                        {
+                            text: [
+                                "I nie zapomnij o SEO: ostatni szlif idealnej oferty.",
+                            ],
+                        },
+                        {
+                            text: [
+                                "Około 70% klientów szuka usług przez Google. Jeśli słowa kluczowe są dobrze dobrane, zyskujesz dwie korzyści: mniejszą konkurencję i więcej docelowych klientów. SEO działa długoterminowo i nie wymaga dodatkowych nakładów na reklamę. Dlatego staje się strategicznym narzędziem dla każdego eksperta lub firmy, która chce być widoczna i zrozumiała w Internecie.",
+                            ],
+                        },
+                        {
+                            text: [
+                                {
+                                    text: [
+                                        "Aby SEO naprawdę działało, warto wziąć pod uwagę kilka kluczowych aspektów:",
+                                    ],
+                                },
+                                {
+                                    text: [
+                                        "trafny dobór „złotych” słów kluczowych;",
+                                    ],
+                                    type: "listItem",
+                                },
+                                {
+                                    text: [
+                                        "analiza konkurencji i zastosowanie praktycznych wskazówek dla stopniowego rozwoju strony;",
+                                    ],
+                                    type: "listItem",
+                                },
+                                {
+                                    text: [
+                                        "semantyczne formatowanie i inne ważne elementy, o których wiedzą twórcy stron internetowych, ale nie zawsze informują o tym swoich klientów.",
+                                    ],
+                                    type: "listItem",
+                                },
+                            ],
+                        },
+                    ],
+                },
+            ],
+        },
+    },
+];

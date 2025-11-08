@@ -1,0 +1,67 @@
+import { notFound } from "next/navigation";
+import { getLocale, getTranslations } from "next-intl/server";
+import React from "react";
+
+import { MemberCardModalBody } from "@/src/components/shared/MemberModal/MemberCardModalBody";
+import { MemberCardModalBodyTab } from "@/src/components/shared/MemberModal/MemberCardModalBodyTab";
+import { Modal } from "@/src/components/shared/MemberModal/Modal";
+import { membersData } from "@/src/mockedData/membersData";
+import { LocaleType } from "@/types/LocaleType";
+
+type MemberPageProps = Promise<{
+    id: string;
+}>;
+
+export async function generateMetadata({
+    params,
+}: {
+    params: MemberPageProps;
+}) {
+    const { id } = await params;
+    const locale = await getLocale();
+    const member = membersData.find(member => member.data.id === id);
+    const memberName = member ? member[locale as LocaleType]?.name : "Name";
+    const memberAbout = member ? member[locale as LocaleType]?.about : "";
+    const getTranslation = await getTranslations({
+        locale,
+        namespace: "MemberCardModal",
+    });
+
+    return {
+        metadataBase: new URL(`${process.env.NEXT_PUBLIC_BASE_URL}`),
+        alternates: {
+            canonical: `/member/${id}`,
+            languages: {
+                en: `/en/member/${id}`,
+                pl: `/pl/member/${id}`,
+                ua: `/member/${id}`,
+            },
+        },
+        title: `${memberName}`,
+        description: `${member?.data.position}`,
+        openGraph: {
+            description: `${member?.data.position} ${getTranslation("about")}: ${memberAbout}`,
+            title: `${memberName}`,
+        },
+    };
+}
+
+const MemberPage: React.FC<{ params: MemberPageProps }> = async ({
+    params,
+}) => {
+    const { id } = await params;
+    const displayedMember = membersData.find(member => member.data.id === id);
+
+    if (!displayedMember) {
+        notFound();
+    }
+
+    return (
+        <Modal>
+            <MemberCardModalBody data={displayedMember} />
+            <MemberCardModalBodyTab data={displayedMember} />
+        </Modal>
+    );
+};
+
+export default MemberPage;
