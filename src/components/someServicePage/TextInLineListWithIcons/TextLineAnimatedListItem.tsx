@@ -63,13 +63,13 @@ export const TextLineAnimatedListItem = ({
             initial="hidden"
             whileInView="inView"
             viewport={{ margin: "100px 0px 0px", once: true }}
-            variants={liVariants}
+            variants={{ liVariants }}
         >
-            <motion.div variants={iconVariants}>
+            <motion.div variants={{ iconVariants }}>
                 <Icon className="text-purple-100 w-[40px] tab:w-[94px] pc:w-[160px] h-[40px] tab:h-[94px] pc:h-[160px] shrink-0 grow-0" />
             </motion.div>
             <motion.div
-                variants={afterVariants}
+                variants={{ afterVariants }}
                 className="relative pc:flex pc:gap-10 items-center pb-4 tab:pb-6 pc:pb-10 after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-full after:bg-purple-strokeLight after:dark:bg-purple-stroke after:scale-[--scale] after:origin-bottom-left grow"
             >
                 {children}

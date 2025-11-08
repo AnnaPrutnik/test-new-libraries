@@ -109,7 +109,7 @@ export const TitleVideoDotslistItem = ({
 
                     <motion.div
                         className="overflow-clip"
-                        variants={wrapperVariants}
+                        variants={{ wrapperVariants }}
                         initial={isOpenSection ? "open" : "close"}
                         animate={isOpenSection ? "open" : "close"}
                     >

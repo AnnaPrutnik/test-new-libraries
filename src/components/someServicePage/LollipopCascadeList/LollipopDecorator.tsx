@@ -51,7 +51,10 @@ export const LollipopDecorator = ({ indexNumber }: LollipopDecoratorProps) => {
             whileInView="visible"
             viewport={{ once: true, margin: "100px 0px 0px" }}
         >
-            <motion.div className="relative mt-[5px]" variants={signVariant}>
+            <motion.div
+                className="relative mt-[5px]"
+                variants={{ signVariant }}
+            >
                 <IconHexagon className=" w-[67px] h-[57px] pc:w-[80px] pc:h-[70px] dark:text-purple-stroke text-purple-strokeLight" />
                 {itemNumber.length > 0 && (
                     <span className="font-caviar text-3xl pc:text-4xl text-purple-100 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
@@ -60,7 +63,7 @@ export const LollipopDecorator = ({ indexNumber }: LollipopDecoratorProps) => {
                 )}
             </motion.div>
             <motion.div
-                variants={lineVariant}
+                variants={{ lineVariant }}
                 className="grow mx-auto w-[1px] h-full dark:bg-purple-stroke bg-purple-strokeLight origin-bottom"
             ></motion.div>
         </motion.div>

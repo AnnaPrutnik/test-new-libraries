@@ -98,7 +98,7 @@ export const StackTab = ({ technologies }: { technologies: Technology[] }) => {
 
                 {extraItems.length > 0 && (
                     <motion.li
-                        variants={buttonVariants}
+                        variants={{ buttonVariants }}
                         initial="visible"
                         animate={isAnimated ? "hidden" : "visible"}
                         transition={{

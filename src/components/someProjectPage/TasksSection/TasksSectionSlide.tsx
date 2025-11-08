@@ -73,7 +73,7 @@ export const TasksSectionSlide = ({
             <div className=" hidden tab:block grow relative tab:w-1/2 overflow-clip">
                 <motion.div
                     className="absolute inset-0 "
-                    variants={iconVariants}
+                    variants={{ iconVariants }}
                     initial="enter"
                     animate={isActiveSlide ? "enter" : "exit"}
                 >
@@ -84,7 +84,7 @@ export const TasksSectionSlide = ({
             <div className="overflow-clip w-[calc(100%_-_16px)] mx-auto tab:w-1/2 pc:w-[53%] desk:w-1/2 tab:shrink-0">
                 <motion.ul
                     className="flex flex-col gap-3 justify-center tab:h-full tab:gap-4 tab:justify-evenly pc:pt-[112px] pc:gap-5 text-pretty "
-                    variants={slideVariants}
+                    variants={{ slideVariants }}
                     initial="enter"
                     animate={isActiveSlide ? "enter" : "exit"}
                 >

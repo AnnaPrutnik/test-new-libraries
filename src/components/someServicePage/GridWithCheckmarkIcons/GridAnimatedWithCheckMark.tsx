@@ -67,12 +67,12 @@ export const GridAnimatedWithCheckMark = ({
             className={className || ""}
             initial="hidden"
             whileInView="visible"
-            variants={cardVariants}
+            variants={{ cardVariants }}
             viewport={{ once: true, margin: "-100px 0px 50px" }}
         >
             <div className="mb-2">
                 <motion.div
-                    variants={iconVariants}
+                    variants={{ iconVariants }}
                     className="w-[18px] h-[18px]"
                 >
                     <IconCheckmarkWithinSquare className="text-redLight dark:text-red" />
@@ -80,7 +80,7 @@ export const GridAnimatedWithCheckMark = ({
             </div>
 
             <motion.div
-                variants={lineVariants}
+                variants={{ lineVariants }}
                 className="mb-8 w-full h-[1px] bg-purple-strokeLight dark:bg-purple-stroke origin-left"
             />
 
