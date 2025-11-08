@@ -40,14 +40,14 @@ export const ServiceItem = ({
     };
 
     const bgVariants = {
-        close: {
+        inactive: {
             opacity: 0,
             transition: {
                 duration: 0.5,
                 ease: "easeInOut",
             },
         },
-        open: {
+        active: {
             opacity: 1,
             transition: {
                 duration: 1,
@@ -57,8 +57,8 @@ export const ServiceItem = ({
     };
 
     const wrapperVariants = {
-        close: { height: 0, opacity: 0, transition: { duration: 0.5 } },
-        open: {
+        inactive: { height: 0, opacity: 0, transition: { duration: 0.5 } },
+        active: {
             height: "auto",
             opacity: 1,
             transition: {
@@ -70,8 +70,8 @@ export const ServiceItem = ({
     };
 
     const imageVariants = {
-        close: { opacity: 0, scale: 0, transition: { duration: 0.5 } },
-        open: {
+        inactive: { opacity: 0, scale: 0, transition: { duration: 0.5 } },
+        active: {
             opacity: 1,
             scale: 1,
             transition: {
@@ -97,9 +97,9 @@ export const ServiceItem = ({
         >
             <motion.div
                 className="absolute inset-0 bg-homeServiceCardGradientLight dark:bg-homeServiceCardGradientDark -z-[1]"
-                variants={bgVariants}
-                initial={isOpen ? "open" : "close"}
-                animate={isOpen ? "open" : "close"}
+                variants={{ bgVariants }}
+                initial={isOpen ? "active" : "inactive"}
+                animate={isOpen ? "active" : "inactive"}
             ></motion.div>
 
             <div className="absolute top-6 left-0 m-[3px] size-[18px] border-[3px] border-redLight dark:border-red tab:static grow-0 shrink-0 tab:size-[12px] tab:border-[2px] tab:m-[2px] tab:mt-[5px]" />
@@ -110,9 +110,9 @@ export const ServiceItem = ({
                 </h3>
 
                 <motion.div
-                    initial={isOpen ? "open" : "close"}
-                    animate={isOpen ? "open" : "close"}
-                    variants={wrapperVariants}
+                    initial={isOpen ? "active" : "inactive"}
+                    animate={isOpen ? "active" : "inactive"}
+                    variants={{ wrapperVariants }}
                     className="overflow-clip"
                     onAnimationComplete={onAnimationComplete}
                 >
@@ -124,9 +124,9 @@ export const ServiceItem = ({
 
             <motion.div
                 className="hidden tab:block absolute top-0 right-0 overflow-hidden desk:right-[64px]"
-                initial={isOpen ? "open" : "close"}
-                animate={isOpen ? "open" : "close"}
-                variants={imageVariants}
+                initial={isOpen ? "active" : "inactive"}
+                animate={isOpen ? "active" : "inactive"}
+                variants={{ imageVariants }}
             >
                 <ImageFromCloud
                     src={image}
